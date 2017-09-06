@@ -13,6 +13,8 @@ body {
     font-family: "Lucida Handwriting";
     padding: 1vw;
     font-size: 1.2vw;
+    border: none;
+    background: transparent;
 }
 
 .topBar {
