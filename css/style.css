@@ -1,6 +1,13 @@
+.main {
+    background-color: #333;
+    border-width: 1vw;
+    border-style: solid;
+    border-color: #444;
+    width: 60vw;
+    padding-left: 20vw;
+    height: 100vh;
+}
 
-
-.h1 {
-    color: fuchsia;
-    font-size: 20vw;
+h1 {
+    color: red;
 }
