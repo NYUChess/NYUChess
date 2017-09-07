@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 
+app.get('/test', function (req, res) {
+    alert("HEY");
+    res.send('hello world')
+});
+
 $(function() {
     console.log( "ready!" );
 
@@ -17,9 +22,5 @@ window.addEventListener('load',
             res.send('hello world')
         });
 
-        app.get('/test', function (req, res) {
-            alert("HEY");
-            res.send('hello world')
-        });
 
     }, false);
