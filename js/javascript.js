@@ -1,10 +1,9 @@
-const express = require('express');
-const app = express();
+var express = require("express");
+var app = express();
+var router = express.Router();
 
-app.get('/', function (req, res) {
-    console.log("got");
-    alert("HEY");
-    res.send('hello world')
+router.get("/",function(req,res){
+    alert("hey");
 });
 
 $(function() {
@@ -15,12 +14,6 @@ $(function() {
 window.addEventListener('load',
     function() {
 
-
-// respond with "hello world" when a GET request is made to the homepage
-        app.get('/', function (req, res) {
-            alert("HEY");
-            res.send('hello world')
-        });
-
+    alert("Yo WIP why are you here?");
 
     }, false);
