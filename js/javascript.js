@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.get('/test', function (req, res) {
+app.get('/', function (req, res) {
+    console.log("got");
     alert("HEY");
     res.send('hello world')
 });
@@ -14,7 +15,6 @@ $(function() {
 window.addEventListener('load',
     function() {
 
-        alert('Hello! This site is currently a WIP');
 
 // respond with "hello world" when a GET request is made to the homepage
         app.get('/', function (req, res) {
