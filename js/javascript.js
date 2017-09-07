@@ -15,6 +15,11 @@ window.addEventListener('load',
         app.get('/', function (req, res) {
             alert("HEY");
             res.send('hello world')
-        })
+        });
+
+        app.get('/test', function (req, res) {
+            alert("HEY");
+            res.send('hello world')
+        });
 
     }, false);
