@@ -28,17 +28,14 @@ body {
 }
 
 .border {
-    border: 0.1vw solid #292929;
-    border-left-width: 0.05vw;
-    border-right-width: 0.05vw;
+    border: 0 solid #333;
+    border-top-width: 0.2vw;
+    border-bottom-width: 0.2vw;
 }
 
-.thickBorderLeft {
-    border-left-width: 0.1vw;
-}
-
-.thickBorderRight {
-    border-right-width: 0.1vw;
+.border:hover {
+    color: #777;
+    box-shadow: #000000 3px 0 5px, #000000 -3px 0 5px;
 }
 
 .topBar {
