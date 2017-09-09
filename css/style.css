@@ -18,6 +18,10 @@ body {
     height: inherit;
 }
 
+.name:hover {
+    cursor: pointer;
+}
+
 .fancy {
     font-family: "Lucida Handwriting", serif;
 }
