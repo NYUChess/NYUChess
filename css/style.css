@@ -1,6 +1,13 @@
+* { margin: 0; padding: 0; }
+
 body {
     background: url(../pictures/Chess.jpg) no-repeat fixed;
     background-size:cover;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
 }
 
 .row {
