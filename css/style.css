@@ -51,7 +51,7 @@ body {
     top: 0;
     height: 7.7vh;
     background-color: #222;
-    box-shadow: #0f0f0f 0 5px 10px;
+    box-shadow: #0f0f0f 0 1vh 1vw;
     overflow: hidden;
     margin: 0 !important;
 }
@@ -64,7 +64,7 @@ body {
     margin-left: 8vw;
     margin-bottom: 1vw;
     height: 100vh;
-    box-shadow: #222 -1px -1px 10px, #222 5px 5px 10px;
+    box-shadow: #222 -.1vw -.1vw 1vw, #222 .5vw .5vw 1vw;
     color:white;
     display: none;
 }
