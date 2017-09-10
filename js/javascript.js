@@ -27,13 +27,14 @@ window.addEventListener('load',
         })();
 
         console.log("trying click");
-        document.getElementsByClassName("about")[0].addEventListener('click', function(event) {
+
+        document.getElementsByClassName("aboutBar")[0].addEventListener('click', function(event) {
             history.pushState(null, '', '/about');
             console.log("going to about");
             loadPage(1);
         });
 
-        document.getElementsByClassName("calendar")[0].addEventListener('click', function(event) {
+        document.getElementsByClassName("calendarBar")[0].addEventListener('click', function(event) {
             console.log("Click test");
         });
         console.log("Setting up click");
@@ -41,4 +42,9 @@ window.addEventListener('load',
 
 function loadPage(x) {
     console.log("fading out page");
+    pages[curPage].fadeOut("slow", function() {
+       pages[x].fadeIn("slow", function() {
+           curPage = x;
+       }) ;
+    });
 }
