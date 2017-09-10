@@ -1,4 +1,4 @@
-var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "404"];
+var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "not"];
 var curPage = 0;
 
 
@@ -16,7 +16,7 @@ window.addEventListener('load',
             if (redirect && redirect !== location.href) {
                 history.replaceState(null, "", redirect);
                 var check = redirect.replace("http://nyuchess.com/","");
-                if(pages.indexOf(check) < 0) {check = "404";}
+                if(pages.indexOf(check) < 0) {check = "not";}
                 alert(check);
                 document.getElementsByClassName(pages[curPage])[0].style.display = "none";
                 document.getElementsByClassName(check)[0].style.display = "block";
