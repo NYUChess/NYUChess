@@ -91,9 +91,11 @@ window.addEventListener('load',
 function loadPage(x) {
     console.log("fading out page");
     disable();
+    offPage(curPage);
     $("." + pages[curPage]).fadeOut("slow", function() {
         $("." + pages[x]).fadeIn("slow", function() {
             curPage = x;
+            onPage(x);
             enable();
        }) ;
     });
@@ -107,4 +109,12 @@ function disable() {
 function enable() {
     console.log("activating");
     $('.topBar').css("pointer-events", "auto");//enabled buttons
+}
+
+function offPage(x) {
+    $('.' + pages[x]).css("border-color", "#333");
+}
+
+function onPage(x) {
+    $('.' + pages[x]).css("border-color", "white");
 }
