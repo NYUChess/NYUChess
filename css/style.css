@@ -1,13 +1,7 @@
-* { margin: 0; padding: 0; }
 
 body {
     background: url(../pictures/Chess.jpg) no-repeat fixed;
     background-size:cover;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
 }
 
 .row {
@@ -59,6 +53,7 @@ html, body {
     background-color: #222;
     box-shadow: #0f0f0f 0 5px 10px;
     overflow: hidden;
+    margin: 0 !important;
 }
 
 .main, .about, .calendar, .contact, .events, .forms, .news, .pictures, .not {
