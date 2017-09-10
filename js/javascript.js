@@ -95,6 +95,7 @@ window.addEventListener('load',
         });
 
         window.onpopstate = function(e){
+            console.log(e);
             if(e.state){
                 alert(location.href);
             }
