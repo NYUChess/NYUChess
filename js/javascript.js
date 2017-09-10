@@ -34,6 +34,9 @@ window.addEventListener('load',
 
 function loadPage(x) {
     pages[curPage].fadeOut("slow", function() {
-       pages[x].fadeIn("slow");
+       pages[x].fadeIn("slow", function() {
+           
+       });
+       curpage = x;
     });
 }
