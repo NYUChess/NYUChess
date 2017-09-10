@@ -21,6 +21,7 @@ window.addEventListener('load',
                 if(pages.indexOf(check) < 0) {check = "404";}
 
                 if(pages.indexOf(check) > -1) {
+                    alert(check);
                     document.getElementsByClassName(pages[curPage])[0].style.display = "none";
                     document.getElementsByClassName(check)[0].style.display = "block";
                     onPage(pages.indexOf(check));
