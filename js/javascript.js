@@ -31,6 +31,7 @@ window.addEventListener('load',
             console.log("going to about");
             loadPage(1);
         });
+        console.log("Setting up click");
     }, false);
 
 function loadPage(x) {
