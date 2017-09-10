@@ -35,6 +35,7 @@ window.addEventListener('load',
 
         document.getElementsByClassName("calendarBar")[0].addEventListener('click', function(event) {
             console.log("Click test");
+            history.pushState(null, '', '/calendar');
         });
         console.log("Setting up click");
     }, false);
