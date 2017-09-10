@@ -1,4 +1,4 @@
-var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures"];
+var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "404"];
 var curPage = 0;
 
 
@@ -23,7 +23,9 @@ window.addEventListener('load',
                     onPage(pages.indexOf(check));
                     curPage = pages.indexOf(check);
                 } else {
-
+                    document.getElementsByClassName(pages[curPage])[0].style.display = "none";
+                    document.getElementsByClassName("404")[0].style.display = "block";
+                    curPage = pages.indexOf("404");
                 }
             }
             else {
