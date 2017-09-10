@@ -16,7 +16,6 @@ window.addEventListener('load',
             if (redirect && redirect !== location.href) {
                 history.replaceState(null, "", redirect);
                 // REMOVE THIS - just showing the redirect route in the UI
-                alert('This page was redirected by 404.html, from the route: ' + redirect);
                 var check = redirect.replace("http://nyuchess.com/","");
                 if(pages.indexOf(check) > -1) {
                     document.getElementsByClassName(pages[curPage])[0].style.display = "none";
@@ -29,7 +28,6 @@ window.addEventListener('load',
             }
             else {
                 // REMOVE THIS - just showing the redirect route in the UI
-                alert('This page was loaded directly from the index.html file');
                 onPage(0);
             }
         })();
