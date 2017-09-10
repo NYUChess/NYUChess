@@ -52,7 +52,7 @@ body {
     box-shadow: #0f0f0f 0px 5px 10px;
 }
 
-.main {
+.main, .about, .calendar, .contact, .events, .forms, .news, .pictures {
     background-color: #333;
     border: 1vw solid #444;
     width: 80vw;
