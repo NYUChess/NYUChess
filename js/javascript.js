@@ -40,7 +40,7 @@ window.addEventListener('load',
             }
         });
 
-        document.getElementsByClassName("eventsBar")[0].addEventListener('click', function(event) {
+        document.getElementsByClassName("contactBar")[0].addEventListener('click', function(event) {
             if(location.href !== "http://nyuchess.com/contact") {
                 history.pushState(null, '', '/contact');
                 loadPage(3);
