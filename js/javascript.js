@@ -15,8 +15,23 @@ window.addEventListener('load',
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
                 history.replaceState(null, "", redirect);
+                var check = redirect.replace("http://nyuchess.com/","");
+                if(pages.indexOf(check) < 0) {check = "404";}
                 // REMOVE THIS - just showing the redirect route in the UI
-                
+                /*var check = redirect.replace("http://nyuchess.com/","");
+                if(pages.indexOf(check) < 0) {check = "404";}
+
+                if(pages.indexOf(check) > -1) {
+                    alert(check);
+                    document.getElementsByClassName(pages[curPage])[0].style.display = "none";
+                    document.getElementsByClassName(check)[0].style.display = "block";
+                    onPage(pages.indexOf(check));
+                    curPage = pages.indexOf(check);
+                } else {
+                    document.getElementsByClassName(pages[curPage])[0].style.display = "none";
+                    document.getElementsByClassName("404")[0].style.display = "block";
+                    curPage = pages.indexOf("404");
+                }*/
             }
             else {
                 // REMOVE THIS - just showing the redirect route in the UI
