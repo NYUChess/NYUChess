@@ -1,8 +1,7 @@
 var pages = [];
 var curPage = 0;
 
-pages.push(document.getElementsByClassName("main")[0]);
-pages.push(document.getElementsByClassName("about")[0]);
+console.log(document.getElementsByClassName("main")[0]);
 
 $(function() {
     console.log( "ready!" );
@@ -11,6 +10,9 @@ $(function() {
 
 window.addEventListener('load',
     function() {
+
+        pages.push(document.getElementsByClassName("main")[0]);
+        pages.push(document.getElementsByClassName("about")[0]);
 
         (function(){
             var redirect = sessionStorage.redirect;
