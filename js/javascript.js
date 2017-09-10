@@ -94,6 +94,11 @@ window.addEventListener('load',
             }
         });
 
+        window.onpopstate = function(e){
+            if(e.state){
+                alert(location.href);
+            }
+        };
 
         console.log("Setting up click");
     }, false);
