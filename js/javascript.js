@@ -95,7 +95,6 @@ window.addEventListener('load',
         });
 
         window.onpopstate = function(e){
-            alert(location.href);
             var toPage = location.href;
             var ext = toPage.replace("http://nyuchess.com/", "");
             if(ext === "") {
