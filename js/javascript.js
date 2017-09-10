@@ -1,13 +1,11 @@
 var pages = [];
 var curPage = 0;
 
-sessionStorage.redirect = location.href;
-
 (function(){
     var redirect = sessionStorage.redirect;
     delete sessionStorage.redirect;
-    if (redirect && redirect != location.href) {
-        history.replaceState(null, null, redirect);
+    if (redirect && redirect !== location.href) {
+        history.replaceState(null, "", redirect);
         // REMOVE THIS - just showing the redirect route in the UI
        alert('This page was redirected by 404.html, from the route: ' + redirect);
     }
