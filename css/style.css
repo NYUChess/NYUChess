@@ -62,3 +62,7 @@ body {
     height: 100vh;
     box-shadow: #222 -1px -1px 10px, #222 5px 5px 10px;
 }
+
+.about, .calendar, .contact, .events, .forms, .news, .pictures {
+    display: none;
+}
