@@ -28,15 +28,17 @@ window.addEventListener('load',
 
         document.getElementsByClassName("about")[0].addEventListener('click', function (event) {
             history.pushState(null, '', '/about');
+            console.log("going to about");
             loadPage(1);
         });
     }, false);
 
 function loadPage(x) {
+    console.log("fading out page");
     pages[curPage].fadeOut("slow", function() {
+        console.log("fading in");
        pages[x].fadeIn("slow", function() {
-           
+           curPage = x;
        });
-       curpage = x;
     });
 }
