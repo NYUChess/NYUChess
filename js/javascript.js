@@ -42,6 +42,7 @@ window.addEventListener('load',
     }, false);
 
 function loadPage(x) {
+    console.log(pages);
     console.log("fading out page");
     pages[curPage].fadeOut("slow", function() {
        pages[x].fadeIn("slow", function() {
