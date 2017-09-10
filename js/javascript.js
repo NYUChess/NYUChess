@@ -105,8 +105,6 @@ window.addEventListener('load',
                 ext = "not";
             }
             loadPage(pages.indexOf(ext));
-            curPage = pages.indexOf(ext);
-
         };
 
         console.log("Setting up click");
