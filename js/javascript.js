@@ -112,9 +112,9 @@ function enable() {
 }
 
 function offPage(x) {
-    $('.' + pages[x] + "bar").css("border-color", "#333");
+    $('.' + pages[x] + "Bar").css("border-color", "#333");
 }
 
 function onPage(x) {
-    $('.' + pages[x] + "bar").css("border-color", "white");
+    $('.' + pages[x] + "Bar").css("border-color", "white");
 }
