@@ -28,7 +28,7 @@ window.addEventListener('load',
                 curPage = pages.indexOf(check);
             }
             else {
-                $(".main").fadeIn("fast", function() {
+                $(".main").fadeIn("slow", function() {
                 }) ;
                 onPage(0);
             }
