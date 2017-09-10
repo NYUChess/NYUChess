@@ -61,7 +61,7 @@ window.addEventListener('load',
             }
         });
 
-        for(var i = 0; i < 2) {
+        for(var i = 0; i < 2; i++) {
             document.getElementsByClassName("homeBar")[i].addEventListener('click', function (event) {
                 if (location.href !== "http://nyuchess.com/") {
                     history.pushState(null, '', '/');
