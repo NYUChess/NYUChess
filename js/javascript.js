@@ -77,7 +77,7 @@ window.addEventListener('load',
             }
         });
 
-        document.getElementsByClassName("picsBar")[0].addEventListener('click', function(event) {
+        document.getElementsByClassName("picturessBar")[0].addEventListener('click', function(event) {
             if(location.href !== "http://nyuchess.com/pictures") {
                 history.pushState(null, '', '/pictures');
                 loadPage(7);
@@ -91,11 +91,11 @@ window.addEventListener('load',
 function loadPage(x) {
     console.log("fading out page");
     disable();
-    offPage(curPage);
     $("." + pages[curPage]).fadeOut("slow", function() {
+        offPage(curPage);
+        onPage(x);
         $("." + pages[x]).fadeIn("slow", function() {
             curPage = x;
-            onPage(x);
             enable();
        }) ;
     });
@@ -112,9 +112,9 @@ function enable() {
 }
 
 function offPage(x) {
-    $('.' + pages[x]).css("border-color", "#333");
+    $('.' + pages[x] + "bar").css("border-color", "#333");
 }
 
 function onPage(x) {
-    $('.' + pages[x]).css("border-color", "white");
+    $('.' + pages[x] + "bar").css("border-color", "white");
 }
