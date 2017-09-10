@@ -22,7 +22,9 @@ window.addEventListener('load',
                 history.replaceState(null, "", redirect);
                 document.getElementsByClassName(pages[curPage])[0].style.display = "none";
                 document.getElementsByClassName(check)[0].style.display = "block";
-                onPage(pages.indexOf(check));
+                if(check !== "not") {
+                    onPage(pages.indexOf(check));
+                }
                 curPage = pages.indexOf(check);
             }
             else {
