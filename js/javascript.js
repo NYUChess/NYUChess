@@ -87,7 +87,7 @@ window.addEventListener('load',
             }
         });
 
-        document.getElementsByClassName("picturessBar")[0].addEventListener('click', function(event) {
+        document.getElementsByClassName("picturesBar")[0].addEventListener('click', function(event) {
             if(location.href !== "http://nyuchess.com/pictures") {
                 history.pushState(null, '', '/pictures');
                 loadPage(7);
