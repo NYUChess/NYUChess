@@ -27,14 +27,59 @@ window.addEventListener('load',
         console.log("trying click");
 
         document.getElementsByClassName("aboutBar")[0].addEventListener('click', function(event) {
-            history.pushState(null, '', '/about');
-            loadPage(1);
+            if(location.href !== "http://nyuchess.com/about") {
+                history.pushState(null, '', '/about');
+                loadPage(1);
+            }
         });
 
         document.getElementsByClassName("calendarBar")[0].addEventListener('click', function(event) {
-            alert(location.href);
-            history.pushState(null, '', '/calendar');
-            loadPage(2);
+            if(location.href !== "http://nyuchess.com/calendar") {
+                history.pushState(null, '', '/calendar');
+                loadPage(2);
+            }
+        });
+
+        document.getElementsByClassName("eventsBar")[0].addEventListener('click', function(event) {
+            if(location.href !== "http://nyuchess.com/contact") {
+                history.pushState(null, '', '/contact');
+                loadPage(3);
+            }
+        });
+
+        document.getElementsByClassName("eventsBar")[0].addEventListener('click', function(event) {
+            if(location.href !== "http://nyuchess.com/events") {
+                history.pushState(null, '', '/events');
+                loadPage(4);
+            }
+        });
+
+        document.getElementsByClassName("formsBar")[0].addEventListener('click', function(event) {
+            if(location.href !== "http://nyuchess.com/forms") {
+                history.pushState(null, '', '/forms');
+                loadPage(5);
+            }
+        });
+
+        document.getElementsByClassName("homeBar")[0].addEventListener('click', function(event) {
+            if(location.href !== "http://nyuchess.com/") {
+                history.pushState(null, '', '/');
+                loadPage(0);
+            }
+        });
+
+        document.getElementsByClassName("newsBar")[0].addEventListener('click', function(event) {
+            if(location.href !== "http://nyuchess.com/news") {
+                history.pushState(null, '', '/news');
+                loadPage(6);
+            }
+        });
+
+        document.getElementsByClassName("picsBar")[0].addEventListener('click', function(event) {
+            if(location.href !== "http://nyuchess.com/pictures") {
+                history.pushState(null, '', '/pictures');
+                loadPage(7);
+            }
         });
 
 
