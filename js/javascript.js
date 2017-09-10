@@ -1,7 +1,6 @@
-var pages = [];
+var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures"];
 var curPage = 0;
 
-console.log(document.getElementsByClassName("main")[0]);
 
 $(function() {
     console.log( "ready!" );
@@ -10,9 +9,6 @@ $(function() {
 
 window.addEventListener('load',
     function() {
-
-        pages.push(document.getElementsByClassName("main")[0]);
-        pages.push(document.getElementsByClassName("about")[0]);
 
         (function(){
             var redirect = sessionStorage.redirect;
@@ -46,8 +42,8 @@ window.addEventListener('load',
 function loadPage(x) {
     console.log(pages);
     console.log("fading out page");
-    pages[curPage].fadeOut("slow", function() {
-       pages[x].fadeIn("slow", function() {
+    $("." + pages[curPage]).fadeOut("slow", function() {
+        $("." + pages[x]).fadeIn("slow", function() {
            curPage = x;
        }) ;
     });
