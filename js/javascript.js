@@ -97,18 +97,14 @@ window.addEventListener('load',
         window.onpopstate = function(e){
             alert(location.href);
             var toPage = location.href;
-            var ext = toPage.replace("http://nyuchess.com", "");
-            if(ext === "/") {
+            var ext = toPage.replace("http://nyuchess.com/", "");
+            if(ext === "") {
                 ext = "main";
             }
             if(ext === "404") {
                 ext = "not";
             }
-            document.getElementsByClassName(pages[curPage])[0].style.display = "none";
-            document.getElementsByClassName(ext)[0].style.display = "block";
-            if(ext !== "not") {
-                onPage(pages.indexOf(ext));
-            }
+            loadPage(pages.indexOf(ext));
             curPage = pages.indexOf(ext);
 
         };
