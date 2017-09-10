@@ -11,8 +11,8 @@ body {
     color: white;
     font-weight: bold;
     font-family: "Arial Black", serif;
-    padding: 1vw 0 0 0 !important;
-    font-size: 1.1vw;
+    padding: 0.2cm 0 0 0 !important;
+    font-size: 0.3cm;
     border: none;
     background: none;
     height: inherit;
@@ -27,7 +27,7 @@ body {
 }
 
 .big {
-    font-size: 1.4vw;
+    font-size: 0.5cm;
     padding-left: 1vw;
 }
 
