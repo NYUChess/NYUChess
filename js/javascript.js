@@ -17,10 +17,17 @@ window.addEventListener('load',
                 history.replaceState(null, "", redirect);
                 // REMOVE THIS - just showing the redirect route in the UI
                 alert('This page was redirected by 404.html, from the route: ' + redirect);
+                var check = redirect.replace("http://nyuchess.com/","");
+                if(pages.indexOf(check) > -1) {
+                    loadPage(pages.indexOf(check));
+                } else {
+                    
+                }
             }
             else {
                 // REMOVE THIS - just showing the redirect route in the UI
                 alert('This page was loaded directly from the index.html file');
+                onPage(0);
             }
         })();
 
