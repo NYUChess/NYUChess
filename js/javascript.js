@@ -27,10 +27,14 @@ window.addEventListener('load',
         })();
 
         console.log("trying click");
-        document.getElementsByClassName("about")[0].addEventListener('click', function (event) {
+        document.getElementsByClassName("about")[0].addEventListener('click', function(event) {
             history.pushState(null, '', '/about');
             console.log("going to about");
             loadPage(1);
+        });
+
+        document.getElementsByClassName("calendar")[0].addEventListener('click', function(event) {
+            console.log("Click test");
         });
         console.log("Setting up click");
     }, false);
