@@ -61,13 +61,14 @@ window.addEventListener('load',
             }
         });
 
-        document.getElementsByClassName("homeBar")[0].addEventListener('click', function(event) {
-            alert(location.href + " || http://nyuchess.com/");
-            if(location.href !== "http://nyuchess.com/") {
-                history.pushState(null, '', '/');
-                loadPage(0);
-            }
-        });
+        for(var i = 0; i < 2) {
+            document.getElementsByClassName("homeBar")[i].addEventListener('click', function (event) {
+                if (location.href !== "http://nyuchess.com/") {
+                    history.pushState(null, '', '/');
+                    loadPage(0);
+                }
+            });
+        }
 
         document.getElementsByClassName("newsBar")[0].addEventListener('click', function(event) {
             if(location.href !== "http://nyuchess.com/news") {
