@@ -1,6 +1,9 @@
 var pages = [];
 var curPage = 0;
 
+pages.push(document.getElementsByClassName("main")[0]);
+pages.push(document.getElementsByClassName("about")[0]);
+
 $(function() {
     console.log( "ready!" );
 
@@ -25,9 +28,12 @@ window.addEventListener('load',
 
         document.getElementsByClassName("about")[0].addEventListener('click', function (event) {
             history.pushState(null, '', '/about');
+            loadPage(1);
         });
     }, false);
 
 function loadPage(x) {
-
+    pages[curPage].fadeOut("slow", function() {
+       pages[x].fadeIn("slow");
+    });
 }
