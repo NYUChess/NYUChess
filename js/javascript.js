@@ -19,9 +19,12 @@ window.addEventListener('load',
                 alert('This page was redirected by 404.html, from the route: ' + redirect);
                 var check = redirect.replace("http://nyuchess.com/","");
                 if(pages.indexOf(check) > -1) {
-                    loadPage(pages.indexOf(check));
+                    document.getElementsByClassName(pages[curPage]).style.display = "none";
+                    document.getElementsByClassName(check).style.display = "block";
+                    onPage(pages.indexOf(check));
+                    curPage = pages.indexOf(check);
                 } else {
-                    
+
                 }
             }
             else {
