@@ -52,7 +52,7 @@ body {
     box-shadow: #0f0f0f 0px 5px 10px;
 }
 
-.main, .about, .calendar, .contact, .events, .forms, .news, .pictures {
+.main, .about, .calendar, .contact, .events, .forms, .news, .pictures, .\404 {
     background-color: #333;
     border: 1vw solid #444;
     width: 80vw;
@@ -64,6 +64,6 @@ body {
     color:white;
 }
 
-.about, .calendar, .contact, .events, .forms, .news, .pictures {
+.about, .calendar, .contact, .events, .forms, .news, .pictures, .\404 {
     display: none;
 }
