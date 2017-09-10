@@ -46,11 +46,12 @@ body {
 
 .topBar {
     position: fixed;
-    width: 100vw;
+    width: 100%;
     top: 0;
     height: 1.5cm;
     background-color: #222;
     box-shadow: #0f0f0f 0 5px 10px;
+    overflow: hidden;
 }
 
 .main, .about, .calendar, .contact, .events, .forms, .news, .pictures, .not {
