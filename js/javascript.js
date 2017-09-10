@@ -27,20 +27,21 @@ window.addEventListener('load',
         console.log("trying click");
 
         document.getElementsByClassName("aboutBar")[0].addEventListener('click', function(event) {
-            console.log("TEST");
             history.pushState(null, '', '/about');
             loadPage(1);
         });
 
         document.getElementsByClassName("calendarBar")[0].addEventListener('click', function(event) {
-            console.log("Click test");
+            alert(location.href);
             history.pushState(null, '', '/calendar');
+            loadPage(2);
         });
+
+
         console.log("Setting up click");
     }, false);
 
 function loadPage(x) {
-    console.log(pages);
     console.log("fading out page");
     $("." + pages[curPage]).fadeOut("slow", function() {
         $("." + pages[x]).fadeIn("slow", function() {
