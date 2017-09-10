@@ -137,7 +137,7 @@ function enable() {
 
 function offPage(x) {
     $('.' + pages[x] + "Bar").css("border-color", "#333");
-    console.log("turning off");
+    console.log("turning off " + '.' + pages[x] + "Bar");
 }
 
 function onPage(x) {
