@@ -29,9 +29,7 @@ window.addEventListener('load',
         console.log("trying click");
 
         document.getElementsByClassName("aboutBar")[0].addEventListener('click', function(event) {
-            history.pushState(null, '', '/about');
-            console.log("going to about");
-            loadPage(1);
+            console.log("TEST");
         });
 
         document.getElementsByClassName("calendarBar")[0].addEventListener('click', function(event) {
