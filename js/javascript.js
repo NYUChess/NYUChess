@@ -28,6 +28,8 @@ window.addEventListener('load',
                 curPage = pages.indexOf(check);
             }
             else {
+                $(".main").fadeIn("slow", function() {
+                }) ;
                 onPage(0);
             }
         })();
