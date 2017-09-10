@@ -30,6 +30,7 @@ window.addEventListener('load',
 
         document.getElementsByClassName("aboutBar")[0].addEventListener('click', function(event) {
             console.log("TEST");
+            history.pushState(null, '', '/about');
         });
 
         document.getElementsByClassName("calendarBar")[0].addEventListener('click', function(event) {
