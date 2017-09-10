@@ -64,7 +64,3 @@ body {
     color:white;
     display: none;
 }
-
-.about, .calendar, .contact, .events, .forms, .news, .pictures, .not {
-    display: none;
-}
