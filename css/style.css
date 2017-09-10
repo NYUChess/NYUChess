@@ -11,8 +11,8 @@ body {
     color: white;
     font-weight: bold;
     font-family: "Arial Black", serif;
-    padding: 0.2cm 0 0 0 !important;
-    font-size: 0.3cm;
+    padding: 0.25cm 0 0 0 !important;
+    font-size: 0.5cm;
     border: none;
     background: none;
     height: inherit;
@@ -27,14 +27,15 @@ body {
 }
 
 .big {
-    font-size: 0.5cm;
-    padding-left: 1vw;
+    font-size: 0.63cm;
+    padding-left: 1cm;
+    padding-top: 0.35cm !important;
 }
 
 .border {
     border: 0 solid #333;
-    border-top-width: 0.2vw;
-    border-bottom-width: 0.2vw;
+    border-top-width: 0.1cm;
+    border-bottom-width: 0.1cm;
 }
 
 .border:hover {
@@ -47,7 +48,7 @@ body {
     width: 100vw;
     top: 0;
     left: 0;
-    height: 1cm;
+    height: 1.5cm;
     background-color: #222;
     box-shadow: #0f0f0f 0 5px 10px;
 }
