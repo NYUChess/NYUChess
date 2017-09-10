@@ -17,6 +17,7 @@ window.addEventListener('load',
                 history.replaceState(null, "", redirect);
                 // REMOVE THIS - just showing the redirect route in the UI
                 var check = redirect.replace("http://nyuchess.com/","");
+                alert("REDIRECTING " + check);
                 if(pages.indexOf(check) > -1) {
                     document.getElementsByClassName(pages[curPage])[0].style.display = "none";
                     document.getElementsByClassName(check)[0].style.display = "block";
