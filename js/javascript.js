@@ -26,6 +26,7 @@ window.addEventListener('load',
             }
         })();
 
+        console.log("trying click");
         document.getElementsByClassName("about")[0].addEventListener('click', function (event) {
             history.pushState(null, '', '/about');
             console.log("going to about");
