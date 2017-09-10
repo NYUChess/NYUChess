@@ -89,8 +89,8 @@ window.addEventListener('load',
 function loadPage(x) {
     console.log("fading out page");
     $("." + pages[curPage]).fadeOut("slow", function() {
+        curPage = x;
         $("." + pages[x]).fadeIn("slow", function() {
-           curPage = x;
        }) ;
     });
 }
