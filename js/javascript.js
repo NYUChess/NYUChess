@@ -88,9 +88,21 @@ window.addEventListener('load',
 
 function loadPage(x) {
     console.log("fading out page");
+    disable();
     $("." + pages[curPage]).fadeOut("slow", function() {
-        curPage = x;
         $("." + pages[x]).fadeIn("slow", function() {
+            curPage = x;
+            enable();
        }) ;
     });
+}
+
+function disable() {
+    console.log("disabling");
+    $('.topBar').css("pointer-events", "none");//disabled buttons
+}
+
+function enable() {
+    console.log("activating");
+    $('.topBar').css("pointer-events", "auto");//enabled buttons
 }
