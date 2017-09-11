@@ -142,4 +142,10 @@ li{
 
 .loadMore {
     display: none;
+    color: blue;
+}
+
+.loadMore:hover {
+    color: darkblue;
+    text-decoration: underline;
 }
