@@ -176,6 +176,7 @@ window.addEventListener('load',
             console.log(responseText);
 
             if (document.getElementsByClassName("events")[0].length < responseText["data"].length - 1) {
+                console.log("MAKING DIV");
                 var div = document.createElement("div");
                 div.className = "loadMore text-center";
                 div.innerText = "Load Older Posts";
