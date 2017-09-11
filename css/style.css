@@ -145,10 +145,11 @@ li{
     color: #337ab7;
     margin-top: 2vw;
     cursor: pointer;
-    background-color: #252525;
+    background-color: #292929;
+
 }
 
 .loadMore:hover {
-    color: darkblue;
+    color: dodgerblue;
     text-decoration: underline;
 }
