@@ -168,9 +168,9 @@ window.addEventListener('load',
                 if (i === max - 1) {
                     event.style.marginBottom = "0";
                 }
-
-                document.getElementsByClassName("events")[0].appendChild(event);
-
+                event.id = "fadeIn";
+                $("#fadeIn").hide().appendTo(".events").fadeIn("fast");
+                event.id = "";
             }
 
             console.log(responseText["data"]);
@@ -179,6 +179,7 @@ window.addEventListener('load',
             if (document.getElementsByClassName("events")[0].childNodes.length < responseText["data"].length - 1) {
                 console.log("MAKING DIV");
                 var div = document.createElement("div");
+                document.getElementsByClassName("events")[0].lastChild.style.marginBottom = "4vw";
                 div.className = "loadMore text-center";
                 div.innerText = "Load Older Posts";
                 div.addEventListener('click', function() {
