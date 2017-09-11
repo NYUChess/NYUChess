@@ -126,8 +126,8 @@ li{
 
 ::-webkit-scrollbar
 {
-    width: 0.2vw;  /* for vertical scrollbars */
-    height: 0.2vw; /* for horizontal scrollbars */
+    width: 0.3vw;  /* for vertical scrollbars */
+    height: 0.3vw; /* for horizontal scrollbars */
 }
 
 ::-webkit-scrollbar-track
