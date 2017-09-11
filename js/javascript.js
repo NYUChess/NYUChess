@@ -174,9 +174,9 @@ window.addEventListener('load',
             }
 
             console.log(responseText["data"]);
-            console.log(document.getElementsByClassName("events")[0].length);
+            console.log(document.getElementsByClassName("events")[0].childNodes.length);
 
-            if (document.getElementsByClassName("events")[0].length < responseText["data"].length - 1) {
+            if (document.getElementsByClassName("events")[0].childNodes.length < responseText["data"].length - 1) {
                 console.log("MAKING DIV");
                 var div = document.createElement("div");
                 div.className = "loadMore text-center";
