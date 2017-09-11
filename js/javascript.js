@@ -109,7 +109,9 @@ window.addEventListener('load',
 
         console.log("Setting up events");
 
-        $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=EAACEdEose0cBACblEPTlvriw4x07vDlcqUz24zo5scodlS5XCfxamNftFXvqG53bHcbm0LLlvrcYb73cNRmg02EdRCasLtEP1urZBjW8bePBZCKfBv3uzZAhpkDyrk1h3ZCpbiU3ljPiM46LTAVZCiFWi42t0zGZC5pQHjwVJ3kTPnxQ7OwpirY4Ul4abRgJC9m2ytZCK1KkQZDZD%27', function(responseText) {
+        var token = "EAACEdEose0cBACblEPTlvriw4x07vDlcqUz24zo5scodlS5XCfxamNftFXvqG53bHcbm0LLlvrcYb73cNRmg02EdRCasLtEP1urZBjW8bePBZCKfBv3uzZAhpkDyrk1h3ZCpbiU3ljPiM46LTAVZCiFWi42t0zGZC5pQHjwVJ3kTPnxQ7OwpirY4Ul4abRgJC9m2ytZCK1KkQZDZD%27";
+
+        $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function(responseText) {
             console.log(responseText);
             var max = 5;
             if(responseText["data"].length < 5) {
