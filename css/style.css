@@ -100,11 +100,10 @@ li{
     outline: 0.25vw solid #222;
     height: 20vw;
     width: 20vw;
-    background-size:cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background: no-repeat center center;
+    background-size:cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
 }
 
 .eventInfo {
