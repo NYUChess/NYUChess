@@ -143,6 +143,7 @@ li{
 .loadMore {
     display: none;
     color: blue;
+    cursor: pointer;
 }
 
 .loadMore:hover {
