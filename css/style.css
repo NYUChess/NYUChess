@@ -93,6 +93,7 @@ li{
     height: 20vw;
     outline: .25vw solid #222;
     margin-bottom: 4vw;
+    display: none;
 }
 
 .eventPic {
