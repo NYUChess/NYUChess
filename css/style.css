@@ -142,6 +142,7 @@ li{
 
 .loadMore {
     color: blue;
+    margin-top: 4vw;
     cursor: pointer;
 }
 
