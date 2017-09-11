@@ -133,6 +133,7 @@ window.addEventListener('load',
 
                 var link = document.createElement('a');
                 link.href = "https://www.facebook.com/events/" + responseText["data"][i]["id"];
+                link.target = "_blank";
                 link.appendChild(title);
 
                 var desc = document.createElement('div');
