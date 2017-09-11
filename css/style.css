@@ -142,9 +142,10 @@ li{
 }
 
 .loadMore {
-    color: blue;
+    color: #337ab7;
     margin-top: 2vw;
     cursor: pointer;
+    background-color: #222;
 }
 
 .loadMore:hover {
