@@ -134,11 +134,13 @@ window.addEventListener('load',
 
                 info.appendChild(title);
                 info.appendChild(desc);
-                event.appendChild(pic);
                 event.appendChild(info);
+                event.appendChild(pic);
                 document.getElementsByClassName("events")[0].appendChild(event);
             }
         });
+
+        document.getElementsByClassName("events")[0].lastChild.style.marginBottom = "0";
 
     }, false);
 
