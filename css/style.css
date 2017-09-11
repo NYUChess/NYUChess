@@ -139,3 +139,7 @@ li{
 {
     background: rgba(0, 0, 0, 0.5);
 }
+
+.loadMore {
+    display: none;
+}

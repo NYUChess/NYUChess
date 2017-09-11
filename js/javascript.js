@@ -165,6 +165,15 @@ window.addEventListener('load',
                 }
 
                 document.getElementsByClassName("events")[0].appendChild(event);
+
+                if(i === max-1) {
+                    if(document.getElementsByClassName("events")[0].length < responseText["data"].length - 1) {
+                        document.getElementsByClassName("loadMore")[0].style.display = "block";
+                    } else {
+                        document.getElementsByClassName("loadMore")[0].style.display = "none";
+                    }
+                }
+
             }
         });
 
