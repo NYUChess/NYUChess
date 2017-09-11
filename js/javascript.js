@@ -173,7 +173,8 @@ window.addEventListener('load',
 
             }
 
-            console.log(responseText);
+            console.log(responseText["data"]);
+            console.log(document.getElementsByClassName("events")[0].length);
 
             if (document.getElementsByClassName("events")[0].length < responseText["data"].length - 1) {
                 console.log("MAKING DIV");
