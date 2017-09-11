@@ -74,6 +74,10 @@ body {
     display: none;
 }
 
+.events {
+    padding: 5vh 4vw;
+}
+
 .list {
     width: 40vw;
     margin-left: 15vw;
