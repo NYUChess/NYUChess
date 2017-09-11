@@ -57,14 +57,26 @@ body {
 }
 
 .main, .about, .calendar, .contact, .events, .forms, .news, .pictures, .not {
+    font-size: 2vw;
+    padding: 5vh 5vw;
     background-color: #333;
     border: 1vw solid #444;
     width: 80vw;
     margin-top: 10vh;
     margin-left: 8vw;
     margin-bottom: 1vw;
-    height: 100vh;
+    /*height: 100vh;*/
     box-shadow: #222 -.05vw -.05vw 1vw, #222 .2vw .2vw 1vw;
     color:white;
     display: none;
+}
+
+.list {
+    width: 40vw;
+    margin-left: 15vw;
+    text-align: left;
+}
+
+li{
+    list-style: square;
 }
