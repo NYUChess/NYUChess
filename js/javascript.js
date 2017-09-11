@@ -169,7 +169,11 @@ window.addEventListener('load',
                     event.style.marginBottom = "0";
                 }
                 event.id = "fadeIn";
-                $("#fadeIn").hide().appendTo(".events").fadeIn("fast");
+                document.getElementsByClassName("events")[0].appendChild(event);
+                $("#fadeIn").fadeIn("fast", function() {
+                    curPage = x;
+                    enable();
+                }) ;
                 event.id = "";
             }
 
