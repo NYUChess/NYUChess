@@ -1,6 +1,9 @@
 var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "not"];
 var curPage = 0;
 
+$.get('http://graph.facebook.com/v2.10/194680683893776/events', function(responseText) {
+    alert(responseText);
+});
 
 $(function() {
     console.log( "ready!" );
