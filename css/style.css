@@ -1,7 +1,10 @@
 
 body {
-    background: url(../pictures/Chess.jpg) no-repeat fixed;
+    background: url(../pictures/Chess.jpg) no-repeat fixed center center;
     background-size:cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 .row {
