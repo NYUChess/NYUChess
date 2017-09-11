@@ -1,13 +1,6 @@
 var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "not"];
 var curPage = 0;
 
-$.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=EAACEdEose0cBACblEPTlvriw4x07vDlcqUz24zo5scodlS5XCfxamNftFXvqG53bHcbm0LLlvrcYb73cNRmg02EdRCasLtEP1urZBjW8bePBZCKfBv3uzZAhpkDyrk1h3ZCpbiU3ljPiM46LTAVZCiFWi42t0zGZC5pQHjwVJ3kTPnxQ7OwpirY4Ul4abRgJC9m2ytZCK1KkQZDZD%27', function(responseText) {
-    console.log("working");
-    alert(responseText);
-});
-
-
-
 $(function() {
     console.log( "ready!" );
 
@@ -113,6 +106,36 @@ window.addEventListener('load',
         };
 
         console.log("Setting up click");
+
+        console.log("Setting up events");
+
+        $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=EAACEdEose0cBACblEPTlvriw4x07vDlcqUz24zo5scodlS5XCfxamNftFXvqG53bHcbm0LLlvrcYb73cNRmg02EdRCasLtEP1urZBjW8bePBZCKfBv3uzZAhpkDyrk1h3ZCpbiU3ljPiM46LTAVZCiFWi42t0zGZC5pQHjwVJ3kTPnxQ7OwpirY4Ul4abRgJC9m2ytZCK1KkQZDZD%27', function(responseText) {
+            console.log(responseText);
+            for(var i = 0; i < responseText["data"].length; i++) {
+                var event = document.createElement('div');
+                event.className = "event";
+                var pic = document.createElement('div');
+                pic.classNmae = "eventPic";
+                var info = document.createElement('div');
+                info.className = "eventInfo";
+                var title = document.createElement('div');
+                title.className = "eventTitle";
+                title.textContent = responseText["data"][i]["name"];
+                var desc = document.createElement('div');
+                desc.textContent = title.textContent = responseText["data"][i]["place"]["name"] + " " + responseText["data"][i]["start_time"] + "\n" + responseText["data"][i]["description"];
+                desc.className = "eventDesc";
+
+
+
+
+                info.appendChild(title);
+                info.appendChild(desc);
+                event.appendChild(pic);
+                event.appendChild(info);
+                document.getElementsByClassName("events")[0].appendChild(event);
+            }
+        });
+
     }, false);
 
 function loadPage(x) {
