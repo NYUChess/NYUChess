@@ -86,30 +86,30 @@ li{
 
 .event {
     width: 70vw;
-    height: 20vh;
+    height: 30vh;
     border: 1vw solid #222;
 }
 
 .eventPic {
     float: left;
-    border: 1vw solid #222;
-    height: 15vh;
-    width: 15vh;
+    border: 0.25vw solid #222;
+    height: 30vh;
+    width: 30vh;
 }
 
 .eventInfo {
     float: left;
-    border: 1vw solid #222;
+    border: 0.25vw solid #222;
 }
 
 .eventTitle {
-    border: 1vw solid #222;
+    border: 0.25vw solid #222;
     height: 5vh;
     width: 50vw;
 }
 
 .eventDesc {
-    border: 1vw solid #222;
-    height: 10vh;
+    border: 0.25vw solid #222;
+    height: 20vh;
     width: 50vw;
 }
