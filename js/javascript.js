@@ -172,22 +172,22 @@ window.addEventListener('load',
                 document.getElementsByClassName("events")[0].appendChild(event);
 
             }
+            console.log(document.getElementsByClassName("events")[0].length + " " + responseText["data"].length - 1);
             if (document.getElementsByClassName("events")[0].length < responseText["data"].length - 1) {
                 var div = document.createElement("div");
                 div.className = "loadMore text-center";
                 div.innerText = "Load Older Posts";
+                div.addEventListener('click', function() {
+                    $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function (responseText) {
+                        var start = document.getElementsByClassName("events")[0].length - 1;
+                        var max = Math.min(start + 2, responseText["data"].length - 1);
+                        console.log("click click");
+                        createEvent(responseText, start, max);
+                    });
+                });
                 document.getElementsByClassName("events")[0].appendChild(div);
             }
         }
-
-        document.getElementsByClassName("loadMore")[0].addEventListener('click', function() {
-            $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function(responseText) {
-                var start = document.getElementsByClassName("events")[0].length-1;
-                var max = Math.min(start + 2, responseText["data"].length-1);
-                console.log("click click");
-                createEvent(responseText, start, max);
-            });
-        });
 
     }, false);
 
