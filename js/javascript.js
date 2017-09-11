@@ -130,7 +130,7 @@ window.addEventListener('load',
                 title.textContent = responseText["data"][i]["name"];
 
                 var link = document.createElement('a');
-                a.href = "https://www.facebook.com/events/" + responseText["data"][i]["id"];
+                link.href = "https://www.facebook.com/events/" + responseText["data"][i]["id"];
                 link.appendChild(title);
 
                 var desc = document.createElement('div');
