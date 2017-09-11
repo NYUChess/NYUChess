@@ -118,8 +118,7 @@ window.addEventListener('load',
                 max = responseText["data"].length;
             }
             for(var i = 0; i < max; i++) {
-createEvent(responseText, i, max);
-
+                createEvent(responseText, i, max);
             }
         });
 
@@ -184,9 +183,9 @@ createEvent(responseText, i, max);
         document.getElementsByClassName("loadMore")[0].addEventListener('click', function() {
             $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function(responseText) {
                 var start = document.getElementsByClassName("events")[0].length-1;
-
-                for(var i = start; i < start + 2 && i < responseText["data"].length-1; i ++) {
-
+                var max = Math.min(start + 2, responseText["data"].length-1);
+                for(var i = start; i < max; i ++) {
+                    createEvent(responseText, i, max);
                 }
             });
         });
