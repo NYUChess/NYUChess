@@ -159,11 +159,14 @@ window.addEventListener('load',
                 info.appendChild(desc);
                 event.appendChild(pic);
                 event.appendChild(info);
+                
+                if(i === max-1) {
+                    event.style.marginBottom = "0";
+                }
+
                 document.getElementsByClassName("events")[0].appendChild(event);
             }
         });
-
-        document.getElementsByClassName("events")[0].lastChild.style.marginBottom = "0";
 
     }, false);
 
