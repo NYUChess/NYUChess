@@ -109,7 +109,7 @@ window.addEventListener('load',
 
         console.log("Setting up events");
 
-        var token = "EAACEdEose0cBADcZAvjbdkO5n8fRhBvIavxHPXnquZB9tRuQXaaWjPL1GAzRumNtMZBSVus6BpUDnd0ZAN3e1syxZC4XX04mB5dUJ7fb8nqE3c34M9C3hNIoWZBUh2ZB9pACncZAFYoIFQoiFn4HJTAaAVosHjFMDVrMfZBLVFtgs97i6uKk2QUYifhuHHlNymDfHY7OOAhDUVAZDZD";
+        var token = "141960009742435|-maLnFTRW1ghpWRu2CNuyNskRk8";
 
         $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function(responseText) {
             console.log(responseText);
