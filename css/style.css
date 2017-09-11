@@ -83,3 +83,9 @@ body {
 li{
     list-style: square;
 }
+
+.event {
+    width: 70vw;
+    height: 20vh;
+    border: 1vw solid #333;
+}
