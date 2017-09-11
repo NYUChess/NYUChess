@@ -117,7 +117,7 @@ window.addEventListener('load',
             if(responseText["data"].length < 5) {
                 max = responseText["data"].length;
             }
-                createEvent(responseText, 0, max);
+            createEvent(responseText, 0, max);
         });
 
         function createEvent(responseText, i, max) {
@@ -203,7 +203,7 @@ function loadPage(x) {
         $("." + pages[x]).fadeIn("slow", function() {
             curPage = x;
             enable();
-       }) ;
+        }) ;
     });
 }
 
