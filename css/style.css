@@ -75,7 +75,7 @@ body {
 }
 
 .events {
-    padding: 5vh 4vw;
+    padding: 4vw 4vw;
 }
 
 .list {
@@ -108,12 +108,13 @@ li{
 
 .eventTitle {
     outline: 0.25vw solid #222;
-    height: 5vw;
+    height: 4vw;
     width: 50vw;
 }
 
 .eventDesc {
     outline: 0.25vw solid #222;
-    height: 15vw;
+    height: 16vw;
     width: 50vw;
+    overflow: scroll;
 }
