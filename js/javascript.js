@@ -183,7 +183,7 @@ window.addEventListener('load',
                 div.innerText = "Load Older Posts";
                 div.addEventListener('click', function() {
                     $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function (responseText) {
-                        var start = document.getElementsByClassName("events")[0].length - 1;
+                        var start = document.getElementsByClassName("events")[0].childNodes.length - 1;
                         var max = Math.min(start + 2, responseText["data"].length - 1);
                         console.log("click click");
                         createEvent(responseText, start, max);
