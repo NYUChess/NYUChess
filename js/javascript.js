@@ -123,7 +123,7 @@ window.addEventListener('load',
                 var info = document.createElement('div');
                 info.className = "eventInfo";
                 var title = document.createElement('div');
-                title.className = "eventTitle";
+                title.className = "eventTitle text-center";
                 title.textContent = responseText["data"][i]["name"];
                 var desc = document.createElement('div');
                 desc.textContent = responseText["data"][i]["place"]["name"] + " " + responseText["data"][i]["start_time"] + "\n" + responseText["data"][i]["description"];
