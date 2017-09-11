@@ -118,12 +118,12 @@ window.addEventListener('load',
                 max = responseText["data"].length;
             }
             for(var i = 0; i < max; i++) {
-createEvent(responseText, i);
+createEvent(responseText, i, max);
 
             }
         });
 
-        function createEvent(responseText, i) {
+        function createEvent(responseText, i, max) {
             var event = document.createElement('div');
             event.className = "event";
 
