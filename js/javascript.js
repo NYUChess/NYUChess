@@ -129,11 +129,15 @@ window.addEventListener('load',
                 title.className = "eventTitle text-center";
                 title.textContent = responseText["data"][i]["name"];
 
+                var link = document.createElement('a');
+                a.href = "https://www.facebook.com/events/" + responseText["data"][i]["id"];
+                link.appendChild(title);
+
                 var desc = document.createElement('div');
                 desc.className = "eventDesc";
                 desc.textContent = responseText["data"][i]["place"]["name"] + " " + responseText["data"][i]["start_time"] + "\r\n" + responseText["data"][i]["description"];
 
-                info.appendChild(title);
+                info.appendChild(link);
                 info.appendChild(desc);
                 event.appendChild(pic);
                 event.appendChild(info);
