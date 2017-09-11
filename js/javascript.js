@@ -171,8 +171,6 @@ window.addEventListener('load',
                 event.id = "fadeIn";
                 document.getElementsByClassName("events")[0].appendChild(event);
                 $("#fadeIn").fadeIn("fast", function() {
-                    curPage = x;
-                    enable();
                 }) ;
                 event.id = "";
             }
