@@ -104,19 +104,18 @@ li{
 
 .eventInfo {
     float: left;
-    outline: 0.25vw solid #fff;
 }
 
 .eventTitle {
-    outline: 0.25vw solid #222;
     height: 4vw;
     width: 50vw;
+    padding: 1vw;
 }
 
 .eventDesc {
-    outline: 0.25vw solid #222;
     height: 16vw;
     width: 50vw;
     overflow: scroll;
     overflow-x: hidden;
+    padding: 1vw;
 }
