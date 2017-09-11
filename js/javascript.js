@@ -123,6 +123,7 @@ window.addEventListener('load',
 
                 var pic = document.createElement('div');
                 pic.className = "eventPic";
+                pic.style.background = "url("+ 'https://graph.facebook.com/v2.10/' + responseText["data"][i]["id"] + '/picture?access_token=' + token +")";
 
                 var info = document.createElement('div');
                 info.className = "eventInfo";
