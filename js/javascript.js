@@ -139,7 +139,21 @@ window.addEventListener('load',
 
                 var desc = document.createElement('div');
                 desc.className = "eventDesc";
-                desc.textContent = responseText["data"][i]["place"]["name"] + " " + responseText["data"][i]["start_time"] + "\r\n" + responseText["data"][i]["description"];
+                if(desc.textContent = responseText["data"][i]["place"]) {
+                    desc.textContent = responseText["data"][i]["place"]["name"];
+                } else {
+                    desc.textContent = "No place announced!";
+                }
+                if(responseText["data"][i]["start_time"]) {
+                    desc.textContent += " " + responseText["data"][i]["start_time"] + "\r\n\r\n";
+                } else {
+                    desc.textContent += "No time announced!\n\n";
+                }
+                if(responseText["data"][i]["description"]) {
+                    desc.textContent += responseText["data"][i]["description"];
+                } else {
+                    desc.textContent += "No description available!";
+                }
 
                 info.appendChild(link);
                 info.appendChild(desc);
