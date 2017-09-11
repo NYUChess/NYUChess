@@ -99,17 +99,17 @@ li{
 
 .eventInfo {
     float: left;
-    outline: 0.25vw solid #222;
+    outline: 0.25vw solid #fff;
 }
 
 .eventTitle {
     outline: 0.25vw solid #222;
-    height: 5vh;
+    height: 5vw;
     width: 50vw;
 }
 
 .eventDesc {
     outline: 0.25vw solid #222;
-    height: 20vh;
+    height: 15vw;
     width: 50vw;
 }
