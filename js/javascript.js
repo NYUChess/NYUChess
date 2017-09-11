@@ -117,66 +117,66 @@ window.addEventListener('load',
             if(responseText["data"].length < 5) {
                 max = responseText["data"].length;
             }
-            for(var i = 0; i < max; i++) {
-                createEvent(responseText, i, max);
-            }
+                createEvent(responseText, 0, max);
         });
 
         function createEvent(responseText, i, max) {
-            var event = document.createElement('div');
-            event.className = "event";
+            document.getElementsByClassName("events")[0].removeChild(document.getElementsByClassName("events")[0].lastChild);
+            for (i; i < max; i++) {
+                var event = document.createElement('div');
+                event.className = "event";
 
-            var pic = document.createElement('div');
-            pic.className = "eventPic";
-            pic.style.background = "url("+ 'https://graph.facebook.com/v2.10/' + responseText["data"][i]["id"] + '/picture?access_token=' + token +") no-repeat";
+                var pic = document.createElement('div');
+                pic.className = "eventPic";
+                pic.style.background = "url(" + 'https://graph.facebook.com/v2.10/' + responseText["data"][i]["id"] + '/picture?access_token=' + token + ") no-repeat";
 
-            var info = document.createElement('div');
-            info.className = "eventInfo";
+                var info = document.createElement('div');
+                info.className = "eventInfo";
 
-            var title = document.createElement('div');
-            title.className = "eventTitle text-center";
-            title.textContent = responseText["data"][i]["name"];
+                var title = document.createElement('div');
+                title.className = "eventTitle text-center";
+                title.textContent = responseText["data"][i]["name"];
 
-            var link = document.createElement('a');
-            link.href = "https://www.facebook.com/events/" + responseText["data"][i]["id"];
-            link.target = "_blank";
-            link.appendChild(title);
+                var link = document.createElement('a');
+                link.href = "https://www.facebook.com/events/" + responseText["data"][i]["id"];
+                link.target = "_blank";
+                link.appendChild(title);
 
-            var desc = document.createElement('div');
-            desc.className = "eventDesc";
-            if(desc.textContent = responseText["data"][i]["place"]) {
-                desc.textContent = responseText["data"][i]["place"]["name"];
-            } else {
-                desc.textContent = "No place announced!";
-            }
-            if(responseText["data"][i]["start_time"]) {
-                desc.textContent += " " + responseText["data"][i]["start_time"] + "\r\n\r\n";
-            } else {
-                desc.textContent += "No time announced!\n\n";
-            }
-            if(responseText["data"][i]["description"]) {
-                desc.textContent += responseText["data"][i]["description"];
-            } else {
-                desc.textContent += "No description available!";
-            }
-
-            info.appendChild(link);
-            info.appendChild(desc);
-            event.appendChild(pic);
-            event.appendChild(info);
-
-            if(i === max-1) {
-                event.style.marginBottom = "0";
-            }
-
-            document.getElementsByClassName("events")[0].appendChild(event);
-
-            if(i === max-1) {
-                if(document.getElementsByClassName("events")[0].length < responseText["data"].length - 1) {
-                    document.getElementsByClassName("loadMore")[0].style.display = "block";
+                var desc = document.createElement('div');
+                desc.className = "eventDesc";
+                if (desc.textContent = responseText["data"][i]["place"]) {
+                    desc.textContent = responseText["data"][i]["place"]["name"];
                 } else {
-                    document.getElementsByClassName("loadMore")[0].style.display = "none";
+                    desc.textContent = "No place announced!";
                 }
+                if (responseText["data"][i]["start_time"]) {
+                    desc.textContent += " " + responseText["data"][i]["start_time"] + "\r\n\r\n";
+                } else {
+                    desc.textContent += "No time announced!\n\n";
+                }
+                if (responseText["data"][i]["description"]) {
+                    desc.textContent += responseText["data"][i]["description"];
+                } else {
+                    desc.textContent += "No description available!";
+                }
+
+                info.appendChild(link);
+                info.appendChild(desc);
+                event.appendChild(pic);
+                event.appendChild(info);
+
+                if (i === max - 1) {
+                    event.style.marginBottom = "0";
+                }
+
+                document.getElementsByClassName("events")[0].appendChild(event);
+
+            }
+            if (document.getElementsByClassName("events")[0].length < responseText["data"].length - 1) {
+                var div = document.createElement("div");
+                div.className = "loadMore text-center";
+                div.innerText = "Load Older Posts";
+                document.getElementsByClassName("events")[0].appendChild(div);
             }
         }
 
@@ -184,9 +184,8 @@ window.addEventListener('load',
             $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function(responseText) {
                 var start = document.getElementsByClassName("events")[0].length-1;
                 var max = Math.min(start + 2, responseText["data"].length-1);
-                for(var i = start; i < max; i ++) {
-                    createEvent(responseText, i, max);
-                }
+                console.log("click click");
+                createEvent(responseText, start, max);
             });
         });
 
