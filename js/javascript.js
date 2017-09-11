@@ -111,6 +111,14 @@ window.addEventListener('load',
 
         var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 
+        $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+            FB.init({
+                appId: '141960009742435',
+                version: 'v2.7' // or v2.1, v2.2, v2.3, ...
+            });
+
+            console.log($facebook->api("/PAGE_ID?fields=" + token + ")";
+
         $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function(responseText) {
             console.log(responseText);
             var max = 5;
