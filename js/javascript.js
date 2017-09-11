@@ -118,16 +118,20 @@ window.addEventListener('load',
             for(var i = 0; i < max; i++) {
                 var event = document.createElement('div');
                 event.className = "event";
+
                 var pic = document.createElement('div');
-                pic.classNmae = "eventPic";
+                pic.className = "eventPic";
+
                 var info = document.createElement('div');
                 info.className = "eventInfo";
+
                 var title = document.createElement('div');
                 title.className = "eventTitle text-center";
                 title.textContent = responseText["data"][i]["name"];
+
                 var desc = document.createElement('div');
-                desc.textContent = responseText["data"][i]["place"]["name"] + " " + responseText["data"][i]["start_time"] + "\r\n" + responseText["data"][i]["description"];
                 desc.className = "eventDesc";
+                desc.textContent = responseText["data"][i]["place"]["name"] + " " + responseText["data"][i]["start_time"] + "\r\n" + responseText["data"][i]["description"];
 
                 info.appendChild(title);
                 info.appendChild(desc);
