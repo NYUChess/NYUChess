@@ -126,16 +126,13 @@ window.addEventListener('load',
                 title.className = "eventTitle text-center";
                 title.textContent = responseText["data"][i]["name"];
                 var desc = document.createElement('div');
-                desc.textContent = responseText["data"][i]["place"]["name"] + " " + responseText["data"][i]["start_time"] + "\n" + responseText["data"][i]["description"];
+                desc.textContent = responseText["data"][i]["place"]["name"] + " " + responseText["data"][i]["start_time"] + "\r\n" + responseText["data"][i]["description"];
                 desc.className = "eventDesc";
-
-
-
 
                 info.appendChild(title);
                 info.appendChild(desc);
-                event.appendChild(info);
                 event.appendChild(pic);
+                event.appendChild(info);
                 document.getElementsByClassName("events")[0].appendChild(event);
             }
         });
