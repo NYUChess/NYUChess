@@ -104,6 +104,7 @@ li{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    background: no-repeat center center;
 }
 
 .eventInfo {

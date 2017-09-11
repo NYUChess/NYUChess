@@ -123,7 +123,7 @@ window.addEventListener('load',
 
                 var pic = document.createElement('div');
                 pic.className = "eventPic";
-                pic.style.background = "url("+ 'https://graph.facebook.com/v2.10/' + responseText["data"][i]["id"] + '/picture?access_token=' + token +") no-repeat fixed center center";
+                pic.style.background = "url("+ 'https://graph.facebook.com/v2.10/' + responseText["data"][i]["id"] + '/picture?access_token=' + token +")";
 
                 var info = document.createElement('div');
                 info.className = "eventInfo";
@@ -159,7 +159,7 @@ window.addEventListener('load',
                 info.appendChild(desc);
                 event.appendChild(pic);
                 event.appendChild(info);
-                
+
                 if(i === max-1) {
                     event.style.marginBottom = "0";
                 }
