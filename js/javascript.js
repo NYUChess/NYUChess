@@ -128,7 +128,7 @@ window.addEventListener('load',
 
                 var pic = document.createElement('div');
                 pic.className = "eventPic";
-                var roll = (Math.random() * 20) + 1;
+                var roll = Math.round(Math.random() * 20) + 1);
                 pic.style.background = "url(...../pictures/eventsImages/" + roll + ".jpg) no-repeat";
 
                 var info = document.createElement('div');
