@@ -128,7 +128,8 @@ window.addEventListener('load',
 
                 var pic = document.createElement('div');
                 pic.className = "eventPic";
-                pic.style.background = "url(" + 'https://graph.facebook.com/v2.10/' + responseText["data"][i]["id"] + '/picture?access_token=' + token + ") no-repeat";
+                var roll = (Math.random() * 20) + 1;
+                pic.style.background = "url(...../pictures/eventsImages/" + roll + ".jpg) no-repeat";
 
                 var info = document.createElement('div');
                 info.className = "eventInfo";
