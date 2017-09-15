@@ -120,6 +120,10 @@ window.addEventListener('load',
             createEvent(responseText, 0, max);
         });
 
+        function roll() {
+            return Math.round((Math.random() * 20) + 1);
+        }
+
         function createEvent(responseText, i, max) {
             document.getElementsByClassName("events")[0].removeChild(document.getElementsByClassName("events")[0].lastChild);
             for (i; i < max; i++) {
@@ -128,8 +132,7 @@ window.addEventListener('load',
 
                 var pic = document.createElement('div');
                 pic.className = "eventPic";
-                var roll = Math.round((Math.random() * 20) + 1);
-                pic.style.background = "url(...../pictures/eventsImages/" + roll + ".jpg) no-repeat";
+                pic.style.background = "url(...../pictures/eventsImages/" + roll() + ".jpg) no-repeat";
 
                 var info = document.createElement('div');
                 info.className = "eventInfo";
