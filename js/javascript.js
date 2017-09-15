@@ -121,7 +121,7 @@ window.addEventListener('load',
         });
 
         function roll() {
-            return Math.round((Math.random() * 20) + 1);
+            return Math.floor((Math.random() * 20) + 1);
         }
 
         function createEvent(responseText, i, max) {
