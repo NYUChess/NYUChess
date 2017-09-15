@@ -132,7 +132,7 @@ window.addEventListener('load',
 
                 var pic = document.createElement('div');
                 pic.className = "eventPic";
-                pic.style.background = "url(...../pictures/eventsImages/" + roll() + ".jpg) no-repeat";
+                pic.style.background = "url(../pictures/eventsImages/" + roll() + ".jpg) no-repeat";
 
                 var info = document.createElement('div');
                 info.className = "eventInfo";
