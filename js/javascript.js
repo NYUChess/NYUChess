@@ -204,7 +204,7 @@ window.addEventListener('load',
         var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 
         alert("testing");
-        $.get( '/api/v2/orgs/' + id + '?key=' + key , function(responseText) {
+        $.get( 'https://api.orgsync.com/api/v2/orgs/' + id + '?key=' + key , function(responseText) {
             console.log(responseText);
         });
 
