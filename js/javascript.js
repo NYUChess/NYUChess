@@ -208,7 +208,7 @@ window.addEventListener('load',
             console.log(responseText);
             //Add mission statement to homepage
             document.getElementsByClassName("mission")[0].innerText = responseText["profile_responses"][0]["data"];
-            document.getElementsByClassName("mission")[0].innerText = responseText["profile_responses"][1]["data"];
+            document.getElementsByClassName("meetings")[0].innerText = responseText["profile_responses"][1]["data"];
         });
 
 
