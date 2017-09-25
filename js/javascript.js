@@ -207,7 +207,7 @@ window.addEventListener('load',
         $.get( 'https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key , function(responseText) {
             console.log(responseText);
             //Add mission statement to homepage
-            console.log(document.getElementsByClassName("main")[0].firstChild);
+            console.log(document.getElementsByClassName("main")[0]);
         });
 
 
