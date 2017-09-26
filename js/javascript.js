@@ -6,7 +6,6 @@ $(function() {
 
     var id = 61738;
     var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
-    alert("testing");
     $.get( 'https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key , function(responseText) {
         console.log(responseText);
         //Add mission statement to homepage
