@@ -131,6 +131,18 @@ window.addEventListener('load',
             createEvent(responseText, 0, max);
         });
 
+        var pictures = "graph.facebook.com/v2.10/2024220797864412/picture?access_token=" + token + "&type=large";
+
+        var admins = [];
+
+        xhr = new XMLHttpRequest();
+        xhr.open("GET", "graph.facebook.com/v2.10/194680683893776/members?access_token=EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD");
+        xhr.send();
+
+        var members = JSON.parse(xhr.responseText);
+
+        console.log(members);
+
         function roll() {
             return Math.floor((Math.random() * 20) + 1);
         }
