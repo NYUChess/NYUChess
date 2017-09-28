@@ -140,9 +140,6 @@ window.addEventListener('load',
             console.log(responseText);
         });
 
-        console.log("RESPONSE TEXT");
-        console.log(xhr.responseText);
-
         function roll() {
             return Math.floor((Math.random() * 20) + 1);
         }
