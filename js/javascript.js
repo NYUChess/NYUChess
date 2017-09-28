@@ -136,8 +136,14 @@ window.addEventListener('load',
         var admins = [];
 
         console.log("RESPONSE");
-        $.get('https://graph.facebook.com/v2.10/194680683893776/members?access_token=EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD', function(responseText) {
+        $.get('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token, function(responseText) {
             console.log(responseText);
+            responseText.data.reduce(function(acc, x){
+                if(x["administrator"]) {
+                    return x["id"];
+                }
+            }, admins);
+            console.log(admins);
         });
 
         function roll() {
