@@ -135,9 +135,10 @@ window.addEventListener('load',
 
         var admins = [];
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://graph.facebook.com/v2.10/194680683893776/members?access_token=EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD");
-        xhr.send();
+        console.log("RESPONSE");
+        $.get('https://graph.facebook.com/v2.10/194680683893776/members?access_token=EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD', function(responseText) {
+            console.log(responseText);
+        });
 
         console.log("RESPONSE TEXT");
         console.log(xhr.responseText);
