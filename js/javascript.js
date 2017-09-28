@@ -1,19 +1,20 @@
 var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "not"];
 var curPage = 0;
 
+var id = 61738;
+var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
+$.get( 'https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key , function(responseText) {
+    console.log(responseText);
+    //Add mission statement to homepage
+    document.getElementsByClassName("mission")[0].innerText = responseText["profile_responses"][0]["data"];
+    document.getElementsByClassName("meetings")[0].innerText = responseText["profile_responses"][1]["data"];
+
+    document.getElementsByClassName("description")[0].innerText = responseText["description"];
+});
+
 $(function() {
     console.log( "ready!" );
 
-    var id = 61738;
-    var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
-    $.get( 'https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key , function(responseText) {
-        console.log(responseText);
-        //Add mission statement to homepage
-        document.getElementsByClassName("mission")[0].innerText = responseText["profile_responses"][0]["data"];
-        document.getElementsByClassName("meetings")[0].innerText = responseText["profile_responses"][1]["data"];
-
-        document.getElementsByClassName("description")[0].innerText = responseText["description"];
-    });
 });
 
 window.addEventListener('load',
