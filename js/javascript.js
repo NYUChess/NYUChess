@@ -150,6 +150,7 @@ window.addEventListener('load',
                 for(var i = 0; i < responseText["data"].length; i++) {
                     if(responseText["data"][i]["administrator"]) {
                         admins.push(responseText["data"][i]["id"]);
+                        console.log(responseText["data"][i]["name"]);
                     }
                 }
                 if(responseText["paging"]["next"]) {
