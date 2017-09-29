@@ -147,7 +147,6 @@ window.addEventListener('load',
 
         function getAdmins(url) {
             $.get(url, function(responseText) {
-                console.log(responseText);
                 for(var i = 0; i < responseText["data"].length; i++) {
                     if(responseText["data"][i]["administrator"]) {
                         admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"] ;
