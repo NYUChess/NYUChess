@@ -3,7 +3,8 @@ var curPage = 0;
 
 var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
-var admins = [];
+var admins = {};
+var adminPics = [];
 $.get( 'https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key , function(responseText) {
     console.log(responseText);
     //Add mission statement to homepage
@@ -149,8 +150,7 @@ window.addEventListener('load',
                 console.log(responseText);
                 for(var i = 0; i < responseText["data"].length; i++) {
                     if(responseText["data"][i]["administrator"]) {
-                        admins.push(responseText["data"][i]["id"]);
-                        console.log(responseText["data"][i]["name"]);
+                        admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"] ;
                     }
                 }
                 if(responseText["paging"]["next"]) {
