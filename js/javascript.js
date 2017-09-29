@@ -3,6 +3,7 @@ var curPage = 0;
 
 var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
+var admins = [];
 $.get( 'https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key , function(responseText) {
     console.log(responseText);
     //Add mission statement to homepage
@@ -133,21 +134,28 @@ window.addEventListener('load',
 
         var pictures = "graph.facebook.com/v2.10/2024220797864412/picture?access_token=" + token + "&type=large";
 
-        var admins = [];
-
         console.log("RESPONSE");
-        $.get('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token, function(responseText) {
-            console.log(responseText);
-            responseText.data.reduce(function(acc, x){
-                if(x["administrator"]) {
-                    return x["id"];
-                }
-            }, admins);
-            console.log(admins);
-        });
+
+        getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
 
         function roll() {
             return Math.floor((Math.random() * 20) + 1);
+        }
+
+        function getAdmins(url) {
+            $.get(url, function(responseText) {
+                console.log(responseText);
+                responseText.data.reduce(function(acc, x){
+                    if(x["administrator"]) {
+                        return x["id"];
+                    }
+
+                }, admins);
+                console.log(admins);
+                if(responseText["paging"]["next"]) {
+                    getAdmins(responseText["paging"]["next"]);
+                }
+            });
         }
 
         function createEvent(responseText, i, max) {
