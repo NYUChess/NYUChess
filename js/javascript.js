@@ -138,6 +138,8 @@ window.addEventListener('load',
 
         getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
 
+        console.log(admins);
+
         function roll() {
             return Math.floor((Math.random() * 20) + 1);
         }
@@ -145,13 +147,11 @@ window.addEventListener('load',
         function getAdmins(url) {
             $.get(url, function(responseText) {
                 console.log(responseText);
-                responseText.data.reduce(function(acc, x){
-                    if(x["administrator"]) {
-                        return x["id"];
+                for(var i = 0; i < responseText["data"].length; i++) {
+                    if(responseText["data"][i]["administrator"]) {
+                        admins.push(responseText["data"][i]["id"]);
                     }
-
-                }, admins);
-                console.log(admins);
+                }
                 if(responseText["paging"]["next"]) {
                     getAdmins(responseText["paging"]["next"]);
                 }
