@@ -16,7 +16,8 @@ $.get( 'https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key , functio
     var contacts = [];
 
     for(var i = 0; i < responseText["profile_responses"].length; i ++) {
-        if(responseText["profile_responses"][i]["element"]["name"].indexOf("Net ID") >= 0) {
+        if(responseText["profile_responses"][i]["element"]["name"].indexOf("Net ID") >= 0
+            || responseText["profile_responses"][i]["element"]["name"].indexOf("netID")) {
             contacts.push(responseText["profile_responses"][i]["data"]);
         }
     }
