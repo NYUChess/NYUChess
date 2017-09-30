@@ -12,6 +12,16 @@ $.get( 'https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key , functio
     document.getElementsByClassName("meetings")[0].innerText = responseText["profile_responses"][1]["data"];
 
     document.getElementsByClassName("description")[0].innerText = responseText["description"];
+
+    var contacts = [];
+
+    for(var i = 0; i < responseText["profile_responses"].length; i ++) {
+        if(responseText["profile_responses"][i]["element"]["name"].contains("Net ID")) {
+            contacts.push(responseText["profile_responses"][i]["data"]);
+        }
+    }
+
+    console.log(contacts);
 });
 
 $(function() {
