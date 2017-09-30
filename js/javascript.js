@@ -125,7 +125,6 @@ window.addEventListener('load',
         var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 
         $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function(responseText) {
-            console.log(responseText);
             var max = 5;
             if(responseText["data"].length < 5) {
                 max = responseText["data"].length;
@@ -213,7 +212,6 @@ window.addEventListener('load',
                 event.id = "";
             }
 
-            console.log(responseText["data"]);
             console.log(document.getElementsByClassName("events")[0].childNodes.length);
 
             if (document.getElementsByClassName("events")[0].childNodes.length < responseText["data"].length - 1) {
