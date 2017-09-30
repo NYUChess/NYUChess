@@ -20,7 +20,7 @@ $.get( 'https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key , functio
             contacts.push(responseText["profile_responses"][i]["data"]);
         }
     }
-
+    console.log("CONTACTS");
     console.log(contacts);
 });
 
