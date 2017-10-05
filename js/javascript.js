@@ -36,11 +36,13 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 
     console.log(cons);
 
+    var type = 0;
     for (var key in cons) {
         if (cons.hasOwnProperty(key)) {
 
             var div = document.createElement("div");
-            div.className = "contactBorder";
+            div.className = "contactBorder" + type%2;
+            type++;
             var conPic = document.createElement("div");
             conPic.className = "contactPic";
             var pic = document.createElement("img");
