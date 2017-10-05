@@ -4,6 +4,7 @@ var curPage = 0;
 var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var admins = {};
+var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 var adminPics = [];
 $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
     console.log(responseText);
@@ -36,17 +37,18 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 
     console.log(cons);
 
+    getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
+
     var type = 0;
     for (var key in cons) {
         if (cons.hasOwnProperty(key)) {
-
             var div = document.createElement("div");
             div.className = "contactBorder" + ((type%2)+1);
             type++;
             var conPic = document.createElement("div");
             conPic.className = "contactPic";
             var pic = document.createElement("img");
-            pic.src = "https://res.cloudinary.com/campus-job/image/upload/t_student-public-page/v1/profile_pictures/kpPzuOX5DV_20170110.jpg";
+            pic.src = "https://graph.facebook.com/v2.10/" + admins[key] + "/picture?access_token=" + token + "&type=large";
             conPic.appendChild(pic);
 
             var conDet = document.createElement("div");
@@ -253,8 +255,6 @@ window.addEventListener('load',
 
         console.log("Setting up events");
 
-        var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
-
         $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function (responseText) {
             var max = 5;
             if (responseText["data"].length < 5) {
@@ -263,13 +263,7 @@ window.addEventListener('load',
             createEvent(responseText, 0, max);
         });
 
-        var pictures = "graph.facebook.com/v2.10/2024220797864412/picture?access_token=" + token + "&type=large";
-
         console.log("RESPONSE");
-
-        getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
-
-        console.log(admins);
 
         function roll() {
             return Math.floor((Math.random() * 20) + 1);
