@@ -169,15 +169,17 @@ li{
 }
 
 .contactPic {
-    width: 15vw;
-    height: 16vh;
+    width: 14vw;
+    height: 25vh;
     border-right: solid white 0.5vw;
-    background: url("https://res.cloudinary.com/campus-job/image/upload/t_student-public-page/v1/profile_pictures/kpPzuOX5DV_20170110.jpg") no-repeat;
-    background-size: contain;
+}
+
+.contactPic img {
+    width: 100%;
 }
 
 .contactDetails {
-    width: 52.5vw;
+    width: 53.5vw;
     height: 9vh;
     padding: 1vw;
 }
