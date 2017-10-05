@@ -162,7 +162,7 @@ li{
 .contactBorder {
     margin-top: 5vw;
     width: 68vw;
-    height: 26vh;
+    height: 30vh;
     border: white 0.5vw solid;
     border-top-right-radius: 3vw;
     border-bottom-left-radius: 3vw;
@@ -170,7 +170,7 @@ li{
 
 .contactPic {
     width: 14vw;
-    height: 25vh;
+    height: 29vh;
     border-right: solid white 0.5vw;
     float: left;
 }
@@ -185,7 +185,7 @@ li{
     float: left;
     width: 53vw;
     height: 25vh;
-    padding: 3vw;
+    padding: 3vh 3vw 3vh 3vw;
 }
 
 .contactName {
