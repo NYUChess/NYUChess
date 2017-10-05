@@ -159,13 +159,22 @@ li{
     padding-right: 5vw;
 }
 
-.contactBorder {
-    margin-top: 5vw;
+.contactBorder1 {
+    margin-top: 5vh;
     width: 68vw;
     height: 30vh;
     border: white 0.5vw solid;
     border-top-right-radius: 3vw;
     border-bottom-left-radius: 3vw;
+}
+
+.contactBorder2 {
+    margin-top: 5vh;
+    width: 68vw;
+    height: 30vh;
+    border: white 0.5vw solid;
+    border-top-left-radius: 3vw;
+    border-bottom-right-radius: 3vw;
 }
 
 .contactPic {

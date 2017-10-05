@@ -45,6 +45,8 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             conPic.className = "contactPic";
             var pic = document.createElement("img");
             pic.src = "https://res.cloudinary.com/campus-job/image/upload/t_student-public-page/v1/profile_pictures/kpPzuOX5DV_20170110.jpg";
+            conPic.appendChild(pic);
+
             var conDet = document.createElement("div");
             conDet.className = "contactDetails";
 
