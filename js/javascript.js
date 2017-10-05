@@ -41,7 +41,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
         if (cons.hasOwnProperty(key)) {
 
             var div = document.createElement("div");
-            div.className = "contactBorder" + type%2;
+            div.className = "contactBorder" + ((type%2)+1);
             type++;
             var conPic = document.createElement("div");
             conPic.className = "contactPic";
