@@ -6,6 +6,10 @@ var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var admins = {};
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 var adminPics = [];
+
+getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
+console.log(admins);
+
 $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
     console.log(responseText);
     //Add mission statement to homepage
@@ -36,9 +40,6 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
     }
 
     console.log(cons);
-
-    getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
-    console.log(admins);
 
     var type = 0;
     for (var key in cons) {
