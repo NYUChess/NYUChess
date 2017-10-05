@@ -25,7 +25,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 
     for(var i = 0; i < contacts.length; i ++) {
         var pos = "";
-        if(cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"]) {
+        if("Pos" in cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]) {
             pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
         } else {
             pos = contacts[i]["Pos"];
