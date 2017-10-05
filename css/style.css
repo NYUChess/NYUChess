@@ -193,7 +193,7 @@ li{
 .contactBorder2 > .contactPic img {
     width: 100%;
     height: 100%;
-    border-top-right-radius: 3vw;
+    border-top-left-radius: 3vw;
 }
 
 .contactDetails {
