@@ -48,6 +48,12 @@ function getData(arr, position, responseText) {
     for (var i = 0; i < responseText["profile_responses"].length; i++) {
         if (responseText["profile_responses"][i]["element"]["name"] === (position + " First Name")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
+            for(var j = 0; j < multiple.length; j ++) {
+                if(multiple[j] === "") {
+                    multiple.splice(j, 1);
+                    j--;
+                }
+            }
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
             }
@@ -57,6 +63,12 @@ function getData(arr, position, responseText) {
         }
         if (responseText["profile_responses"][i]["element"]["name"] === (position + " Last Name")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
+            for(var j = 0; j < multiple.length; j ++) {
+                if(multiple[j] === "") {
+                    multiple.splice(j, 1);
+                    j--;
+                }
+            }
             console.log(multiple);
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
@@ -67,6 +79,12 @@ function getData(arr, position, responseText) {
         }
         if (responseText["profile_responses"][i]["element"]["name"] === (position + " Net ID")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
+            for(var j = 0; j < multiple.length; j ++) {
+                if(multiple[j] === "") {
+                    multiple.splice(j, 1);
+                    j--;
+                }
+            }
             console.log(multiple);
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
