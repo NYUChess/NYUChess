@@ -183,7 +183,11 @@ li{
 
 .contactDetails {
     float: left;
-    width: 53.5vw;
-    height: 9vh;
-    padding: 1vw;
+    width: 53vw;
+    height: 25vh;
+    padding: 3vw;
+}
+
+.contactName {
+    font-size: 3vw;
 }
