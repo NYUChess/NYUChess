@@ -172,6 +172,7 @@ li{
     width: 14vw;
     height: 25vh;
     border-right: solid white 0.5vw;
+    float: left;
 }
 
 .contactPic img {
@@ -181,6 +182,7 @@ li{
 }
 
 .contactDetails {
+    float: left;
     width: 53.5vw;
     height: 9vh;
     padding: 1vw;
