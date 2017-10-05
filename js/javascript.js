@@ -28,8 +28,7 @@ function getData(arr, position, responseText) {
     dontAsk.push(obj);
 
     for (var i = 0; i < responseText["profile_responses"].length; i++) {
-        console.log(responseText["profile_responses"][i]["element"]["name"] === (position + " First Name"));
-        if (responseText["profile_responses"][i]["element"]["name"].indexOf(position + " First Name") >= 0) {
+        if (responseText["profile_responses"][i]["element"]["name"] === (position + " First Name")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
@@ -38,7 +37,7 @@ function getData(arr, position, responseText) {
                 dontAsk[j]["FN"] = multiple[j];
             }
         }
-        if (responseText["profile_responses"][i]["element"]["name"].indexOf(position + " Last Name") >= 0) {
+        if (responseText["profile_responses"][i]["element"]["name"] === (position + " Last Name")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
@@ -47,7 +46,7 @@ function getData(arr, position, responseText) {
                 dontAsk[j]["LN"] = multiple[j];
             }
         }
-        if (responseText["profile_responses"][i]["element"]["name"].indexOf(position + " Net ID") >= 0) {
+        if (responseText["profile_responses"][i]["element"]["name"] === (position + " Net ID")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
