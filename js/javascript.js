@@ -1,6 +1,6 @@
 var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "not"];
 var curPage = 0;
-var fonts = ["Comic Sans MS"];
+var fonts = ["Comic Sans MS", "Courier New", "Times New Roman", "Verdana", "Georgia", "Lucida Handwriting", "Trebuchet MS", "Bookman", "Garamond", "Impact"];
 var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var admins = {};
