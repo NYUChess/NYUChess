@@ -51,7 +51,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             var pic = document.createElement("img");
             $.get("https://graph.facebook.com/v2.10/" + admins[key] + "/picture?access_token=" + token + "&type=large" , function (responseText) {
                 console.log("response fb pic");
-                console.log(responseText);
+                console.log(${'responseText'});
             });
             pic.src = "https://graph.facebook.com/v2.10/" + admins[key] + "/picture?access_token=" + token + "&type=large";
             conPic.appendChild(pic);
