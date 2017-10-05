@@ -19,6 +19,21 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
     getData(contacts, "Vice President", responseText);
     getData(contacts, "Treasurer", responseText);
     getData(contacts, "Secretary", responseText);
+    getData(contacts, "Webmaster", responseText);
+
+    var cons = {};
+
+    for(var i = 0; i < contacts.length; i ++) {
+        var pos = "";
+        if(cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"]) {
+            pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
+        } else {
+            pos = contacts[i]["Pos"];
+        }
+        cons[contacts[i]["FN"] + " " + contacts[i]["LN"]] = {"Pos": pos, id: contacts[i]["ID"]};
+    }
+
+    console.log(cons);
 
     console.log("CONTACTS");
     console.log(contacts);
@@ -58,6 +73,7 @@ function getData(arr, position, responseText) {
             }
             for (var j = 0; j < multiple.length; j++) {
                 dontAsk[j]["ID"] = multiple[j];
+                dontAsk[j]["Pos"] = position;
             }
         }
     }
