@@ -5,21 +5,23 @@ var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var admins = {};
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
+var adminPics = [];
 
 function getAdmins(url) {
-    var request = new XMLHttpRequest();
-    request.open('GET', url, false);
-    request.send(null);
-    console.log(request.responseText);
-    var responseText = request.responseText;
-        for (var i = 0; i < responseText["data"].length; i++) {
-            if (responseText["data"][i]["administrator"]) {
-                admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
+    jQuery.ajax({
+        url: url,
+        success: function (responseText) {
+            for (var i = 0; i < responseText["data"].length; i++) {
+                if (responseText["data"][i]["administrator"]) {
+                    admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
+                }
             }
-        }
-        if (responseText["paging"]["next"]) {
-            getAdmins(responseText["paging"]["next"]);
-        }
+            if (responseText["paging"]["next"]) {
+                getAdmins(responseText["paging"]["next"]);
+            }
+        },
+        async: false
+    });
 }
 
 getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
@@ -52,9 +54,9 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 
     var cons = {};
 
-    for(var i = 0; i < contacts.length; i ++) {
+    for (var i = 0; i < contacts.length; i++) {
         var pos = "";
-        if((contacts[i]["FN"] + " " + contacts[i]["LN"]) in cons && "Pos" in cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]) {
+        if ((contacts[i]["FN"] + " " + contacts[i]["LN"]) in cons && "Pos" in cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]) {
             pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
         } else {
             pos = contacts[i]["Pos"];
@@ -68,7 +70,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
     for (var key in cons) {
         if (cons.hasOwnProperty(key)) {
             var div = document.createElement("div");
-            div.className = "contactBorder" + ((type%2)+1);
+            div.className = "contactBorder" + ((type % 2) + 1);
             type++;
             var conPic = document.createElement("div");
             conPic.className = "contactPic";
@@ -120,8 +122,8 @@ function getData(arr, position, responseText) {
     for (var i = 0; i < responseText["profile_responses"].length; i++) {
         if (responseText["profile_responses"][i]["element"]["name"] === (position + " First Name")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
-            for(var j = 0; j < multiple.length; j ++) {
-                if(multiple[j] === "") {
+            for (var j = 0; j < multiple.length; j++) {
+                if (multiple[j] === "") {
                     multiple.splice(j, 1);
                     j--;
                 }
@@ -135,8 +137,8 @@ function getData(arr, position, responseText) {
         }
         if (responseText["profile_responses"][i]["element"]["name"] === (position + " Last Name")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
-            for(var j = 0; j < multiple.length; j ++) {
-                if(multiple[j] === "") {
+            for (var j = 0; j < multiple.length; j++) {
+                if (multiple[j] === "") {
                     multiple.splice(j, 1);
                     j--;
                 }
@@ -151,8 +153,8 @@ function getData(arr, position, responseText) {
         }
         if (responseText["profile_responses"][i]["element"]["name"] === (position + " Net ID")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
-            for(var j = 0; j < multiple.length; j ++) {
-                if(multiple[j] === "") {
+            for (var j = 0; j < multiple.length; j++) {
+                if (multiple[j] === "") {
                     multiple.splice(j, 1);
                     j--;
                 }
