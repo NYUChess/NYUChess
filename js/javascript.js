@@ -13,6 +13,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 
     document.getElementsByClassName("description")[0].innerText = responseText["description"];
 
+    //Add people to contact us
     var contacts = [];
 
     getData(contacts, "President", responseText);
@@ -35,12 +36,43 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 
     console.log(cons);
 
-    var div = document.createElement("div");
-    div.className = "contactBorder";
-    var conPic = document.createElement("div");
-    conPic.className ="contactPic";
-    var pic = document.createElement("img");
-    pic.src = "https://res.cloudinary.com/campus-job/image/upload/t_student-public-page/v1/profile_pictures/kpPzuOX5DV_20170110.jpg";
+    for (var key in cons) {
+        if (cons.hasOwnProperty(key)) {
+
+            var div = document.createElement("div");
+            div.className = "contactBorder";
+            var conPic = document.createElement("div");
+            conPic.className = "contactPic";
+            var pic = document.createElement("img");
+            pic.src = "https://res.cloudinary.com/campus-job/image/upload/t_student-public-page/v1/profile_pictures/kpPzuOX5DV_20170110.jpg";
+            var conDet = document.createElement("div");
+            conDet.className = "contactDetails";
+
+            var conName = document.createElement("div");
+            conName.className = "contactName text-center";
+            conName.innerText = key;
+
+            var conSpec = document.createElement("div");
+            conSpec.className = "contactSpec";
+            conSpec.innerText = cons[key]["Pos"];
+
+            var conCon = document.createElement("div");
+            conCon.className = "contactContact";
+            conCon.innerText = cons[key]["id"] + "@nyu.edu";
+
+            conDet.appendChild(conName);
+            conDet.appendChild(conSpec);
+            conDet.appendChild(conCon);
+
+            div.appendChild(conPic);
+            div.appendChild(conDet);
+
+            document.getElementsByClassName("contact")[0].appendChild(div);
+
+        }
+    }
+
+
 
     console.log("CONTACTS");
     console.log(contacts);
