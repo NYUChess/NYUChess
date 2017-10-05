@@ -8,7 +8,10 @@ var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18p
 var adminPics = [];
 
 function getAdmins(url) {
-    $.get(url, function (responseText) {
+    var request = new XMLHttpRequest();
+    request.open('GET', url, false);
+    request.send(null);
+    var responseText = request.responseText;
         for (var i = 0; i < responseText["data"].length; i++) {
             if (responseText["data"][i]["administrator"]) {
                 admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
@@ -17,7 +20,6 @@ function getAdmins(url) {
         if (responseText["paging"]["next"]) {
             getAdmins(responseText["paging"]["next"]);
         }
-    });
 }
 
 getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
