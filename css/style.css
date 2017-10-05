@@ -161,9 +161,9 @@ li{
 
 .contactBorder {
     margin-top: 5vw;
-    width: 70vw;
+    width: 69vw;
     height: 10vw;
-    border: white 1vw solid;
-    border-top-right-radius: 2vw;
-    border-bottom-left-radius: 2vw;
+    border: white 0.5vw solid;
+    border-top-right-radius: 3vw;
+    border-bottom-left-radius: 3vw;
 }
