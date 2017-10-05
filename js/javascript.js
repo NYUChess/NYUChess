@@ -42,6 +42,7 @@ function getData(arr, position, responseText) {
         }
         if (responseText["profile_responses"][i]["element"]["name"] === (position + " Last Name")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
+            console.log(multiple);
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
             }
@@ -51,6 +52,7 @@ function getData(arr, position, responseText) {
         }
         if (responseText["profile_responses"][i]["element"]["name"] === (position + " Net ID")) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
+            console.log(multiple);
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
             }
