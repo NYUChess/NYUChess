@@ -79,7 +79,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             console.log(admins["Victor Treaba"]);
             console.log(key);
             console.log(admins[key]);
-            pic.src = "graph.facebook.com/v2.10/" + admins[key] + "/picture?access_token=" + token + "&type=large";
+            pic.src = "https://graph.facebook.com/v2.10/" + admins[key] + "/picture?access_token=" + token + "&type=large";
             console.log(pic.src);
             conPic.appendChild(pic);
 
