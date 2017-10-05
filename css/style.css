@@ -162,7 +162,7 @@ li{
 .contactBorder {
     margin-top: 5vw;
     width: 68vw;
-    height: 10vw;
+    height: 10vh;
     border: white 0.5vw solid;
     border-top-right-radius: 3vw;
     border-bottom-left-radius: 3vw;
@@ -170,6 +170,7 @@ li{
 
 .contactPic {
     width: 30vw;
+    height: 9vh;
     border-right: solid white 0.5vw;
     background: url("https://www.wayup.com/profile/Avedis-Baghdasarian-3769b64687/");
 }
