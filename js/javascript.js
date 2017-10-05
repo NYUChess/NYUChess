@@ -296,7 +296,7 @@ window.addEventListener('load',
                 var title = document.createElement('div');
                 title.className = "eventTitle text-center";
                 title.textContent = responseText["data"][i]["name"];
-                title.style.fontFamily = fonts[Math.floor(Math.random()*fonts.length)];
+                title.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
 
                 var link = document.createElement('a');
                 link.href = "https://www.facebook.com/events/" + responseText["data"][i]["id"];
