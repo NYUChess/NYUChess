@@ -184,10 +184,16 @@ li{
     float: left;
 }
 
-.contactPic img {
+.contactBorder1 > .contactPic img {
     width: 100%;
     height: 100%;
     border-bottom-left-radius: 3vw;
+}
+
+.contactBorder2 > .contactPic img {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 3vw;
 }
 
 .contactDetails {
