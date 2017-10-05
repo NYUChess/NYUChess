@@ -22,12 +22,13 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 });
 
 function getData(arr, position, responseText) {
-    var obj = {}
+    var obj = {};
 
     var dontAsk = [];
     dontAsk.push(obj);
 
     for (var i = 0; i < responseText["profile_responses"].length; i++) {
+        console.log(responseText["profile_responses"][i]["element"]["name"].equals(position + " First Name"));
         if (responseText["profile_responses"][i]["element"]["name"].equals(position + " First Name") >= 0) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
             while (multiple.length > dontAsk.length) {
