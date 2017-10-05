@@ -162,21 +162,22 @@ li{
 .contactBorder {
     margin-top: 5vw;
     width: 68vw;
-    height: 10vh;
+    height: 17vh;
     border: white 0.5vw solid;
     border-top-right-radius: 3vw;
     border-bottom-left-radius: 3vw;
 }
 
 .contactPic {
-    width: 30vw;
-    height: 9vh;
+    width: 15vw;
+    height: 16vh;
     border-right: solid white 0.5vw;
-    background: url("https://www.wayup.com/profile/Avedis-Baghdasarian-3769b64687/");
+    background: url("https://www.wayup.com/profile/Avedis-Baghdasarian-3769b64687/") no-repeat;
+    background-size: contain;
 }
 
 .contactDetails {
-    width: 37.5vw;
+    width: 52.5vw;
     height: 9vh;
     padding: 1vw;
 }
