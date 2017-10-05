@@ -38,6 +38,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
     console.log(cons);
 
     getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
+    console.log(admins);
 
     var type = 0;
     for (var key in cons) {
@@ -78,7 +79,18 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
         }
     }
 
-
+    function getAdmins(url) {
+        $.get(url, function (responseText) {
+            for (var i = 0; i < responseText["data"].length; i++) {
+                if (responseText["data"][i]["administrator"]) {
+                    admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
+                }
+            }
+            if (responseText["paging"]["next"]) {
+                getAdmins(responseText["paging"]["next"]);
+            }
+        });
+    }
 
     console.log("CONTACTS");
     console.log(contacts);
@@ -267,19 +279,6 @@ window.addEventListener('load',
 
         function roll() {
             return Math.floor((Math.random() * 20) + 1);
-        }
-
-        function getAdmins(url) {
-            $.get(url, function (responseText) {
-                for (var i = 0; i < responseText["data"].length; i++) {
-                    if (responseText["data"][i]["administrator"]) {
-                        admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
-                    }
-                }
-                if (responseText["paging"]["next"]) {
-                    getAdmins(responseText["paging"]["next"]);
-                }
-            });
         }
 
         function createEvent(responseText, i, max) {
