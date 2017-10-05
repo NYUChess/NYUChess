@@ -16,6 +16,9 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
     var contacts = [];
 
     getData(contacts, "President", responseText);
+    getData(contacts, "Vice President", responseText);
+    getData(contacts, "Treasurer", responseText);
+    getData(contacts, "Secretary", responseText);
 
     console.log("CONTACTS");
     console.log(contacts);
