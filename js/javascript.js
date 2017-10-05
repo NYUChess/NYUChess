@@ -28,7 +28,7 @@ function getData(arr, position, responseText) {
     dontAsk.push(obj);
 
     for (var i = 0; i < responseText["profile_responses"].length; i++) {
-        console.log(responseText["profile_responses"][i]["element"]["name"].equals(position + " First Name"));
+        console.log(responseText["profile_responses"][i]["element"]["name"] === (position + " First Name"));
         if (responseText["profile_responses"][i]["element"]["name"].indexOf(position + " First Name") >= 0) {
             var multiple = responseText["profile_responses"][i]["data"].split(" ");
             while (multiple.length > dontAsk.length) {
