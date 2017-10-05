@@ -179,7 +179,7 @@ li{
 
 .contactPic {
     width: 14vw;
-    height: 29vh;
+    height: 100%;
     border-right: solid white 0.5vw;
     float: left;
 }
@@ -187,13 +187,13 @@ li{
 .contactBorder1 > .contactPic img {
     width: 100%;
     height: 100%;
-    border-bottom-left-radius: 3vw;
+    border-bottom-left-radius: 2vw;
 }
 
 .contactBorder2 > .contactPic img {
     width: 100%;
     height: 100%;
-    border-top-left-radius: 3vw;
+    border-top-left-radius: 2vw;
 }
 
 .contactDetails {
