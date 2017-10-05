@@ -1,11 +1,10 @@
 var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "not"];
 var curPage = 0;
-
+var fonts = ["Comic Sans MS"];
 var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var admins = {};
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
-var adminPics = [];
 
 function getAdmins(url) {
     jQuery.ajax({
@@ -25,15 +24,6 @@ function getAdmins(url) {
 }
 
 getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
-console.log(admins);
-
-var request = new XMLHttpRequest();
-request.open('GET', 'https://graph.facebook.com/v2.10/194680683893776/members?access_token=EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD', false);  // `false` makes the request synchronous
-request.send(null);
-
-if (request.status === 200) {
-    console.log(request.responseText.length);
-}
 
 $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
     console.log(responseText);
@@ -64,8 +54,6 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
         cons[contacts[i]["FN"] + " " + contacts[i]["LN"]] = {"Pos": pos, id: contacts[i]["ID"]};
     }
 
-    console.log(cons);
-
     var type = 0;
     for (var key in cons) {
         if (cons.hasOwnProperty(key)) {
@@ -75,12 +63,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             var conPic = document.createElement("div");
             conPic.className = "contactPic";
             var pic = document.createElement("img");
-            console.log(admins);
-            console.log(admins["Victor Treaba"]);
-            console.log(key);
-            console.log(admins[key]);
             pic.src = "https://graph.facebook.com/v2.10/" + admins[key] + "/picture?access_token=" + token + "&type=large";
-            console.log(pic.src);
             conPic.appendChild(pic);
 
             var conDet = document.createElement("div");
@@ -89,6 +72,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             var conName = document.createElement("div");
             conName.className = "contactName text-center";
             conName.innerText = key;
+            conName.style.fontFamily = fonts[Math.floor(Math.random()*fonts.length)];
 
             var conSpec = document.createElement("div");
             conSpec.className = "contactSpec";
@@ -109,9 +93,6 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 
         }
     }
-
-    console.log("CONTACTS");
-    console.log(contacts);
 });
 
 function getData(arr, position, responseText) {
