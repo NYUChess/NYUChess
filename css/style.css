@@ -176,5 +176,7 @@ li{
 }
 
 .contactDetails {
-
+    width: 37.5vw;
+    height: 9vh;
+    padding: 1vw;
 }
