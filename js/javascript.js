@@ -7,6 +7,19 @@ var admins = {};
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 var adminPics = [];
 
+function getAdmins(url) {
+    $.get(url, function (responseText) {
+        for (var i = 0; i < responseText["data"].length; i++) {
+            if (responseText["data"][i]["administrator"]) {
+                admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
+            }
+        }
+        if (responseText["paging"]["next"]) {
+            getAdmins(responseText["paging"]["next"]);
+        }
+    });
+}
+
 getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
 console.log(admins);
 
@@ -82,19 +95,6 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             document.getElementsByClassName("contact")[0].appendChild(div);
 
         }
-    }
-
-    function getAdmins(url) {
-        $.get(url, function (responseText) {
-            for (var i = 0; i < responseText["data"].length; i++) {
-                if (responseText["data"][i]["administrator"]) {
-                    admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
-                }
-            }
-            if (responseText["paging"]["next"]) {
-                getAdmins(responseText["paging"]["next"]);
-            }
-        });
     }
 
     console.log("CONTACTS");
