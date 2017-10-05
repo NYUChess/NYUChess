@@ -5,12 +5,12 @@ var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var admins = {};
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
-var adminPics = [];
 
 function getAdmins(url) {
     var request = new XMLHttpRequest();
     request.open('GET', url, false);
     request.send(null);
+    console.log(request.responseText);
     var responseText = request.responseText;
         for (var i = 0; i < responseText["data"].length; i++) {
             if (responseText["data"][i]["administrator"]) {
