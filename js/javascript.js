@@ -189,6 +189,8 @@ function updateCalendar(dir) {
             }
 
             let buffer = new Date("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
+            console.log("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
+            console.log(buffer.getDay());
 
             for(let i = 0; i < 6 - buffer.getDay(); i ++) {
                 let li = document.createElement("li");
