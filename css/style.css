@@ -167,6 +167,9 @@ li{
     height: 30vh;
     max-height:11vw;
     border: white 0.5vw solid;
+}
+
+.contactBorder1 {
     border-top-right-radius: 3vw;
     border-bottom-left-radius: 3vw;
 }
