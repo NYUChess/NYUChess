@@ -152,7 +152,7 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
     let date = new Date();
 
     document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
-    document.getElementsByClassName("curYear")[0].innerText = date.getYear();
+    document.getElementsByClassName("curYear")[0].innerText = (date.getYear() - 100 + 2000);
     console.log(date.getYear());
 
     console.log(date.getDay());
