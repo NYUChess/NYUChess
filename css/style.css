@@ -255,7 +255,7 @@ body {font-family: Verdana, sans-serif;}
 }
 
 .calPrev:active, .calNext:active {
-    box-shadow: black .05vw .7vw .7vw;
+    box-shadow: black .01vw .01vh .7vw;
 }
 
 .calInfo {
