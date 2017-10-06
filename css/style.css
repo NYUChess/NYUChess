@@ -223,15 +223,17 @@ body {font-family: Verdana, sans-serif;}
 
 /* Month header */
 .month {
-    padding: 70px 25px;
+    padding-top: 10%;
+    padding-bottom: 3%;
     width: 100%;
     background: #1abc9c;
     text-align: center;
+    overflow: hidden;
 }
 
 .calPrev {
     width: 10%;
-    padding-left: 30%;
+    padding-left: 39.8%;
     float: left;
 }
 
