@@ -186,12 +186,12 @@ function updateCalendar(dir) {
         }
 
         $(".days").fadeOut("slow", function () {
-            $(".curMonth").fadeOut("slow", function () {});
+            $(".curMonth").fadeOut("slow", function () {
+                document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
+            });
             while (document.getElementsByClassName("days")[0].firstChild) {
                 document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
             }
-
-            document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
 
             for (var i = 1; i <= months[mo]["Days"]; i++) {
                 let li = document.createElement("li");
