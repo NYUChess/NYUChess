@@ -210,5 +210,6 @@ li{
 }
 
 .contactName {
+    line-height: 100%;
     font-size: 2.2vw;
 }
