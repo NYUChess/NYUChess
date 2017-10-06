@@ -199,7 +199,9 @@ function updateCalendar(dir) {
                 document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
             }
 
-            document.getElementsByClassName("curYear")[0].innerText = nextYear;
+            if(nextYear !== -1) {
+                document.getElementsByClassName("curYear")[0].innerText = nextYear;
+            }
 
             for (var i = 1; i <= months[mo]["Days"]; i++) {
                 let li = document.createElement("li");
