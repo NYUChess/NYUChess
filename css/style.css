@@ -201,7 +201,7 @@ li{
 .contactDetails {
     float: left;
     width: 53vw;
-    height: 25vh;
+    height: 100%;
     padding: 3vh 3vw 3vh 3vw;
 }
 
