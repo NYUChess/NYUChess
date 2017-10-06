@@ -192,7 +192,12 @@ function updateCalendar(dir) {
             console.log("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
             console.log(buffer.getDay());
 
-            for(let i = 0; i < (6 + buffer.getDay()) % 6; i ++) {
+            let buff = buffer.getDay() - 1;
+            if(buff === -1) {
+                buff = 6;
+            }
+
+            for(let i = 0; i < buff; i ++) {
                 let li = document.createElement("li");
                 document.getElementsByClassName("days")[0].appendChild(li);
             }
@@ -318,7 +323,11 @@ $(function () {
 
         let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
 
-        for(let i = 0; i < (6 + buffer.getDay()) % 6; i ++) {
+        let buff = buffer.getDay() - 1;
+        if(buff === -1) {
+            buff = 6;
+        }
+        for(let i = 0; i < buff; i ++) {
             let li = document.createElement("li");
             document.getElementsByClassName("days")[0].appendChild(li);
         }
