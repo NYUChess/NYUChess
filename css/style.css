@@ -254,6 +254,10 @@ body {font-family: Verdana, sans-serif;}
     text-decoration: underline;
 }
 
+.calPrev:active, .calNext:active {
+    box-shadow: black 1px 1px 1px;
+}
+
 .calInfo {
     width: 25%;
     float: left;
