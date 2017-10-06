@@ -153,9 +153,14 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
 
     document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
     document.getElementsByClassName("curYear")[0].innerText = (date.getYear() - 100 + 2000);
-    console.log(date.getYear());
 
-    console.log(date.getDay());
+    let buffer = new Date("" + date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
+
+    for(let i = 0; i < 6 - buffer.getDay(); i ++) {
+        let li = document.createElement("li");
+        document.getElementsByClassName("days")[0].appendChild(li);
+    }
+
     for(var i = 1; i <= months[date.getMonth()]["Days"]; i ++) {
         let li = document.createElement("li");
         if(i ===  date.getDay() + 1) {
