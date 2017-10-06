@@ -163,6 +163,7 @@ li{
     margin-top: 5vh;
     width: 68vw;
     height: 30vh;
+    max-height:30vw;
     border: white 0.5vw solid;
     border-top-right-radius: 3vw;
     border-bottom-left-radius: 3vw;
@@ -172,6 +173,7 @@ li{
     margin-top: 5vh;
     width: 68vw;
     height: 30vh;
+    max-height: 30vw;
     border: white 0.5vw solid;
     border-top-left-radius: 3vw;
     border-bottom-right-radius: 3vw;
