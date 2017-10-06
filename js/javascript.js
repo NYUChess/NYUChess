@@ -309,7 +309,7 @@ window.addEventListener('load',
             updateCalendar(-1);
         });
         document.getElementsByClassName("calNext")[0].addEventListener("click", function() {
-            updateCalendar(0);
+            updateCalendar(1);
         });
 
         document.getElementsByClassName("aboutBar")[0].addEventListener('click', function () {
