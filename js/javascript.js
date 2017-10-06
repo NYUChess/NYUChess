@@ -138,6 +138,10 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
     console.log(responseText["occurrences"]);
     document.getElementsByClassName("calPrev")[0].onclick = updateCalendar(-1);
     document.getElementsByClassName("calNext")[0].onclick = updateCalendar(0);
+
+    let date = new Date();
+    console.log("OPA");
+    console.log(date.getMonth());
 });
 
 function updateCalendar(dir) {
