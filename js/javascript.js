@@ -155,7 +155,7 @@ function updateCalendar(dir) {
         for(let x = 0; x < responseText.length; x++) {
             for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
                 let occ = responseText[x]["occurrences"][i];
-                let date = new Date(occ["start_at"]);
+                let date = new Date(occ["starts_at"]);
                 when.push(date.getDate());
             }
         }
@@ -294,11 +294,11 @@ $(function () {
         console.log(responseText);
         let when = [];
         for(let x = 0; x < responseText.length; x++) {
-            console.log(responseText[x]);
+            console.log(responseText[x]["occurrences"]);
             for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
                 let occ = responseText[x]["occurrences"][i];
-                let date = new Date(occ["start_at"]);
-                console.log(occ["start_at"]);
+                let date = new Date(occ["starts_at"]);
+                console.log(occ["starts_at"]);
                 console.log(date.getDate());
                 when.push(date.getDate());
             }
