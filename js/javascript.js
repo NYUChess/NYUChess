@@ -203,6 +203,13 @@ function updateCalendar(dir) {
                 document.getElementsByClassName("curYear")[0].innerText = nextYear;
             }
 
+            let buffer = new Date("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
+
+            for(let i = 0; i < 6 - buffer.getDay(); i ++) {
+                let li = document.createElement("li");
+                document.getElementsByClassName("days")[0].appendChild(li);
+            }
+
             for (var i = 1; i <= months[mo]["Days"]; i++) {
                 let li = document.createElement("li");
                 if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
