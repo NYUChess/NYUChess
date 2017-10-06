@@ -62,7 +62,7 @@ body {
 }
 
 .main, .about, .calendar, .contact, .events, .forms, .news, .pictures, .not {
-    font-size: 150%vw;
+    font-size: 155%;
     padding: 3% 5vw;
     background-color: #333;
     border: 1vw solid #444;
