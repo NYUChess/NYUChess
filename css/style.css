@@ -239,6 +239,7 @@ body {font-family: Verdana, sans-serif;}
     width: 10%;
     float: left;
     font-size: 150%;
+    cursor: pointer;
 }
 
 .calPrev{
