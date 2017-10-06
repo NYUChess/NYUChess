@@ -168,7 +168,7 @@ function updateCalendar(dir) {
             for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
                 let occ = responseText[x]["occurrences"][i];
                 let date = new Date(occ["starts_at"]);
-                if(parseInt(nextYear) === date.getFullYear()) {
+                if(parseInt(nextYear) === date.getFullYear() && date.getMonth() === mo) {
                     when.push(date.getDate());
                 }
             }
@@ -300,7 +300,7 @@ $(function () {
             for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
                 let occ = responseText[x]["occurrences"][i];
                 let date = new Date(occ["starts_at"]);
-                if(date.getFullYear() === new Date().getFullYear()) {
+                if(date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth()) {
                     when.push(date.getDate());
                 }
             }
