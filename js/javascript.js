@@ -147,6 +147,14 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function(responseText) {
     console.log("MEETINGS");
     console.log(responseText);
+    let when = [];
+    for(let x = 0; x < responseText.length; x++) {
+        for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
+            let occ = responseText[x]["occurrences"][i];
+            let date = new Date(occ["start_at"]);
+            when.push(date.getDate());
+        }
+    }
     // Make calendar
     console.log("Work on calendar");
     console.log(responseText["occurrences"]);
@@ -173,6 +181,12 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
         } else {
             li.innerText = i;
         }
+        if(when.indexOf(i) > -1) {
+            li.className = "marked";
+            li.addEventListener('click', function() {
+                window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
+            });
+        }
         document.getElementsByClassName("days")[0].appendChild(li);
     }
 });
@@ -183,6 +197,15 @@ function updateCalendar(dir) {
 
         $('.calNext').css("pointer-events", "none");
         $('.calPrev').css("pointer-events", "none");
+
+        let when = [];
+        for(let x = 0; x < responseText.length; x++) {
+            for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
+                let occ = responseText[x]["occurrences"][i];
+                let date = new Date(occ["start_at"]);
+                when.push(date.getDate());
+            }
+        }
 
         let date = new Date();
         let mo = months[document.getElementsByClassName("curMonth")[0].innerText] + dir;
@@ -226,6 +249,12 @@ function updateCalendar(dir) {
                     li.appendChild(span);
                 } else {
                     li.innerText = i;
+                }
+                if(when.indexOf(i) > -1) {
+                    li.className = "marked";
+                    li.addEventListener('click', function() {
+                        window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
+                    });
                 }
                 document.getElementsByClassName("days")[0].appendChild(li);
             }
