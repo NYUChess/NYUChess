@@ -60,6 +60,18 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             var div = document.createElement("div");
             div.className = "contactBorder" + ((type % 2) + 1);
             type++;
+            if(Object.keys(cons).length % 2 !== 0) {
+                if(type === 0) {
+                    div.style.marginLeft = "17vw";
+                }
+                if(type !== 0 && type % 2 === 0) {
+                    div.style.float = "right";
+                }
+            } else {
+                if(type % 2 === 1) {
+                    div.style.float = "right";
+                }
+            }
             var conPic = document.createElement("div");
             conPic.className = "contactPic";
             var pic = document.createElement("img");

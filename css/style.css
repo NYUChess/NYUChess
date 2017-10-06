@@ -73,6 +73,7 @@ body {
     box-shadow: #222 -.05vw -.05vw 1vw, #222 .2vw .2vw 1vw;
     color:white;
     display: none;
+    overflow: hidden;
 }
 
 .events {
