@@ -138,8 +138,18 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
     console.log(responseText["occurrences"]);
 
     let date = new Date();
-    console.log("OPA");
-    console.log(date.getMonth());
+    for(var i = 1; i <= months[date.getMonth()]["Days"]; i ++) {
+        let li = document.createElement("li");
+        if(i ===  date.getDay()) {
+            let span = document.createElement("span");
+            span.className = "active";
+            span.innerText = i;
+            li.appendChild(span);
+        } else {
+            li.innerText = i;
+        }
+        document.getElementsByClassName("days")[0].appendChild(li);
+    }
 });
 
 function updateCalendar(dir) {
