@@ -151,18 +151,9 @@ function updateCalendar(dir) {
         $('.calNext').css("pointer-events", "none");
         $('.calPrev').css("pointer-events", "none");
 
-        let when = [];
-        for(let x = 0; x < responseText.length; x++) {
-            for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
-                let occ = responseText[x]["occurrences"][i];
-                let date = new Date(occ["starts_at"]);
-                when.push(date.getDate());
-            }
-        }
-
         let date = new Date();
         let mo = months[document.getElementsByClassName("curMonth")[0].innerText] + dir;
-        let nextYear = -1;
+        let nextYear = document.getElementsByClassName("curYear")[0].innerText;
 
         if (mo === -1) {
             mo = 11;
@@ -170,6 +161,17 @@ function updateCalendar(dir) {
         } else if (mo === 12) {
             mo = 0;
             nextYear = parseInt(document.getElementsByClassName("curYear")[0].innerText) + 1;
+        }
+
+        let when = [];
+        for(let x = 0; x < responseText.length; x++) {
+            for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
+                let occ = responseText[x]["occurrences"][i];
+                let date = new Date(occ["starts_at"]);
+                if(parseInt(nextYear) === date.getFullYear()) {
+                    when.push(date.getDate());
+                }
+            }
         }
 
         if(nextYear !== -1) {
@@ -298,9 +300,9 @@ $(function () {
             for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
                 let occ = responseText[x]["occurrences"][i];
                 let date = new Date(occ["starts_at"]);
-                console.log(occ["starts_at"]);
-                console.log(date.getDate());
-                when.push(date.getDate());
+                if(date.getFullYear() === new Date().getFullYear()) {
+                    when.push(date.getDate());
+                }
             }
         }
         // Make calendar
@@ -310,7 +312,7 @@ $(function () {
         let date = new Date();
 
         document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
-        document.getElementsByClassName("curYear")[0].innerText = (date.getYear() - 100 + 2000);
+        document.getElementsByClassName("curYear")[0].innerText = date.getFullYear();
 
         let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
 
