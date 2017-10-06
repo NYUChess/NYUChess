@@ -152,6 +152,8 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
         for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
             let occ = responseText[x]["occurrences"][i];
             let date = new Date(occ["start_at"]);
+            console.log(occ["start_at"]);
+            console.log(date.getDate());
             when.push(date.getDate());
         }
     }
