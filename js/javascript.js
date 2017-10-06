@@ -174,24 +174,32 @@ function updateCalendar(dir) {
     console.log("HEADING TO " + dir);
     $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function(responseText) {
 
+        $('.calNext').css("pointer-events", "none");
+        $('.calPrev').css("pointer-events", "none");
+
         let date = new Date();
         let mo = months[document.getElementsByClassName("curMonth")[0].innerText] + dir;
+        let nextYear = -1;
 
         if (mo === -1) {
             mo = 11;
-            document.getElementsByClassName("curYear")[0].innerText = parseInt(document.getElementsByClassName("curYear")[0].innerText) - 1;
+            nextYear = parseInt(document.getElementsByClassName("curYear")[0].innerText) - 1;
         } else if (mo === 12) {
             mo = 0;
-            document.getElementsByClassName("curYear")[0].innerText = parseInt(document.getElementsByClassName("curYear")[0].innerText) + 1;
+            nextYear = parseInt(document.getElementsByClassName("curYear")[0].innerText) + 1;
         }
 
-        $(".days").fadeOut("slow", function () {
-            $(".curMonth").fadeOut("slow", function () {
-                document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
-            });
+        if(nextYear !== -1) {
+            document.getElementsByClassName("curYear")[0].className = "curYear calFade";
+        }
+
+        $(".calFade").fadeOut("slow", function () {
+            document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
             while (document.getElementsByClassName("days")[0].firstChild) {
                 document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
             }
+
+            document.getElementsByClassName("curYear")[0].innerText = nextYear;
 
             for (var i = 1; i <= months[mo]["Days"]; i++) {
                 let li = document.createElement("li");
@@ -206,8 +214,12 @@ function updateCalendar(dir) {
                 document.getElementsByClassName("days")[0].appendChild(li);
             }
 
-            $(".days").fadeIn("slow", function () {
-                $(".curMonth").fadeIn("slow", function () {});
+            $(".calFade").fadeIn("slow", function () {
+                $('.calNext').css("pointer-events", "auto");
+                $('.calPrev').css("pointer-events", "auto");
+                if(nextYear !== -1) {
+                    document.getElementsByClassName("curYear")[0].className = "curYear";
+                }
             });
         });
     });
