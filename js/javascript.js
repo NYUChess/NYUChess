@@ -8,7 +8,12 @@ var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 
 let leap = 0;
-if ((new Date().getFullYear()-2000)%4 === 0) {leap = 29} else {leap = 28};
+if ((new Date().getFullYear() - 2000) % 4 === 0) {
+    leap = 29
+} else {
+    leap = 28
+}
+;
 let months = {
     0: {"Days": 31, "Next": 1, "Prev": 11, "Name": "January"},
     1: {"Days": leap, "Next": 2, "Prev": 0, "Name": "February"},
@@ -38,7 +43,7 @@ let months = {
 
 var admins = {};
 
-    function getAdmins(url) {
+function getAdmins(url) {
     jQuery.ajax({
         url: url,
         success: function (responseText) {
@@ -91,15 +96,15 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
         if (cons.hasOwnProperty(key)) {
             var div = document.createElement("div");
             div.className = "contactBorder" + ((type % 2) + 1);
-            if(Object.keys(cons).length % 2 !== 0) {
-                if(type === 0) {
+            if (Object.keys(cons).length % 2 !== 0) {
+                if (type === 0) {
                     div.style.marginLeft = "17vw";
                 }
-                if(type !== 0 && type % 2 === 0) {
+                if (type !== 0 && type % 2 === 0) {
                     div.style.float = "right";
                 }
             } else {
-                if(type % 2 === 1) {
+                if (type % 2 === 1) {
                     div.style.float = "right";
                 }
             }
@@ -117,11 +122,11 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             var conName = document.createElement("div");
             conName.className = "contactName text-center";
             conName.innerText = key;
-            if(conName.innerText.length > 15) {
+            if (conName.innerText.length > 15) {
                 conName.style.lineHeight = "100%";
                 conName.style.marginBottom = "2.5%";
             }
-            conName.style.fontFamily = fonts[Math.floor(Math.random()*fonts.length)];
+            conName.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
 
             var conSpec = document.createElement("div");
             conSpec.className = "contactSpec";
@@ -144,131 +149,139 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
     }
 });
 
-$.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function(responseText) {
-    console.log("MEETINGS");
-    console.log(responseText);
-    let when = [];
-    for(let x = 0; x < responseText.length; x++) {
-        for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
-            let occ = responseText[x]["occurrences"][i];
-            let date = new Date(occ["start_at"]);
-            console.log(occ["start_at"]);
-            console.log(date.getDate());
-            when.push(date.getDate());
+jQuery.ajax({
+    url: "https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key,
+    success: function (responseText) {
+        console.log("MEETINGS");
+        console.log(responseText);
+        let when = [];
+        for (let x = 0; x < responseText.length; x++) {
+            for (let i = 0; i < responseText[x]["occurrences"].length; i++) {
+                let occ = responseText[x]["occurrences"][i];
+                let date = new Date(occ["start_at"]);
+                console.log(occ["start_at"]);
+                console.log(date.getDate());
+                when.push(date.getDate());
+            }
         }
-    }
-    // Make calendar
-    console.log("Work on calendar");
-    console.log(responseText["occurrences"]);
+        // Make calendar
+        console.log("Work on calendar");
+        console.log(responseText["occurrences"]);
 
-    let date = new Date();
+        let date = new Date();
 
-    document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
-    document.getElementsByClassName("curYear")[0].innerText = (date.getYear() - 100 + 2000);
+        document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
+        document.getElementsByClassName("curYear")[0].innerText = (date.getYear() - 100 + 2000);
 
-    let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
+        let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
 
-    for(let i = 0; i < 6 - buffer.getDay(); i ++) {
-        let li = document.createElement("li");
-        document.getElementsByClassName("days")[0].appendChild(li);
-    }
-
-    for(var i = 1; i <= months[date.getMonth()]["Days"]; i ++) {
-        let li = document.createElement("li");
-        if(i ===  date.getDay() + 1) {
-            let span = document.createElement("span");
-            span.className = "active";
-            span.innerText = i;
-            li.appendChild(span);
-        } else {
-            li.innerText = i;
+        for (let i = 0; i < 6 - buffer.getDay(); i++) {
+            let li = document.createElement("li");
+            document.getElementsByClassName("days")[0].appendChild(li);
         }
-        if(when.indexOf(i) > -1) {
-            li.className = "marked";
-            li.addEventListener('click', function() {
-                window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
-            });
+
+        for (var i = 1; i <= months[date.getMonth()]["Days"]; i++) {
+            let li = document.createElement("li");
+            if (i === date.getDay() + 1) {
+                let span = document.createElement("span");
+                span.className = "active";
+                span.innerText = i;
+                li.appendChild(span);
+            } else {
+                li.innerText = i;
+            }
+            if (when.indexOf(i) > -1) {
+                li.className = "marked";
+                li.addEventListener('click', function () {
+                    window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
+                });
+            }
+            document.getElementsByClassName("days")[0].appendChild(li);
         }
-        document.getElementsByClassName("days")[0].appendChild(li);
-    }
+    },
+    async: false
 });
 
 function updateCalendar(dir) {
     console.log("HEADING TO " + dir);
-    $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function(responseText) {
+    jQuery.ajax({
+        url: "https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key,
+        success: function (responseText) {
 
-        $('.calNext').css("pointer-events", "none");
-        $('.calPrev').css("pointer-events", "none");
+            $('.calNext').css("pointer-events", "none");
+            $('.calPrev').css("pointer-events", "none");
 
-        let when = [];
-        for(let x = 0; x < responseText.length; x++) {
-            for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
-                let occ = responseText[x]["occurrences"][i];
-                let date = new Date(occ["start_at"]);
-                when.push(date.getDate());
-            }
-        }
-
-        let date = new Date();
-        let mo = months[document.getElementsByClassName("curMonth")[0].innerText] + dir;
-        let nextYear = -1;
-
-        if (mo === -1) {
-            mo = 11;
-            nextYear = parseInt(document.getElementsByClassName("curYear")[0].innerText) - 1;
-        } else if (mo === 12) {
-            mo = 0;
-            nextYear = parseInt(document.getElementsByClassName("curYear")[0].innerText) + 1;
-        }
-
-        if(nextYear !== -1) {
-            document.getElementsByClassName("curYear")[0].className = "curYear calFade";
-        }
-
-        $(".calFade").fadeOut("slow", function () {
-            document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
-            while (document.getElementsByClassName("days")[0].firstChild) {
-                document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
-            }
-
-            if(nextYear !== -1) {
-                document.getElementsByClassName("curYear")[0].innerText = nextYear;
-            }
-
-            let buffer = new Date("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
-
-            for(let i = 0; i < 6 - buffer.getDay(); i ++) {
-                let li = document.createElement("li");
-                document.getElementsByClassName("days")[0].appendChild(li);
-            }
-
-            for (var i = 1; i <= months[mo]["Days"]; i++) {
-                let li = document.createElement("li");
-                if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
-                    let span = document.createElement("span");
-                    span.className = "active";
-                    span.innerText = i;
-                    li.appendChild(span);
-                } else {
-                    li.innerText = i;
+            let when = [];
+            for (let x = 0; x < responseText.length; x++) {
+                for (let i = 0; i < responseText[x]["occurrences"].length; i++) {
+                    let occ = responseText[x]["occurrences"][i];
+                    let date = new Date(occ["start_at"]);
+                    when.push(date.getDate());
                 }
-                if(when.indexOf(i) > -1) {
-                    li.className = "marked";
-                    li.addEventListener('click', function() {
-                        window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
-                    });
-                }
-                document.getElementsByClassName("days")[0].appendChild(li);
             }
 
-            $(".calFade").fadeIn("slow", function () {
-                $('.calNext').css("pointer-events", "auto");
-                $('.calPrev').css("pointer-events", "auto");
-                if(nextYear !== -1) {
-                    document.getElementsByClassName("curYear")[0].className = "curYear";
+            let date = new Date();
+            let mo = months[document.getElementsByClassName("curMonth")[0].innerText] + dir;
+            let nextYear = -1;
+
+            if (mo === -1) {
+                mo = 11;
+                nextYear = parseInt(document.getElementsByClassName("curYear")[0].innerText) - 1;
+            } else if (mo === 12) {
+                mo = 0;
+                nextYear = parseInt(document.getElementsByClassName("curYear")[0].innerText) + 1;
+            }
+
+            if (nextYear !== -1) {
+                document.getElementsByClassName("curYear")[0].className = "curYear calFade";
+            }
+
+            $(".calFade").fadeOut("slow", function () {
+                document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
+                while (document.getElementsByClassName("days")[0].firstChild) {
+                    document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
                 }
+
+                if (nextYear !== -1) {
+                    document.getElementsByClassName("curYear")[0].innerText = nextYear;
+                }
+
+                let buffer = new Date("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
+
+                for (let i = 0; i < 6 - buffer.getDay(); i++) {
+                    let li = document.createElement("li");
+                    document.getElementsByClassName("days")[0].appendChild(li);
+                }
+
+                for (var i = 1; i <= months[mo]["Days"]; i++) {
+                    let li = document.createElement("li");
+                    if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
+                        let span = document.createElement("span");
+                        span.className = "active";
+                        span.innerText = i;
+                        li.appendChild(span);
+                    } else {
+                        li.innerText = i;
+                    }
+                    if (when.indexOf(i) > -1) {
+                        li.className = "marked";
+                        li.addEventListener('click', function () {
+                            window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
+                        });
+                    }
+                    document.getElementsByClassName("days")[0].appendChild(li);
+                }
+
+                $(".calFade").fadeIn("slow", function () {
+                    $('.calNext').css("pointer-events", "auto");
+                    $('.calPrev').css("pointer-events", "auto");
+                    if (nextYear !== -1) {
+                        document.getElementsByClassName("curYear")[0].className = "curYear";
+                    }
+                });
             });
-        });
+        },
+        async: false
     });
 }
 
@@ -370,10 +383,10 @@ window.addEventListener('load',
 
         console.log("trying click");
 
-        document.getElementsByClassName("calPrev")[0].addEventListener("click", function() {
+        document.getElementsByClassName("calPrev")[0].addEventListener("click", function () {
             updateCalendar(-1);
         });
-        document.getElementsByClassName("calNext")[0].addEventListener("click", function() {
+        document.getElementsByClassName("calNext")[0].addEventListener("click", function () {
             updateCalendar(1);
         });
 
