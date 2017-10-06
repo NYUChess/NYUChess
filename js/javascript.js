@@ -90,6 +90,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             console.log(conName.innerText.length);
             if(conName.innerText.length > 15) {
                 console.log(conName.innerText);
+                conName.style.lineHeight = "100%";
             }
             conName.style.fontFamily = fonts[Math.floor(Math.random()*fonts.length)];
 
