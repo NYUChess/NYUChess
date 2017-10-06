@@ -1,10 +1,12 @@
 var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "not"];
 var curPage = 0;
+
 var fonts = ["Comic Sans MS", "Courier New", "Times New Roman", "Verdana", "Georgia", "Lucida Handwriting", "Trebuchet MS", "Bookman", "Garamond", "Impact"];
+
 var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
-var admins = {};
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
+
 let leap = 0;
 if ((new Date().getFullYear()-2000)%4 === 0) {leap = 29} else {leap = 28};
 let months = {
@@ -21,7 +23,9 @@ let months = {
     "November": {"Days": 30, "Next": "June", "Prev": "April"},
     "December": {"Days": 31, "Next": "June", "Prev": "April"}
 };
-    
+
+var admins = {};
+
     function getAdmins(url) {
     jQuery.ajax({
         url: url,
