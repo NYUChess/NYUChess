@@ -136,8 +136,8 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
     // Make calendar
     console.log("Work on calendar");
     console.log(responseText["occurrences"]);
-    document.getElementsByClassName("calPrev")[0].onclick = updateCalendar(-1);
-    document.getElementsByClassName("calNext")[0].onclick = updateCalendar(0);
+    document.getElementsByClassName("calPrev")[0].addEventListener('click', updateCalendar(-1));
+    document.getElementsByClassName("calNext")[0].addEventListener('click', updateCalendar(0));
 
     let date = new Date();
     console.log("OPA");
