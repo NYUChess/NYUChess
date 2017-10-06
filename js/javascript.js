@@ -153,6 +153,7 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
 
     document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
     document.getElementsByClassName("curYear")[0].innerText = date.getYear();
+    console.log(date.getYear());
 
     console.log(date.getDay());
     for(var i = 1; i <= months[date.getMonth()]["Days"]; i ++) {
@@ -188,6 +189,8 @@ function updateCalendar(dir) {
         while (document.getElementsByClassName("days")[0].firstChild) {
             document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
         }
+
+        let date = new Date();
 
         for (var i = 1; i <= months[mo]["Days"]; i++) {
             let li = document.createElement("li");
