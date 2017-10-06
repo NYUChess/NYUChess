@@ -194,10 +194,7 @@ function updateCalendar(dir) {
 
         for (var i = 1; i <= months[mo]["Days"]; i++) {
             let li = document.createElement("li");
-            console.log(document.getElementsByClassName("curYear")[0].innerText);
-            console.log(months[document.getElementsByClassName("curYear")[0].innerText]);
-            console.log(date.getMonth());
-            if (i === date.getDay() + 1 && months[document.getElementsByClassName("curYear")[0].innerText] === date.getMonth()) {
+            if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
                 let span = document.createElement("span");
                 span.className = "active";
                 span.innerText = i;
