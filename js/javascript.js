@@ -149,59 +149,6 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
     }
 });
 
-jQuery.ajax({
-    url: "https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key,
-    success: function (responseText) {
-        console.log("MEETINGS");
-        console.log(responseText);
-        let when = [];
-        for (let x = 0; x < responseText.length; x++) {
-            for (let i = 0; i < responseText[x]["occurrences"].length; i++) {
-                let occ = responseText[x]["occurrences"][i];
-                let date = new Date(occ["start_at"]);
-                console.log(occ["start_at"]);
-                console.log(date.getDate());
-                when.push(date.getDate());
-            }
-        }
-        // Make calendar
-        console.log("Work on calendar");
-        console.log(responseText["occurrences"]);
-
-        let date = new Date();
-
-        document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
-        document.getElementsByClassName("curYear")[0].innerText = (date.getYear() - 100 + 2000);
-
-        let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
-
-        for (let i = 0; i < 6 - buffer.getDay(); i++) {
-            let li = document.createElement("li");
-            document.getElementsByClassName("days")[0].appendChild(li);
-        }
-
-        for (var i = 1; i <= months[date.getMonth()]["Days"]; i++) {
-            let li = document.createElement("li");
-            if (i === date.getDay() + 1) {
-                let span = document.createElement("span");
-                span.className = "active";
-                span.innerText = i;
-                li.appendChild(span);
-            } else {
-                li.innerText = i;
-            }
-            if (when.indexOf(i) > -1) {
-                li.className = "marked";
-                li.addEventListener('click', function () {
-                    window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
-                });
-            }
-            document.getElementsByClassName("days")[0].appendChild(li);
-        }
-    },
-    async: false
-});
-
 function updateCalendar(dir) {
     console.log("HEADING TO " + dir);
     jQuery.ajax({
@@ -553,6 +500,59 @@ window.addEventListener('load',
                 document.getElementsByClassName("events")[0].appendChild(div);
             }
         }
+
+        jQuery.ajax({
+            url: "https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key,
+            success: function (responseText) {
+                console.log("MEETINGS");
+                console.log(responseText);
+                let when = [];
+                for (let x = 0; x < responseText.length; x++) {
+                    for (let i = 0; i < responseText[x]["occurrences"].length; i++) {
+                        let occ = responseText[x]["occurrences"][i];
+                        let date = new Date(occ["start_at"]);
+                        console.log(occ["start_at"]);
+                        console.log(date.getDate());
+                        when.push(date.getDate());
+                    }
+                }
+                // Make calendar
+                console.log("Work on calendar");
+                console.log(responseText["occurrences"]);
+
+                let date = new Date();
+
+                document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
+                document.getElementsByClassName("curYear")[0].innerText = (date.getYear() - 100 + 2000);
+
+                let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
+
+                for (let i = 0; i < 6 - buffer.getDay(); i++) {
+                    let li = document.createElement("li");
+                    document.getElementsByClassName("days")[0].appendChild(li);
+                }
+
+                for (var i = 1; i <= months[date.getMonth()]["Days"]; i++) {
+                    let li = document.createElement("li");
+                    if (i === date.getDay() + 1) {
+                        let span = document.createElement("span");
+                        span.className = "active";
+                        span.innerText = i;
+                        li.appendChild(span);
+                    } else {
+                        li.innerText = i;
+                    }
+                    if (when.indexOf(i) > -1) {
+                        li.className = "marked";
+                        li.addEventListener('click', function () {
+                            window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
+                        });
+                    }
+                    document.getElementsByClassName("days")[0].appendChild(li);
+                }
+            },
+            async: false
+        });
 
     }, false);
 
