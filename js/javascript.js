@@ -154,7 +154,7 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
     document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
     document.getElementsByClassName("curYear")[0].innerText = (date.getYear() - 100 + 2000);
 
-    let buffer = new Date("" + date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
+    let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
 
     for(let i = 0; i < 6 - buffer.getDay(); i ++) {
         let li = document.createElement("li");
