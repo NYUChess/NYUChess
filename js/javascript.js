@@ -10,18 +10,18 @@ var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18p
 let leap = 0;
 if ((new Date().getFullYear()-2000)%4 === 0) {leap = 29} else {leap = 28};
 let months = {
-    "January": {"Days": 31, "Next": "February", "Prev": "December"},
-    "February": {"Days": leap, "Next": "March", "Prev": "January"},
-    "March": {"Days": 31, "Next": "April", "Prev": "February"},
-    "April": {"Days": 30, "Next": "May", "Prev": "February"},
-    "May": {"Days": 31, "Next": "June", "Prev": "April"},
-    "June": {"Days": 30, "Next": "July", "Prev": "May"},
-    "July": {"Days": 31, "Next": "June", "Prev": "April"},
-    "August": {"Days": 31, "Next": "June", "Prev": "April"},
-    "September": {"Days": 30, "Next": "June", "Prev": "April"},
-    "October": {"Days": 31, "Next": "June", "Prev": "April"},
-    "November": {"Days": 30, "Next": "June", "Prev": "April"},
-    "December": {"Days": 31, "Next": "June", "Prev": "April"}
+    1: {"Days": 31, "Next": 2, "Prev": 12, "Name": "January"},
+    2: {"Days": leap, "Next": 3, "Prev": 1, "Name": "February"},
+    3: {"Days": 31, "Next": 4, "Prev": 2, "Name": "March"},
+    4: {"Days": 30, "Next": 5, "Prev": 3, "Name": "April"},
+    5: {"Days": 31, "Next": 6, "Prev": 4, "Name": "May"},
+    6: {"Days": 30, "Next": 7, "Prev": 5, "Name": "June"},
+    7: {"Days": 31, "Next": 8, "Prev": 6, "Name": "July"},
+    8: {"Days": 31, "Next": 9, "Prev": 7, "Name": "August"},
+    9: {"Days": 30, "Next": 10, "Prev": 8, "Name": "September"},
+    10: {"Days": 31, "Next": 11, "Prev": 9, "Name": "October"},
+    11: {"Days": 30, "Next": 12, "Prev": 10, "Name": "November"},
+    12: {"Days": 31, "Next": 1, "Prev": 11, "Name": "December"}
 };
 
 var admins = {};
