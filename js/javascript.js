@@ -186,7 +186,7 @@ function updateCalendar(dir) {
         }
 
         $(".days").fadeOut("slow", function () {
-            
+            $(".curMonth").fadeOut("slow", function () {});
             while (document.getElementsByClassName("days")[0].firstChild) {
                 document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
             }
@@ -207,6 +207,7 @@ function updateCalendar(dir) {
             }
 
             $(".days").fadeIn("slow", function () {
+                $(".curMonth").fadeIn("slow", function () {});
             });
         });
     });
