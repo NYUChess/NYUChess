@@ -200,6 +200,8 @@ li{
 }
 
 .contactDetails {
+    overflow: scroll;
+    overflow-x: hidden;
     float: left;
     width: 22vw;
     height: 100%;
