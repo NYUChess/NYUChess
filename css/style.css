@@ -49,6 +49,7 @@ body {
 }
 
 .topBar {
+    z-index: 9001;
     position: fixed;
     width: 100%;
     top: 0;
@@ -226,6 +227,7 @@ body {font-family: Verdana, sans-serif;}
     width: 100%;
     background: #1abc9c;
     text-align: center;
+    list-style: none;
 }
 
 /* Month list */
