@@ -7,7 +7,8 @@ var admins = {};
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 let leap = 0;
 if ((new Date().getFullYear()-2000)%4 === 0) {leap = 29} else {leap = 28};
-let months = {"January": {"Days": 31, "Next": "February", "Prev": "December"},
+let months = {
+    "January": {"Days": 31, "Next": "February", "Prev": "December"},
     "February": {"Days": leap, "Next": "March", "Prev": "January"},
     "March": {"Days": 31, "Next": "April", "Prev": "February"},
     "April": {"Days": 30, "Next": "May", "Prev": "February"},
@@ -18,7 +19,9 @@ let months = {"January": {"Days": 31, "Next": "February", "Prev": "December"},
     "September": {"Days": 30, "Next": "June", "Prev": "April"},
     "October": {"Days": 31, "Next": "June", "Prev": "April"},
     "November": {"Days": 30, "Next": "June", "Prev": "April"},
-    "December": {"Days": 31, "Next": "June", "Prev": "April"};
+    "December": {"Days": 31, "Next": "June", "Prev": "April"}
+};
+    
     function getAdmins(url) {
     jQuery.ajax({
         url: url,
