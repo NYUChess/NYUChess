@@ -62,7 +62,7 @@ body {
 
 .main, .about, .calendar, .contact, .events, .forms, .news, .pictures, .not {
     font-size: 2vw;
-    padding: 5vh 5vw;
+    padding: 3% 5vw;
     background-color: #333;
     border: 1vw solid #444;
     width: 80vw;
@@ -161,7 +161,7 @@ li{
 }
 
 .contactBorder1 {
-    margin-top: 7%;
+    margin-top: 4%;
     width: 68vw;
     height: 30vh;
     max-height:15vw;
@@ -171,7 +171,7 @@ li{
 }
 
 .contactBorder2 {
-    margin-top: 7%;
+    margin-top: 4%;
     width: 68vw;
     height: 30vh;
     max-height: 15vw;
