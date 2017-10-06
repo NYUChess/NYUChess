@@ -21,7 +21,19 @@ let months = {
     8: {"Days": 30, "Next": 9, "Prev": 7, "Name": "September"},
     9: {"Days": 31, "Next": 10, "Prev": 8, "Name": "October"},
     10: {"Days": 30, "Next": 11, "Prev": 9, "Name": "November"},
-    11: {"Days": 31, "Next": 0, "Prev": 10, "Name": "December"}
+    11: {"Days": 31, "Next": 0, "Prev": 10, "Name": "December"},
+    "January": 0,
+    "February": 1,
+    "March": 2,
+    "April": 3,
+    "May": 4,
+    "June": 5,
+    "July": 6,
+    "August": 7,
+    "September": 8,
+    "October": 9,
+    "November": 10,
+    "December": 11
 };
 
 var admins = {};
@@ -138,6 +150,10 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
     console.log(responseText["occurrences"]);
 
     let date = new Date();
+
+    document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
+    document.getElementsByClassName("curYear")[0].innerText = date.getYear();
+
     console.log(date.getDay());
     for(var i = 1; i <= months[date.getMonth()]["Days"]; i ++) {
         let li = document.createElement("li");
@@ -155,6 +171,33 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
 
 function updateCalendar(dir) {
     console.log("HEADING TO " + dir);
+
+    let mo = months[document.getElementsByClassName("curMonth")[0].innerText] + dir;
+    if(mo === -1) {
+        mo = 11;
+        document.getElementsByClassName("curYear")[0].innerText = parseInt(document.getElementsByClassName("curYear")[0].innerText) - 1;
+    } else if(mo === 12) {
+        mo = 0;
+        document.getElementsByClassName("curYear")[0].innerText = parseInt(document.getElementsByClassName("curYear")[0].innerText) + 1;
+    }
+    document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
+
+    while (document.getElementsByClassName("days")[0].firstChild) {
+        document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
+    }
+
+    for(var i = 1; i <= months[mo]["Days"]; i ++) {
+        let li = document.createElement("li");
+        if(i ===  date.getDay()) {
+            let span = document.createElement("span");
+            span.className = "active";
+            span.innerText = i;
+            li.appendChild(span);
+        } else {
+            li.innerText = i;
+        }
+        document.getElementsByClassName("days")[0].appendChild(li);
+    }
 }
 
 function getData(arr, position, responseText) {
