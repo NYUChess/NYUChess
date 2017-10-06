@@ -334,5 +334,6 @@ body {font-family: Verdana, sans-serif;}
 }
 
 .marked {
-    outline: violet solid 0.3vw;
+    outline: solid 0.3vw;
+    cursor: pointer;
 }
