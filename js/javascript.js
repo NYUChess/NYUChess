@@ -62,7 +62,8 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             type++;
             if(Object.keys(cons).length % 2 !== 0) {
                 if(type === 0) {
-                    div.style.marginLeft = "17vw";
+                    div.style.marginLeft = "17vw !important";
+                    console.log("SETTING MARGIN");
                 }
                 if(type !== 0 && type % 2 === 0) {
                     div.style.float = "right";
