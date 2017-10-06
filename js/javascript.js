@@ -186,24 +186,27 @@ function updateCalendar(dir) {
         }
 
         $(".days").fadeOut("slow", function () {
+            
             while (document.getElementsByClassName("days")[0].firstChild) {
                 document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
             }
-            $(".days").fadeIn("slow", function () {
-                document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
 
-                for (var i = 1; i <= months[mo]["Days"]; i++) {
-                    let li = document.createElement("li");
-                    if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
-                        let span = document.createElement("span");
-                        span.className = "active";
-                        span.innerText = i;
-                        li.appendChild(span);
-                    } else {
-                        li.innerText = i;
-                    }
-                    document.getElementsByClassName("days")[0].appendChild(li);
+            document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
+
+            for (var i = 1; i <= months[mo]["Days"]; i++) {
+                let li = document.createElement("li");
+                if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
+                    let span = document.createElement("span");
+                    span.className = "active";
+                    span.innerText = i;
+                    li.appendChild(span);
+                } else {
+                    li.innerText = i;
                 }
+                document.getElementsByClassName("days")[0].appendChild(li);
+            }
+
+            $(".days").fadeIn("slow", function () {
             });
         });
     });
