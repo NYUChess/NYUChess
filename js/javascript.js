@@ -61,7 +61,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             div.className = "contactBorder" + ((type % 2) + 1);
             if(Object.keys(cons).length % 2 !== 0) {
                 if(type === 0) {
-                    div.style.marginLeft = "17vw !important";
+                    div.style.marginLeft = "17vw";
                 }
                 if(type !== 0 && type % 2 === 0) {
                     div.style.float = "right";
