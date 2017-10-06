@@ -244,8 +244,8 @@ window.addEventListener('load',
 
         console.log("trying click");
 
-        document.getElementsByClassName("calPrev")[0].addEventListener('click', updateCalendar(-1));
-        document.getElementsByClassName("calNext")[0].addEventListener('click', updateCalendar(0));
+        document.getElementsByClassName("calPrev")[0].addEventListener('click', updateCalendar(-1), false);
+        document.getElementsByClassName("calNext")[0].addEventListener('click', updateCalendar(0), false);
 
         document.getElementsByClassName("aboutBar")[0].addEventListener('click', function () {
             if (location.href !== "http://nyuchess.com/about") {
