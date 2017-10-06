@@ -160,7 +160,8 @@ li{
     padding-right: 5vw;
 }
 
-.contactBorder1 .contactBorder2{
+.contactBorder1, .contactBorder2{
+    float: left;
     margin-top: 4%;
     width: 33vw;
     height: 30vh;
