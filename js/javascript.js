@@ -10,18 +10,18 @@ var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18p
 let leap = 0;
 if ((new Date().getFullYear()-2000)%4 === 0) {leap = 29} else {leap = 28};
 let months = {
-    1: {"Days": 31, "Next": 2, "Prev": 12, "Name": "January"},
-    2: {"Days": leap, "Next": 3, "Prev": 1, "Name": "February"},
-    3: {"Days": 31, "Next": 4, "Prev": 2, "Name": "March"},
-    4: {"Days": 30, "Next": 5, "Prev": 3, "Name": "April"},
-    5: {"Days": 31, "Next": 6, "Prev": 4, "Name": "May"},
-    6: {"Days": 30, "Next": 7, "Prev": 5, "Name": "June"},
-    7: {"Days": 31, "Next": 8, "Prev": 6, "Name": "July"},
-    8: {"Days": 31, "Next": 9, "Prev": 7, "Name": "August"},
-    9: {"Days": 30, "Next": 10, "Prev": 8, "Name": "September"},
-    10: {"Days": 31, "Next": 11, "Prev": 9, "Name": "October"},
-    11: {"Days": 30, "Next": 12, "Prev": 10, "Name": "November"},
-    12: {"Days": 31, "Next": 1, "Prev": 11, "Name": "December"}
+    0: {"Days": 31, "Next": 1, "Prev": 11, "Name": "January"},
+    1: {"Days": leap, "Next": 2, "Prev": 0, "Name": "February"},
+    2: {"Days": 31, "Next": 3, "Prev": 1, "Name": "March"},
+    3: {"Days": 30, "Next": 4, "Prev": 2, "Name": "April"},
+    4: {"Days": 31, "Next": 5, "Prev": 3, "Name": "May"},
+    5: {"Days": 30, "Next": 6, "Prev": 4, "Name": "June"},
+    6: {"Days": 31, "Next": 7, "Prev": 5, "Name": "July"},
+    7: {"Days": 31, "Next": 8, "Prev": 6, "Name": "August"},
+    8: {"Days": 30, "Next": 9, "Prev": 7, "Name": "September"},
+    9: {"Days": 31, "Next": 10, "Prev": 8, "Name": "October"},
+    10: {"Days": 30, "Next": 11, "Prev": 9, "Name": "November"},
+    11: {"Days": 31, "Next": 0, "Prev": 10, "Name": "December"}
 };
 
 var admins = {};
@@ -138,6 +138,7 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
     console.log(responseText["occurrences"]);
 
     let date = new Date();
+    console.log(date.getDay());
     for(var i = 1; i <= months[date.getMonth()]["Days"]; i ++) {
         let li = document.createElement("li");
         if(i ===  date.getDay()) {
