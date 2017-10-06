@@ -174,9 +174,9 @@ function updateCalendar(dir) {
     console.log("HEADING TO " + dir);
     $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function(responseText) {
 
-        console.log(responseText);
-
+        let date = new Date();
         let mo = months[document.getElementsByClassName("curMonth")[0].innerText] + dir;
+
         if (mo === -1) {
             mo = 11;
             document.getElementsByClassName("curYear")[0].innerText = parseInt(document.getElementsByClassName("curYear")[0].innerText) - 1;
@@ -184,26 +184,28 @@ function updateCalendar(dir) {
             mo = 0;
             document.getElementsByClassName("curYear")[0].innerText = parseInt(document.getElementsByClassName("curYear")[0].innerText) + 1;
         }
-        document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
 
-        while (document.getElementsByClassName("days")[0].firstChild) {
-            document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
-        }
-
-        let date = new Date();
-
-        for (var i = 1; i <= months[mo]["Days"]; i++) {
-            let li = document.createElement("li");
-            if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
-                let span = document.createElement("span");
-                span.className = "active";
-                span.innerText = i;
-                li.appendChild(span);
-            } else {
-                li.innerText = i;
+        $(".days").fadeOut("slow", function () {
+            while (document.getElementsByClassName("days")[0].firstChild) {
+                document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
             }
-            document.getElementsByClassName("days")[0].appendChild(li);
-        }
+            $(".days").fadeIn("slow", function () {
+                document.getElementsByClassName("curMonth")[0].innerText = months[mo]["Name"];
+
+                for (var i = 1; i <= months[mo]["Days"]; i++) {
+                    let li = document.createElement("li");
+                    if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
+                        let span = document.createElement("span");
+                        span.className = "active";
+                        span.innerText = i;
+                        li.appendChild(span);
+                    } else {
+                        li.innerText = i;
+                    }
+                    document.getElementsByClassName("days")[0].appendChild(li);
+                }
+            });
+        });
     });
 }
 
