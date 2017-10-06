@@ -98,7 +98,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function(responseText) {
     // Make calendar
     console.log("Work on calendar");
-    console.log(responseText);
+    console.log(responseText["occurrences"]);
 });
 
 function getData(arr, position, responseText) {
