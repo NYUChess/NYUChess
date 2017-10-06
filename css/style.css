@@ -249,6 +249,11 @@ body {font-family: Verdana, sans-serif;}
     margin-right: 27.5%;
 }
 
+.calPrev:hover, .calNext:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
 .calInfo {
     width: 25%;
     float: left;
