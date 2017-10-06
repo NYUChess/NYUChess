@@ -155,12 +155,16 @@ function updateCalendar(dir) {
         let mo = months[document.getElementsByClassName("curMonth")[0].innerText] + dir;
         let nextYear = document.getElementsByClassName("curYear")[0].innerText;
 
+        let change = -1;
+
         if (mo === -1) {
             mo = 11;
             nextYear = parseInt(document.getElementsByClassName("curYear")[0].innerText) - 1;
+            change = 0;
         } else if (mo === 12) {
             mo = 0;
             nextYear = parseInt(document.getElementsByClassName("curYear")[0].innerText) + 1;
+            change = 0;
         }
 
         let when = [];
@@ -174,7 +178,7 @@ function updateCalendar(dir) {
             }
         }
 
-        if(nextYear !== -1) {
+        if(change !== -1) {
             document.getElementsByClassName("curYear")[0].className = "curYear calFade";
         }
 
@@ -224,7 +228,7 @@ function updateCalendar(dir) {
             $(".calFade").fadeIn("slow", function () {
                 $('.calNext').css("pointer-events", "auto");
                 $('.calPrev').css("pointer-events", "auto");
-                if(nextYear !== -1) {
+                if(change !== -1) {
                     document.getElementsByClassName("curYear")[0].className = "curYear";
                 }
             });
