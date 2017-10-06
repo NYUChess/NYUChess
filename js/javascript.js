@@ -5,8 +5,21 @@ var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var admins = {};
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
-
-function getAdmins(url) {
+let leap = 0;
+if ((new Date().getFullYear()-2000)%4 === 0) {leap = 29} else {leap = 28};
+let months = {"January": {"Days": 31, "Next": "February", "Prev": "December"},
+    "February": {"Days": leap, "Next": "March", "Prev": "January"},
+    "March": {"Days": 31, "Next": "April", "Prev": "February"},
+    "April": {"Days": 30, "Next": "May", "Prev": "February"},
+    "May": {"Days": 31, "Next": "June", "Prev": "April"},
+    "June": {"Days": 30, "Next": "July", "Prev": "May"},
+    "July": {"Days": 31, "Next": "June", "Prev": "April"},
+    "August": {"Days": 31, "Next": "June", "Prev": "April"},
+    "September": {"Days": 30, "Next": "June", "Prev": "April"},
+    "October": {"Days": 31, "Next": "June", "Prev": "April"},
+    "November": {"Days": 30, "Next": "June", "Prev": "April"},
+    "December": {"Days": 31, "Next": "June", "Prev": "April"};
+    function getAdmins(url) {
     jQuery.ajax({
         url: url,
         success: function (responseText) {
@@ -116,7 +129,13 @@ $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, functio
     // Make calendar
     console.log("Work on calendar");
     console.log(responseText["occurrences"]);
+    document.getElementsByClassName("calPrev")[0].onclick = updateCalendar(-1);
+    document.getElementsByClassName("calNext")[0].onclick = updateCalendar(0);
 });
+
+function updateCalendar(dir) {
+    console.log("HEADING TO " + dir);
+}
 
 function getData(arr, position, responseText) {
     var obj = {};
