@@ -85,6 +85,9 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             var conName = document.createElement("div");
             conName.className = "contactName text-center";
             conName.innerText = key;
+            if(conName.innerText.length > 15) {
+                conName.lineHeight = "100%";
+            }
             conName.style.fontFamily = fonts[Math.floor(Math.random()*fonts.length)];
 
             var conSpec = document.createElement("div");
