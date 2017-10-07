@@ -336,4 +336,5 @@ body {font-family: Verdana, sans-serif;}
 .marked {
     outline: solid 0.3vw;
     cursor: pointer;
+    -moz-outline-radius: 100%;
 }
