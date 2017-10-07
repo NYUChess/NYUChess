@@ -13,7 +13,7 @@ if ((new Date().getFullYear() - 2000) % 4 === 0) {
 } else {
     leap = 28
 }
-;
+
 let months = {
     0: {"Days": 31, "Next": 1, "Prev": 11, "Name": "January"},
     1: {"Days": leap, "Next": 2, "Prev": 0, "Name": "February"},
