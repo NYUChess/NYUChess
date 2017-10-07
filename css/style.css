@@ -22,6 +22,7 @@ body {
     border: none;
     background: none;
     height: inherit;
+    max-height: inherit;
     text-overflow: clip;
 }
 
@@ -338,10 +339,10 @@ body {font-family: Verdana, sans-serif;}
 
 .marked {
     cursor: pointer;
-    box-shadow: 0 0 3pt 2pt red;
+    box-shadow: 0 0 .5vw .3vw red;
     border-radius: 10vw;
 }
 
 .marked:hover {
-    box-shadow: 0 0 0 2pt red, inset 0 0 5pt 1pt;
+    box-shadow: 0 0 0 .3vw red, inset 0 0 .5vw .2vw;
 }
