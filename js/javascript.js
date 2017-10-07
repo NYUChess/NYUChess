@@ -170,8 +170,11 @@ function updateCalendar(dir) {
         let when = [];
         for(let x = 0; x < responseText.length; x++) {
             for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
-                let occ = responseText[x]["occurrences"][i];
-                let date = new Date(occ["starts_at"]);
+                let starts = responseText[x]["occurrences"][i]["starts_at"];
+                if(starts.indexOf("Z") < 0) {
+                    starts = starts.replace("-", " ");
+                }
+                let date = new Date(starts);
                 if(parseInt(nextYear) === date.getFullYear() && date.getMonth() === mo) {
                     when.push(date.getDate());
                 }
@@ -309,8 +312,11 @@ $(function () {
         for(let x = 0; x < responseText.length; x++) {
             console.log(responseText[x]["occurrences"]);
             for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
-                let occ = responseText[x]["occurrences"][i];
-                let date = new Date(occ["starts_at"]);
+                let starts = responseText[x]["occurrences"][i]["starts_at"];
+                if(starts.indexOf("Z") < 0) {
+                    starts = starts.replace("-", " ");
+                }
+                let date = new Date(starts);
                 if(date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth()) {
                     when.push(date.getDate());
                 }
