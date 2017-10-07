@@ -98,16 +98,16 @@ li{
 .event {
     width: 70vw;
     height: 20vw;
-    outline: .25vw solid #222;
+    border: .5vw solid white;
     margin-bottom: 4vw;
     display: none;
 }
 
 .eventPic {
     float: left;
-    outline: 0.25vw solid #222;
-    height: 20vw;
-    width: 20vw;
+    border-right: 0.5vw solid white;
+    height: 19vw;
+    width: 19vw;
     background-size:cover !important;
     -webkit-background-size: cover !important;
     -moz-background-size: cover !important;
@@ -116,17 +116,17 @@ li{
 
 .eventInfo {
     float: left;
+    width: 50vw;
 }
 
 .eventTitle {
     height: 4vw;
-    width: 50vw;
     padding: 0.5vw;
+    line-height: 4vh;
 }
 
 .eventDesc {
-    height: 16vw;
-    width: 50vw;
+    height: 15vw;
     overflow: scroll;
     overflow-x: hidden;
     padding: 1vw;
