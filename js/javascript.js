@@ -367,6 +367,18 @@ $(function () {
             document.getElementsByClassName("days")[0].appendChild(li);
         }
     });
+
+    function forms() {
+        $.get("https://graph.facebook.com/v2.10/194680683893776/feed?access_token=" + token, function (responseText) {
+            for (let i = 0; i < 5 && responseText["paging"]["next"]; i++) {
+                console.log(responseText);
+                forms();
+            }
+        });
+    }
+
+    forms();
+
 });
 
 window.addEventListener('load',
