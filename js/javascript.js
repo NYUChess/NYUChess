@@ -525,7 +525,7 @@ window.addEventListener('load',
                 }
                 if (responseText["data"][i]["start_time"]) {
                     let date = new Date(responseText["data"][i]["start_time"]);
-                    desc.textContent += " " + date.getFullYear() + " " + (date.getMonth() + 1) + " " + date.getDate() + " at " + date.getHours() + " " + date.getMinutes() + "\r\n\r\n";
+                    desc.textContent += " " + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " at " + date.getHours() + ":" + date.getMinutes() + "\r\n\r\n";
                 } else {
                     desc.textContent += "No time announced!\n\n";
                 }
