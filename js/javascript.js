@@ -8,7 +8,12 @@ var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 
 let leap = 0;
-if ((new Date().getFullYear()-2000)%4 === 0) {leap = 29} else {leap = 28};
+if ((new Date().getFullYear() - 2000) % 4 === 0) {
+    leap = 29
+} else {
+    leap = 28
+}
+;
 let months = {
     0: {"Days": 31, "Next": 1, "Prev": 11, "Name": "January"},
     1: {"Days": leap, "Next": 2, "Prev": 0, "Name": "February"},
@@ -35,10 +40,11 @@ let months = {
     "November": 10,
     "December": 11
 };
+let DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 var admins = {};
 
-    function getAdmins(url) {
+function getAdmins(url) {
     jQuery.ajax({
         url: url,
         success: function (responseText) {
@@ -91,15 +97,15 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
         if (cons.hasOwnProperty(key)) {
             var div = document.createElement("div");
             div.className = "contactBorder" + ((type % 2) + 1);
-            if(Object.keys(cons).length % 2 !== 0) {
-                if(type === 0) {
+            if (Object.keys(cons).length % 2 !== 0) {
+                if (type === 0) {
                     div.style.marginLeft = "17vw";
                 }
-                if(type !== 0 && type % 2 === 0) {
+                if (type !== 0 && type % 2 === 0) {
                     div.style.float = "right";
                 }
             } else {
-                if(type % 2 === 1) {
+                if (type % 2 === 1) {
                     div.style.float = "right";
                 }
             }
@@ -117,11 +123,11 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
             var conName = document.createElement("div");
             conName.className = "contactName text-center";
             conName.innerText = key;
-            if(conName.innerText.length > 15) {
+            if (conName.innerText.length > 15) {
                 conName.style.lineHeight = "100%";
                 conName.style.marginBottom = "2.5%";
             }
-            conName.style.fontFamily = fonts[Math.floor(Math.random()*fonts.length)];
+            conName.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
 
             var conSpec = document.createElement("div");
             conSpec.className = "contactSpec";
@@ -146,7 +152,7 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 
 function updateCalendar(dir) {
     console.log("HEADING TO " + dir);
-    $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function(responseText) {
+    $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function (responseText) {
 
         $('.calNext').css("pointer-events", "none");
         $('.calPrev').css("pointer-events", "none");
@@ -168,20 +174,20 @@ function updateCalendar(dir) {
         }
 
         let when = [];
-        for(let x = 0; x < responseText.length; x++) {
-            for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
+        for (let x = 0; x < responseText.length; x++) {
+            for (let i = 0; i < responseText[x]["occurrences"].length; i++) {
                 let starts = responseText[x]["occurrences"][i]["starts_at"];
-                if(starts.indexOf("Z") < 0) {
+                if (starts.indexOf("Z") < 0) {
                     starts = starts.replace("-", " ");
                 }
                 let date = new Date(starts);
-                if(parseInt(nextYear) === date.getFullYear() && date.getMonth() === mo) {
+                if (parseInt(nextYear) === date.getFullYear() && date.getMonth() === mo) {
                     when.push(date.getDate());
                 }
             }
         }
 
-        if(change !== -1) {
+        if (change !== -1) {
             document.getElementsByClassName("curYear")[0].className = "curYear calFade";
         }
 
@@ -191,7 +197,7 @@ function updateCalendar(dir) {
                 document.getElementsByClassName("days")[0].removeChild(document.getElementsByClassName("days")[0].firstChild);
             }
 
-            if(nextYear !== -1) {
+            if (nextYear !== -1) {
                 document.getElementsByClassName("curYear")[0].innerText = nextYear;
             }
 
@@ -200,11 +206,11 @@ function updateCalendar(dir) {
             console.log(buffer.getDay());
 
             let buff = buffer.getDay() - 1;
-            if(buff === -1) {
+            if (buff === -1) {
                 buff = 6;
             }
 
-            for(let i = 0; i < buff; i ++) {
+            for (let i = 0; i < buff; i++) {
                 let li = document.createElement("li");
                 document.getElementsByClassName("days")[0].appendChild(li);
             }
@@ -219,9 +225,9 @@ function updateCalendar(dir) {
                 } else {
                     li.innerText = i;
                 }
-                if(when.indexOf(i) > -1) {
+                if (when.indexOf(i) > -1) {
                     li.className = "marked";
-                    li.addEventListener('click', function() {
+                    li.addEventListener('click', function () {
                         window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
                     });
                 }
@@ -231,7 +237,7 @@ function updateCalendar(dir) {
             $(".calFade").fadeIn("slow", function () {
                 $('.calNext').css("pointer-events", "auto");
                 $('.calPrev').css("pointer-events", "auto");
-                if(change !== -1) {
+                if (change !== -1) {
                     document.getElementsByClassName("curYear")[0].className = "curYear";
                 }
             });
@@ -305,19 +311,19 @@ function getData(arr, position, responseText) {
 $(function () {
     console.log("ready!");
 
-    $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function(responseText) {
+    $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function (responseText) {
         console.log("MEETINGS");
         console.log(responseText);
         let when = [];
-        for(let x = 0; x < responseText.length; x++) {
+        for (let x = 0; x < responseText.length; x++) {
             console.log(responseText[x]["occurrences"]);
-            for(let i = 0; i < responseText[x]["occurrences"].length; i++) {
+            for (let i = 0; i < responseText[x]["occurrences"].length; i++) {
                 let starts = responseText[x]["occurrences"][i]["starts_at"];
-                if(starts.indexOf("Z") < 0) {
+                if (starts.indexOf("Z") < 0) {
                     starts = starts.replace("-", " ");
                 }
                 let date = new Date(starts);
-                if(date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth()) {
+                if (date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth()) {
                     when.push(date.getDate());
                 }
             }
@@ -334,17 +340,17 @@ $(function () {
         let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
 
         let buff = buffer.getDay() - 1;
-        if(buff === -1) {
+        if (buff === -1) {
             buff = 6;
         }
-        for(let i = 0; i < buff; i ++) {
+        for (let i = 0; i < buff; i++) {
             let li = document.createElement("li");
             document.getElementsByClassName("days")[0].appendChild(li);
         }
 
-        for(var i = 1; i <= months[date.getMonth()]["Days"]; i ++) {
+        for (var i = 1; i <= months[date.getMonth()]["Days"]; i++) {
             let li = document.createElement("li");
-            if(i ===  date.getDay() + 1) {
+            if (i === date.getDay() + 1) {
                 let span = document.createElement("span");
                 span.className = "active";
                 span.innerText = i;
@@ -352,9 +358,9 @@ $(function () {
             } else {
                 li.innerText = i;
             }
-            if(when.indexOf(i) > -1) {
+            if (when.indexOf(i) > -1) {
                 li.className = "marked";
-                li.addEventListener('click', function() {
+                li.addEventListener('click', function () {
                     window.open('https://orgsync.com/61738/events?view=upcoming', '_blank');
                 });
             }
@@ -392,10 +398,10 @@ window.addEventListener('load',
 
         console.log("trying click");
 
-        document.getElementsByClassName("calPrev")[0].addEventListener("click", function() {
+        document.getElementsByClassName("calPrev")[0].addEventListener("click", function () {
             updateCalendar(-1);
         });
-        document.getElementsByClassName("calNext")[0].addEventListener("click", function() {
+        document.getElementsByClassName("calNext")[0].addEventListener("click", function () {
             updateCalendar(1);
         });
 
@@ -518,7 +524,8 @@ window.addEventListener('load',
                     desc.textContent = "No place announced!";
                 }
                 if (responseText["data"][i]["start_time"]) {
-                    desc.textContent += " " + responseText["data"][i]["start_time"] + "\r\n\r\n";
+                    let date = new Date(responseText["data"][i]["start_time"]);
+                    desc.textContent += " " + date.getFullYear() + " " + (date.getMonth() + 1) + " " + date.getDate() + " at " + date.getHours() + " " + date.getMinutes() + "\r\n\r\n";
                 } else {
                     desc.textContent += "No time announced!\n\n";
                 }
