@@ -368,9 +368,10 @@ $(function () {
         }
     });
 
+    let i = 0;
     function forms() {
         $.get("https://graph.facebook.com/v2.10/194680683893776/feed?access_token=" + token, function (responseText) {
-            for (let i = 0; i < 5 && responseText["paging"]["next"]; i++) {
+            for (i; i < 5 && responseText["paging"]["next"]; i++) {
                 console.log(responseText);
                 forms();
             }
