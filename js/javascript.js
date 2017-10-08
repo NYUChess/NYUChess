@@ -55,99 +55,101 @@ function getAdmins(url) {
             }
             if (responseText["paging"] && responseText["paging"]["next"]) {
                 getAdmins(responseText["paging"]["next"]);
+            } else {
+                $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
+                    getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
+                    console.log(responseText);
+                    //Add mission statement to homepage
+                    document.getElementsByClassName("mission")[0].innerText = responseText["profile_responses"][0]["data"];
+                    document.getElementsByClassName("meetings")[0].innerText = responseText["profile_responses"][1]["data"];
+
+                    document.getElementsByClassName("description")[0].innerText = responseText["description"];
+
+                    //Add people to contact us
+                    var contacts = [];
+
+                    getData(contacts, "President", responseText);
+                    getData(contacts, "Vice President", responseText);
+                    getData(contacts, "Treasurer", responseText);
+                    getData(contacts, "Secretary", responseText);
+                    getData(contacts, "Webmaster", responseText);
+
+                    var cons = {};
+
+                    for (var i = 0; i < contacts.length; i++) {
+                        var pos = "";
+                        if ((contacts[i]["FN"] + " " + contacts[i]["LN"]) in cons && "Pos" in cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]) {
+                            pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
+                        } else {
+                            pos = contacts[i]["Pos"];
+                        }
+                        cons[contacts[i]["FN"] + " " + contacts[i]["LN"]] = {"Pos": pos, id: contacts[i]["ID"]};
+                    }
+
+                    var type = 0;
+                    for (var key in cons) {
+                        if (cons.hasOwnProperty(key)) {
+                            var div = document.createElement("div");
+                            div.className = "contactBorder" + ((type % 2) + 1);
+                            if (Object.keys(cons).length % 2 !== 0) {
+                                if (type === 0) {
+                                    div.style.marginLeft = "17vw";
+                                }
+                                if (type !== 0 && type % 2 === 0) {
+                                    div.style.float = "right";
+                                }
+                            } else {
+                                if (type % 2 === 1) {
+                                    div.style.float = "right";
+                                }
+                            }
+
+                            type++;
+                            var conPic = document.createElement("div");
+                            conPic.className = "contactPic";
+                            var pic = document.createElement("img");
+                            pic.src = "https://graph.facebook.com/v2.10/" + admins[key] + "/picture?access_token=" + token + "&type=large";
+                            conPic.appendChild(pic);
+
+                            var conDet = document.createElement("div");
+                            conDet.className = "contactDetails";
+
+                            var conName = document.createElement("div");
+                            conName.className = "contactName text-center";
+                            conName.innerText = key;
+                            if (conName.innerText.length > 15) {
+                                conName.style.lineHeight = "100%";
+                                conName.style.marginBottom = "2.5%";
+                            }
+                            conName.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+
+                            var conSpec = document.createElement("div");
+                            conSpec.className = "contactSpec";
+                            conSpec.innerText = cons[key]["Pos"];
+
+                            var conCon = document.createElement("div");
+                            conCon.className = "contactContact";
+                            conCon.innerText = cons[key]["id"] + "@nyu.edu";
+
+                            conDet.appendChild(conName);
+                            conDet.appendChild(conSpec);
+                            conDet.appendChild(conCon);
+
+                            div.appendChild(conPic);
+                            div.appendChild(conDet);
+
+                            document.getElementsByClassName("contact")[0].appendChild(div);
+
+                        }
+                    }
+                });
             }
         },
-        async: false
+        async: true
     });
 }
 
-$.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
-    getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
-    console.log(responseText);
-    //Add mission statement to homepage
-    document.getElementsByClassName("mission")[0].innerText = responseText["profile_responses"][0]["data"];
-    document.getElementsByClassName("meetings")[0].innerText = responseText["profile_responses"][1]["data"];
 
-    document.getElementsByClassName("description")[0].innerText = responseText["description"];
-
-    //Add people to contact us
-    var contacts = [];
-
-    getData(contacts, "President", responseText);
-    getData(contacts, "Vice President", responseText);
-    getData(contacts, "Treasurer", responseText);
-    getData(contacts, "Secretary", responseText);
-    getData(contacts, "Webmaster", responseText);
-
-    var cons = {};
-
-    for (var i = 0; i < contacts.length; i++) {
-        var pos = "";
-        if ((contacts[i]["FN"] + " " + contacts[i]["LN"]) in cons && "Pos" in cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]) {
-            pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
-        } else {
-            pos = contacts[i]["Pos"];
-        }
-        cons[contacts[i]["FN"] + " " + contacts[i]["LN"]] = {"Pos": pos, id: contacts[i]["ID"]};
-    }
-
-    var type = 0;
-    for (var key in cons) {
-        if (cons.hasOwnProperty(key)) {
-            var div = document.createElement("div");
-            div.className = "contactBorder" + ((type % 2) + 1);
-            if (Object.keys(cons).length % 2 !== 0) {
-                if (type === 0) {
-                    div.style.marginLeft = "17vw";
-                }
-                if (type !== 0 && type % 2 === 0) {
-                    div.style.float = "right";
-                }
-            } else {
-                if (type % 2 === 1) {
-                    div.style.float = "right";
-                }
-            }
-
-            type++;
-            var conPic = document.createElement("div");
-            conPic.className = "contactPic";
-            var pic = document.createElement("img");
-            pic.src = "https://graph.facebook.com/v2.10/" + admins[key] + "/picture?access_token=" + token + "&type=large";
-            conPic.appendChild(pic);
-
-            var conDet = document.createElement("div");
-            conDet.className = "contactDetails";
-
-            var conName = document.createElement("div");
-            conName.className = "contactName text-center";
-            conName.innerText = key;
-            if (conName.innerText.length > 15) {
-                conName.style.lineHeight = "100%";
-                conName.style.marginBottom = "2.5%";
-            }
-            conName.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
-
-            var conSpec = document.createElement("div");
-            conSpec.className = "contactSpec";
-            conSpec.innerText = cons[key]["Pos"];
-
-            var conCon = document.createElement("div");
-            conCon.className = "contactContact";
-            conCon.innerText = cons[key]["id"] + "@nyu.edu";
-
-            conDet.appendChild(conName);
-            conDet.appendChild(conSpec);
-            conDet.appendChild(conCon);
-
-            div.appendChild(conPic);
-            div.appendChild(conDet);
-
-            document.getElementsByClassName("contact")[0].appendChild(div);
-
-        }
-    }
-});
 
 function updateCalendar(dir) {
     console.log("HEADING TO " + dir);
