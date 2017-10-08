@@ -432,6 +432,7 @@ $(function () {
             if (responseText["paging"] && responseText["paging"]["next"]) {
                 albumPics(responseText["paging"]["next"]);
             } else {
+                console.log("done with pages");
                 buildPics();
             }
         });
