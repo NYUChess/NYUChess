@@ -110,11 +110,14 @@ li{
 .fullForm {
     height: 30vw;
     display: block;
+    border-top-left-radius: 0;
+    border-top-right-radius: 5vw;
 }
 
 .formLink {
     height: 7vw;
     line-height: 7vw;
+    font-size: 2vw;
 }
 
 .formMsg {
@@ -122,6 +125,7 @@ li{
     overflow: scroll;
     overflow-x: hidden;
     padding: 1vw;
+    font-size: 1.8vw;
 }
 
 .eventPic {
