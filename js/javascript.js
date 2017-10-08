@@ -379,6 +379,8 @@ $(function () {
                             (responseText["data"][x]["message"].toLowerCase().indexOf("eboard") > -1)
                             || responseText["data"][x]["message"].toLowerCase().indexOf("e-board") > -1
                             || responseText["data"][x]["message"].toLowerCase().indexOf("election") > -1) {
+                            console.log("LOOK AT");
+                            console.log(responseText["data"][x]);
                             let div = document.createElement("div");
                             div.className = "fullForm";
                             let title = document.createElement("div");
