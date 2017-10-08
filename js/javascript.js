@@ -376,9 +376,9 @@ $(function () {
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
                         if(responseText["data"][x]["message"].toLowerCase().indexOf("http") > -1 &&
-                            (responseText["data"][x]["message"].toLowerCase().indexOf("eboard") > -1)
+                            (responseText["data"][x]["message"].toLowerCase().indexOf("eboard") > -1
                             || responseText["data"][x]["message"].toLowerCase().indexOf("e-board") > -1
-                            || responseText["data"][x]["message"].toLowerCase().indexOf("election") > -1) {
+                            || responseText["data"][x]["message"].toLowerCase().indexOf("election") > -1)) {
                             console.log("LOOK AT");
                             console.log(responseText["data"][x]);
                             let div = document.createElement("div");
@@ -411,7 +411,7 @@ $(function () {
                             link.href = form;
 
                             link.appendChild(title);
-                            title.className = "formLink";
+                            title.className = "formLink text-center";
 
                             let msg = document.createElement("div");
                             msg.className = "formMsg";
