@@ -387,14 +387,17 @@ $(function () {
                             for(let j = 0; j < words.length; j ++) {
                                 if(words[j].indexOf("http:") > -1) {
                                     form = words[j];
+                                    console.log("FOUND IT");
+                                    console.log(form);
                                 }
                             }
 
                             form = form.replace(/&lt;br&gt;/g," ");
 
                             if(form.length > 20) {
-                                form = form.substr(0, 20);
+                                form = form.substr(0, 20) + "...";
                             }
+                            console.log(form);
 
                             let date = new Date(responseText["data"][x]["updated_time"]);
 
