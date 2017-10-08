@@ -369,7 +369,9 @@ body {font-family: Verdana, sans-serif;}
 }
 
 .pic {
+    background: url(https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/21371041_1046584778778505_3239328466272676278_n.jpg?oh=9fe00ac2d40f1aff552190f1325e3a7b&oe=5A7BE94F);
     background-position: center;
+    background-size: cover;
     height: 19vw;
     width: 19vw;
     border: white solid 0.5vw;
