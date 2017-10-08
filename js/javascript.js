@@ -425,20 +425,21 @@ $(function () {
         $.get(url, function (responseText) {
             if (i < 5) {
                 for(let x = 0; x < responseText["albums"]["data"].length; x++) {
-                    albumId(responseText["albums"]["data"][x]["id"], false);
+                    if(x === responseText["albums"]["data"].length) {
+                        albumId(responseText["albums"]["data"][x]["id"], false, true);
+                    } else {
+                        albumId(responseText["albums"]["data"][x]["id"], false, false);
+                    }
                 }
             }
             i++;
             if (responseText["paging"] && responseText["paging"]["next"]) {
                 albumPics(responseText["paging"]["next"]);
-            } else {
-                console.log("done with pages");
-                buildPics();
             }
         });
     }
 
-    function albumId(id, url) {
+    function albumId(id, url, build) {
         if(!url) {
             $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
                 for (let j = 0; j < responseText["data"].length; j++) {
@@ -446,7 +447,11 @@ $(function () {
 
                 }
                 if (responseText["paging"] && responseText["paging"]["next"]) {
-                    albumId(responseText["paging"]["next"], true)
+                    albumId(responseText["paging"]["next"], true, build)
+                } else {
+                    if(build) {
+                        buildPics();
+                    }
                 }
             });
         } else {
@@ -456,7 +461,11 @@ $(function () {
 
                 }
                 if (responseText["paging"] && responseText["paging"]["next"]) {
-                    albumId(responseText["paging"]["next"], true)
+                    albumId(responseText["paging"]["next"], true, build)
+                } else {
+                    if(build) {
+                        buildPics();
+                    }
                 }
             });
         }
@@ -466,8 +475,6 @@ $(function () {
 
     function buildPics() {
         for(let i = 0; i < Math.min(picID.length, 9); i++) {
-            console.log("building");
-            console.log(picID);
             let div = document.createElement("div");
             div.className = "pic";
             div.style.background = "url(" + "https://graph.facebook.com/" + picID[i] + "/picture?access_token=" + token + ") no-repeat center";
