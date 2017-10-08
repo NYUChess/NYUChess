@@ -57,7 +57,7 @@ function getAdmins(url) {
                 getAdmins(responseText["paging"]["next"]);
             }
         },
-        async: true
+        async: false
     });
 }
 
@@ -459,7 +459,8 @@ $(function () {
                 for (let j = 0; j < responseText["data"].length; j++) {
                     let div = document.createElement("div");
                     div.className = "pic";
-                    div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ")";
+                    div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ") no-repeat center";
+                    div.style.backgroundSize = "contain";
                     document.getElementsByClassName("pictures")[0].appendChild(div);
                 }
                 if (responseText["paging"] && responseText["paging"]["next"]) {
