@@ -431,6 +431,8 @@ $(function () {
             i++;
             if (responseText["paging"] && responseText["paging"]["next"]) {
                 albumPics(responseText["paging"]["next"]);
+            } else {
+                buildPics();
             }
         });
     }
@@ -444,8 +446,6 @@ $(function () {
                 }
                 if (responseText["paging"] && responseText["paging"]["next"]) {
                     albumId(responseText["paging"]["next"], true)
-                } else {
-                    buildPics();
                 }
             });
         } else {
@@ -456,8 +456,6 @@ $(function () {
                 }
                 if (responseText["paging"] && responseText["paging"]["next"]) {
                     albumId(responseText["paging"]["next"], true)
-                } else {
-                    buildPics();
                 }
             });
         }
