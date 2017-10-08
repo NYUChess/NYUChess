@@ -382,6 +382,7 @@ $(function () {
                             let link = document.createElement("a");
 
                             let data = responseText["data"][x]["message"];
+                            data = data.replace(/[\n\r]/g, " ");
                             data = data.replace(/&lt;br&gt;/g," ");
                             let words = data.split(" ");
                             let form = "";
