@@ -381,7 +381,9 @@ $(function () {
                             let title = document.createElement("div");
                             let link = document.createElement("a");
 
-                            let words = responseText["data"][x]["message"].split(" ");
+                            let data = responseText["data"][x]["message"];
+                            data = data.replace(/&lt;br&gt;/g," ");
+                            let words = data.split(" ");
                             let form = "";
 
                             for(let j = 0; j < words.length; j ++) {
@@ -391,8 +393,6 @@ $(function () {
                                     console.log(form);
                                 }
                             }
-
-                            form = form.replace(/&lt;br&gt;/g," ");
 
                             if(form.length > 20) {
                                 form = form.substr(0, 20) + "...";
