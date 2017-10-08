@@ -372,9 +372,9 @@ $(function () {
     let i = 0;
     function forms(url) {
         $.get(url, function (responseText) {
-            console.log(responseText["data"][x]["message"].toLowerCase());
             if(i < 10*(new Date().getFullYear() - 2015)) {
                 for(let x = 0; x < responseText["data"].length; x++) {
+                    console.log(responseText["data"][x]["message"].toLowerCase());
                     if(responseText["data"][x]["message"]) {
                         if(responseText["data"][x]["message"].toLowerCase().indexOf("http") > -1 &&
                             (responseText["data"][x]["message"].toLowerCase().indexOf("eboard") > -1
