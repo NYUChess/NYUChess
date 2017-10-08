@@ -377,9 +377,9 @@ $(function () {
                     if(responseText["data"][x]["message"]) {
                         console.log(responseText["data"][x]["message"].toLowerCase());
                         if(responseText["data"][x]["message"].toLowerCase().indexOf("http") > -1 &&
-                            (responseText["data"][x]["message"].toLowerCase().indexOf("eboard") > -1
-                            || responseText["data"][x]["message"].toLowerCase().indexOf("e-board") > -1
-                            || responseText["data"][x]["message"].toLowerCase().indexOf("election") > -1)) {
+                            (responseText["data"][x]["message"].toLowerCase().indexOf(" eboard ") > -1
+                            || responseText["data"][x]["message"].toLowerCase().indexOf(" e-board ") > -1
+                            || responseText["data"][x]["message"].toLowerCase().indexOf(" election ") > -1)) {
                             console.log("LOOK AT");
                             console.log(responseText["data"][x]);
                             let div = document.createElement("div");
@@ -400,6 +400,8 @@ $(function () {
                                 }
                             }
 
+                            link.href = form;
+
                             if(form.length > 30) {
                                 form = form.substr(0, 30) + "...";
                             }
@@ -408,8 +410,6 @@ $(function () {
                             let date = new Date(responseText["data"][x]["updated_time"]);
 
                             title.innerText = form + " - " + date.getFullYear();
-
-                            link.href = form;
 
                             link.appendChild(title);
                             title.className = "formLink text-center";
