@@ -657,6 +657,9 @@ function loadPage(x) {
     $("." + pages[curPage]).fadeOut("slow", function () {
         offPage(curPage);
         onPage(x);
+        var $win = $(window);
+        document.body.scrollTop = 0; // For Chrome, Safari and Opera
+        document.documentElement.scrollTop = 0; // For IE and Firefox
         $("." + pages[x]).fadeIn("slow", function () {
             curPage = x;
             enable();

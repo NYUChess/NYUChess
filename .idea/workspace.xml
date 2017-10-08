@@ -19,7 +19,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
+            <state relative-caret-position="2142">
               <caret line="102" column="6" lean-forward="true" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
               <folding />
             </state>
@@ -39,8 +39,8 @@
       <file leaf-file-name="javascript.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/javascript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="375" column="56" lean-forward="true" selection-start-line="375" selection-start-column="56" selection-end-line="375" selection-end-column="56" />
+            <state relative-caret-position="522">
+              <caret line="661" column="69" lean-forward="false" selection-start-line="661" selection-start-column="69" selection-end-line="661" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -214,12 +214,12 @@
       <workItem from="1507355736176" duration="266000" />
       <workItem from="1507391809344" duration="7093000" />
       <workItem from="1507431740436" duration="5665000" />
-      <workItem from="1507471915367" duration="7807000" />
+      <workItem from="1507471915367" duration="8628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177725000" />
+    <option name="totallyTimeSpent" value="178546000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -630,14 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="102" column="6" lean-forward="true" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
@@ -646,10 +638,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="102" column="6" lean-forward="true" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/javascript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="375" column="56" lean-forward="true" selection-start-line="375" selection-start-column="56" selection-end-line="375" selection-end-column="56" />
+        <state relative-caret-position="522">
+          <caret line="661" column="69" lean-forward="false" selection-start-line="661" selection-start-column="69" selection-end-line="661" selection-end-column="69" />
           <folding />
         </state>
       </provider>
