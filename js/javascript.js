@@ -382,6 +382,7 @@ $(function () {
                         }
                     }
                 }
+                console.log(responseText["paging"]["next"]);
                 forms(responseText["paging"]["next"]);
             }
         });
