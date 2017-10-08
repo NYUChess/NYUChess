@@ -429,6 +429,8 @@ window.addEventListener('load',
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
                 var check = redirect.replace("http://nyuchess.com/", "");
+                console.log("CHECKING PAGE")
+                console.log(pages);
                 if (pages.indexOf(check) < 0) {
                     check = "not";
                     redirect = "404"
