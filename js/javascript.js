@@ -371,15 +371,26 @@ $(function () {
     console.log("FORMS");
     let i = 0;
     function forms(url) {
-        console.log(url);
         $.get(url, function (responseText) {
             if(i < 5 && responseText["paging"]["next"]) {
-                console.log(responseText["data"]);
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
-                        console.log(responseText["data"][x]["message"].indexOf("docs.google.com"));
                         if(responseText["data"][x]["message"].indexOf("docs.google.com") > -1) {
-                            console.log(responseText["data"][x]["message"]);
+                            let div = element.createElement("div");
+                            div.className = "fullForm";
+                            let title = element.createElement("div");
+                            let link = element.createElement("a");
+                            link.appendChild(title);
+                            title.className = "formLink";
+
+                            let msg = element.createElement("div");
+                            msg.className = "formMsg";
+                            msg.innerText = responseText["data"][x]["message"];
+
+                            div.appendChild(link);
+                            div.appendChild(msg);
+
+                            document.getElementsByClassName("forms")[0].appendChild(div);
                         }
                     }
                 }
