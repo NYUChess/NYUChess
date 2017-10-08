@@ -57,7 +57,6 @@ function getAdmins(url) {
                 getAdmins(responseText["paging"]["next"]);
             } else {
                 $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
-                    getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
                     console.log(responseText);
                     //Add mission statement to homepage
                     document.getElementsByClassName("mission")[0].innerText = responseText["profile_responses"][0]["data"];
@@ -148,6 +147,8 @@ function getAdmins(url) {
         async: true
     });
 }
+
+getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
 
 
 
