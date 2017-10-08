@@ -178,7 +178,7 @@ li{
     margin-top: 2vw;
     cursor: pointer;
     background-color: #303030;
-
+    width: 100%;
 }
 
 .loadMore:hover, .loadMorePics:hover {
