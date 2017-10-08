@@ -98,7 +98,7 @@ li{
     list-style: square;
 }
 
-.event, .fullForm {
+.event {
     width: 70vw;
     height: 20vw;
     border: .5vw solid white;
@@ -109,6 +109,7 @@ li{
 
 .fullForm {
     height: 30vw;
+    width: 50vw;
 }
 
 .formLink {
