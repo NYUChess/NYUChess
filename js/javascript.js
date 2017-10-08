@@ -376,10 +376,10 @@ $(function () {
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
                         if(responseText["data"][x]["message"].indexOf("docs.google.com") > -1) {
-                            let div = element.createElement("div");
+                            let div = document.createElement("div");
                             div.className = "fullForm";
-                            let title = element.createElement("div");
-                            let link = element.createElement("a");
+                            let title = document.createElement("div");
+                            let link = document.createElement("a");
                             link.appendChild(title);
                             title.className = "formLink";
 
