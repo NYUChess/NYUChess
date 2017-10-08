@@ -371,7 +371,9 @@ $(function () {
     console.log("FORMS");
     let i = 0;
     function forms(url) {
-        $.get(url, function (responseText) {
+        jQuery.ajax({
+            url: url,
+            success: function (responseText) {
             if(i < 5 && responseText["paging"]["next"]) {
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
@@ -411,10 +413,11 @@ $(function () {
                     }
                 }
                 console.log(responseText["paging"]["next"]);
-                i++
+                i++;
                 forms(responseText["paging"]["next"]);
             }
-        });
+        },
+        async: false});
     }
 
     forms("https://graph.facebook.com/v2.10/194680683893776/feed?access_token=" + token);
