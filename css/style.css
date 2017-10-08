@@ -173,7 +173,7 @@ li{
     background: rgba(0, 0, 0, 0.5);
 }
 
-.loadMore {
+.loadMore, .loadMorePics {
     color: #337ab7;
     margin-top: 2vw;
     cursor: pointer;
@@ -181,7 +181,7 @@ li{
 
 }
 
-.loadMore:hover {
+.loadMore:hover, .loadMorePics:hover {
     color: dodgerblue;
     text-decoration: underline;
 }

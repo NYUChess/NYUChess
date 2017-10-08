@@ -7,6 +7,8 @@ var id = 61738;
 var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
 var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 
+let picID = [];
+
 let leap = 0;
 if ((new Date().getFullYear() - 2000) % 4 === 0) {
     leap = 29
@@ -437,33 +439,50 @@ $(function () {
         if(!url) {
             $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
                 for (let j = 0; j < responseText["data"].length; j++) {
-                    let div = document.createElement("div");
-                    div.className = "pic";
-                    div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ") no-repeat center";
-                    div.style.backgroundSize = "contain";
-                    document.getElementsByClassName("pictures")[0].appendChild(div);
+                    picID.push(responseText["data"][j]["id"]);
+
                 }
                 if (responseText["paging"] && responseText["paging"]["next"]) {
                     albumId(responseText["paging"]["next"], true)
+                } else {
+                    buildPics();
                 }
             });
         } else {
             $.get(id, function (responseText) {
                 for (let j = 0; j < responseText["data"].length; j++) {
-                    let div = document.createElement("div");
-                    div.className = "pic";
-                    div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ") no-repeat center";
-                    div.style.backgroundSize = "contain";
-                    document.getElementsByClassName("pictures")[0].appendChild(div);
+                    picID.push(responseText["data"][j]["id"]);
+
                 }
                 if (responseText["paging"] && responseText["paging"]["next"]) {
                     albumId(responseText["paging"]["next"], true)
+                } else {
+                    buildPics();
                 }
             });
         }
     }
 
     albumPics("https://graph.facebook.com/v2.10/194680683893776/?fields=albums&access_token=" + token);
+
+    function buildPics() {
+        for(let i = 0; i < Math.min(picID.length, 9); i++) {
+            let div = document.createElement("div");
+            div.className = "pic";
+            div.style.background = "url(" + "https://graph.facebook.com/" + picID[i] + "/picture?access_token=" + token + ") no-repeat center";
+            div.style.backgroundSize = "contain";
+            document.getElementsByClassName("pictures")[0].appendChild(div);
+        }
+        picID.splice(0, Math.min(picID.length, 9));
+        let div = document.createElement("div");
+        div.className = "loadMorePics text-center";
+        div.innerText = "Load More Pics";
+        div.addEventListener('click', function() {
+                document.getElementsByClassName("pictures")[0].removeChild(document.getElementsByClassName("pictures")[0].lastChild);
+                buildPics();
+        });
+        document.getElementsByClassName("pictures")[0].appendChild(div);
+    }
 
 });
 
