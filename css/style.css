@@ -98,13 +98,25 @@ li{
     list-style: square;
 }
 
-.event {
+.event, .fullForm {
     width: 70vw;
-    height: 20vw;
+    height: 30vw;
     border: .5vw solid white;
     margin-bottom: 4vw;
     display: none;
     border-top-left-radius: 5vw;
+}
+
+.formLink {
+    height: 4vw;
+    line-height: 4vw;
+}
+
+.formMsg {
+    height: 25vw;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding: 1vw;
 }
 
 .eventPic {
