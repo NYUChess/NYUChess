@@ -98,7 +98,7 @@ li{
     list-style: square;
 }
 
-.event {
+.event, .fullForm {
     width: 70vw;
     height: 20vw;
     border: .5vw solid white;
@@ -109,16 +109,16 @@ li{
 
 .fullForm {
     height: 30vw;
-    width: 50vw;
+    display: block;
 }
 
 .formLink {
-    height: 4vw;
-    line-height: 4vw;
+    height: 7vw;
+    line-height: 7vw;
 }
 
 .formMsg {
-    height: 25vw;
+    height: 22vw;
     overflow: scroll;
     overflow-x: hidden;
     padding: 1vw;
