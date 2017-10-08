@@ -425,7 +425,7 @@ $(function () {
         $.get(url, function (responseText) {
             if (i < 5) {
                 for(let x = 0; x < responseText["albums"]["data"].length; x++) {
-                    if(x === responseText["albums"]["data"].length) {
+                    if(x === responseText["albums"]["data"].length - 1) {
                         console.log("sending build");
                         albumId(responseText["albums"]["data"][x]["id"], false, true);
                     } else {
