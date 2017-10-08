@@ -57,7 +57,7 @@ function getAdmins(url) {
                 getAdmins(responseText["paging"]["next"]);
             }
         },
-        async: true
+        async: false
     });
 }
 
