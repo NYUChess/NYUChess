@@ -1,4 +1,4 @@
-var pages = ["main", "about", "calendar", "contact", "events", "forms", "news", "pictures", "not"];
+var pages = ["main", "about", "calendar", "contact", "events", "forms", "pictures", "not"];
 var curPage = 0;
 
 var fonts = ["Comic Sans MS", "Courier New", "Times New Roman", "Verdana", "Georgia", "Lucida Handwriting", "Trebuchet MS", "Bookman", "Garamond", "Impact"];
@@ -375,7 +375,7 @@ $(function () {
                 console.log(responseText["data"]);
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
-                        if(responseText["data"][x]["message"].indexOf("docs.google.com")) {
+                        if(responseText["data"][x]["message"].indexOf("docs.google.com") > -1) {
                             console.log(responseText["data"][x]["message"]);
                         }
                     }
@@ -468,13 +468,6 @@ window.addEventListener('load',
                 }
             });
         }
-
-        document.getElementsByClassName("newsBar")[0].addEventListener('click', function () {
-            if (location.href !== "http://nyuchess.com/news") {
-                history.pushState(null, '', '/news');
-                loadPage(6);
-            }
-        });
 
         document.getElementsByClassName("picturesBar")[0].addEventListener('click', function () {
             if (location.href !== "http://nyuchess.com/pictures") {
