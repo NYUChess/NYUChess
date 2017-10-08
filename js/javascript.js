@@ -1,31 +1,3 @@
-(function () {
-    var redirect = sessionStorage.redirect;
-    delete sessionStorage.redirect;
-    if (redirect && redirect !== location.href) {
-        var check = redirect.replace("http://nyuchess.com/", "");
-        console.log("CHECKING PAGE");
-        console.log(check);
-        console.log(pages);
-        console.log(pages.indexOf(check));
-        if (pages.indexOf(check) < 0) {
-            check = "not";
-            redirect = "404"
-        }
-        history.replaceState(null, "", redirect);
-        document.getElementsByClassName(pages[curPage])[0].style.display = "none";
-        document.getElementsByClassName(check)[0].style.display = "block";
-        if (check !== "not") {
-            onPage(pages.indexOf(check));
-        }
-        curPage = pages.indexOf(check);
-    }
-    else {
-        $(".main").fadeIn("slow", function () {
-        });
-        onPage(0);
-    }
-})();
-
 var pages = ["main", "about", "calendar", "contact", "events", "forms", "pictures", "not"];
 var curPage = 0;
 
@@ -451,6 +423,34 @@ $(function () {
 
 window.addEventListener('load',
     function () {
+
+        (function () {
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect !== location.href) {
+                var check = redirect.replace("http://nyuchess.com/", "");
+                console.log("CHECKING PAGE");
+                console.log(check);
+                console.log(pages);
+                console.log(pages.indexOf(check));
+                if (pages.indexOf(check) < 0) {
+                    check = "not";
+                    redirect = "404"
+                }
+                history.replaceState(null, "", redirect);
+                document.getElementsByClassName(pages[curPage])[0].style.display = "none";
+                document.getElementsByClassName(check)[0].style.display = "block";
+                if (check !== "not") {
+                    onPage(pages.indexOf(check));
+                }
+                curPage = pages.indexOf(check);
+            }
+            else {
+                $(".main").fadeIn("slow", function () {
+                });
+                onPage(pages.indexOf("main"));
+            }
+        })();
 
         console.log("trying click");
 
