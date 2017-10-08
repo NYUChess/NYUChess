@@ -57,7 +57,7 @@ function getAdmins(url) {
                 getAdmins(responseText["paging"]["next"]);
             }
         },
-        async: false
+        async: true
     });
 }
 
@@ -459,6 +459,7 @@ $(function () {
             $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
                 for (let j = 0; j < responseText["data"].length; j++) {
                     let div = document.createElement("div");
+                    div.className = "pic";
                     div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ")";
                     document.getElementsByClassName("pictures")[0].appendChild(div);
                 }
@@ -470,6 +471,7 @@ $(function () {
             $.get(id, function (responseText) {
                 for (let j = 0; j < responseText["data"].length; j++) {
                     let div = document.createElement("div");
+                    div.className = "pic";
                     div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ")";
                     document.getElementsByClassName("pictures")[0].appendChild(div);
                 }
