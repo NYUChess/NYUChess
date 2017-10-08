@@ -368,6 +368,7 @@ $(function () {
         }
     });
 
+    console.log("FORMS");
     let i = 0;
     function forms() {
         $.get("https://graph.facebook.com/v2.10/194680683893776/feed?access_token=" + token, function (responseText) {
@@ -375,6 +376,7 @@ $(function () {
                 console.log(responseText["data"]);
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
+                        console.log(responseText["data"][x]["message"].indexOf("docs.google.com"));
                         if(responseText["data"][x]["message"].indexOf("docs.google.com") > -1) {
                             console.log(responseText["data"][x]["message"]);
                         }
