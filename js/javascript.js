@@ -381,7 +381,7 @@ $(function () {
                             let title = document.createElement("div");
                             let link = document.createElement("a");
 
-                            let words = esponseText["data"][x]["message"].split[" "];
+                            let words = responseText["data"][x]["message"].split[" "];
                             let form = "";
 
                             for(let j = 0; j < words.length; j ++) {
