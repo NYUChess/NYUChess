@@ -440,9 +440,11 @@ $(function () {
     i = 0;
     function albumPics(url) {
         $.get(url, function (responseText) {
+            console.log("ALBUMS");
+            console.log(responseText);
             if (i < 5) {
                 for(let x = 0; x < responseText["albums"]["data"].length; x++) {
-                    albumId(responseText["albums"]["data"]["id"], false);
+                    albumId(responseText["albums"]["data"][x]["id"], false);
                 }
             }
             i++;
