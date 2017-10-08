@@ -100,11 +100,15 @@ li{
 
 .event, .fullForm {
     width: 70vw;
-    height: 30vw;
+    height: 20vw;
     border: .5vw solid white;
     margin-bottom: 4vw;
     display: none;
     border-top-left-radius: 5vw;
+}
+
+.fullForm {
+    height: 30vw;
 }
 
 .formLink {
