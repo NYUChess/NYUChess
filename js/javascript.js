@@ -433,6 +433,8 @@ $(function () {
 
     forms("https://graph.facebook.com/v2.10/194680683893776/feed?access_token=" + token);
 
+    // https://graph.facebook.com/v2.10/194680683893776?access_token=" + token + "&fields=albums
+
 });
 
 window.addEventListener('load',
