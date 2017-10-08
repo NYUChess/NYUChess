@@ -370,8 +370,8 @@ $(function () {
 
     console.log("FORMS");
     let i = 0;
-    function forms() {
-        $.get("https://graph.facebook.com/v2.10/194680683893776/feed?access_token=" + token, function (responseText) {
+    function forms(url) {
+        $.get(url, function (responseText) {
             for (i; i < 5 && responseText["paging"]["next"]; i++) {
                 console.log(responseText["data"]);
                 for(let x = 0; x < responseText["data"].length; x++) {
@@ -382,12 +382,12 @@ $(function () {
                         }
                     }
                 }
-                forms();
+                forms(responseText["paging"]["next"]);
             }
         });
     }
 
-    forms();
+    forms("https://graph.facebook.com/v2.10/194680683893776/feed?access_token=" + token);
 
 });
 
