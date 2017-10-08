@@ -151,7 +151,6 @@ $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function 
 });
 
 function updateCalendar(dir) {
-    console.log("HEADING TO " + dir);
     $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function (responseText) {
 
         $('.calNext').css("pointer-events", "none");
@@ -202,8 +201,6 @@ function updateCalendar(dir) {
             }
 
             let buffer = new Date("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
-            console.log("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
-            console.log(buffer.getDay());
 
             let buff = buffer.getDay() - 1;
             if (buff === -1) {
@@ -275,7 +272,6 @@ function getData(arr, position, responseText) {
                     j--;
                 }
             }
-            console.log(multiple);
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
             }
@@ -291,7 +287,6 @@ function getData(arr, position, responseText) {
                     j--;
                 }
             }
-            console.log(multiple);
             while (multiple.length > dontAsk.length) {
                 dontAsk.push({});
             }
@@ -309,14 +304,9 @@ function getData(arr, position, responseText) {
 }
 
 $(function () {
-    console.log("ready!");
-
     $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function (responseText) {
-        console.log("MEETINGS");
-        console.log(responseText);
         let when = [];
         for (let x = 0; x < responseText.length; x++) {
-            console.log(responseText[x]["occurrences"]);
             for (let i = 0; i < responseText[x]["occurrences"].length; i++) {
                 let starts = responseText[x]["occurrences"][i]["starts_at"];
                 if (starts.indexOf("Z") < 0) {
@@ -329,9 +319,6 @@ $(function () {
             }
         }
         // Make calendar
-        console.log("Work on calendar");
-        console.log(responseText["occurrences"]);
-
         let date = new Date();
 
         document.getElementsByClassName("curMonth")[0].innerText = months[date.getMonth()]["Name"];
@@ -368,20 +355,17 @@ $(function () {
         }
     });
 
-    console.log("FORMS");
     let i = 0;
     function forms(url) {
         $.get(url, function (responseText) {
             if(i < 10*(new Date().getFullYear() - 2015)) {
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
-                        console.log(responseText["data"][x]["message"].toLowerCase());
                         if(responseText["data"][x]["message"].toLowerCase().indexOf("http") > -1 &&
                             (responseText["data"][x]["message"].toLowerCase().indexOf(" eboard ") > -1
                             || responseText["data"][x]["message"].toLowerCase().indexOf(" e-board ") > -1
                             || responseText["data"][x]["message"].toLowerCase().indexOf(" election ") > -1)) {
-                            console.log("LOOK AT");
-                            console.log(responseText["data"][x]);
+
                             let div = document.createElement("div");
                             div.className = "fullForm";
                             let title = document.createElement("div");
@@ -395,8 +379,6 @@ $(function () {
                             for(let j = 0; j < words.length; j ++) {
                                 if(words[j].toLowerCase().indexOf("http") > -1) {
                                     form = words[j];
-                                    console.log("FOUND IT");
-                                    console.log(form);
                                 }
                             }
 
@@ -405,7 +387,6 @@ $(function () {
                             if(form.length > 30) {
                                 form = form.substr(0, 30) + "...";
                             }
-                            console.log(form);
 
                             let date = new Date(responseText["data"][x]["updated_time"]);
 
@@ -425,7 +406,6 @@ $(function () {
                         }
                     }
                 }
-                console.log(responseText["paging"]["next"]);
                 i++;
                 if(responseText["paging"]["next"]) {
                     forms(responseText["paging"]["next"]);
@@ -441,8 +421,6 @@ $(function () {
     i = 0;
     function albumPics(url) {
         $.get(url, function (responseText) {
-            console.log("ALBUMS");
-            console.log(responseText);
             if (i < 5) {
                 for(let x = 0; x < responseText["albums"]["data"].length; x++) {
                     albumId(responseText["albums"]["data"][x]["id"], false);
@@ -497,10 +475,6 @@ window.addEventListener('load',
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
                 var check = redirect.replace("http://nyuchess.com/", "");
-                console.log("CHECKING PAGE");
-                console.log(check);
-                console.log(pages);
-                console.log(pages.indexOf(check));
                 if (pages.indexOf(check) < 0) {
                     check = "not";
                     redirect = "404"
@@ -519,8 +493,6 @@ window.addEventListener('load',
                 onPage(pages.indexOf("main"));
             }
         })();
-
-        console.log("trying click");
 
         document.getElementsByClassName("calPrev")[0].addEventListener("click", function () {
             updateCalendar(-1);
@@ -592,9 +564,6 @@ window.addEventListener('load',
             loadPage(pages.indexOf(ext));
         };
 
-        console.log("Setting up click");
-
-        console.log("Setting up events");
 
         $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function (responseText) {
             var max = 5;
@@ -603,8 +572,6 @@ window.addEventListener('load',
             }
             createEvent(responseText, 0, max);
         });
-
-        console.log("RESPONSE");
 
         function roll() {
             return Math.floor((Math.random() * 20) + 1);
@@ -667,10 +634,7 @@ window.addEventListener('load',
                 event.id = "";
             }
 
-            console.log(document.getElementsByClassName("events")[0].childNodes.length);
-
             if (document.getElementsByClassName("events")[0].childNodes.length < responseText["data"].length - 1) {
-                console.log("MAKING DIV");
                 var div = document.createElement("div");
                 document.getElementsByClassName("events")[0].lastChild.style.marginBottom = "4vw";
                 div.className = "loadMore text-center";
@@ -679,7 +643,6 @@ window.addEventListener('load',
                     $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function (responseText) {
                         var start = document.getElementsByClassName("events")[0].childNodes.length - 1;
                         var max = Math.min(start + 2, responseText["data"].length - 1);
-                        console.log("click click");
                         createEvent(responseText, start, max);
                     });
                 });
@@ -690,7 +653,6 @@ window.addEventListener('load',
     }, false);
 
 function loadPage(x) {
-    console.log("fading out page");
     disable();
     $("." + pages[curPage]).fadeOut("slow", function () {
         offPage(curPage);
@@ -703,18 +665,15 @@ function loadPage(x) {
 }
 
 function disable() {
-    console.log("disabling");
     $('.topBar').css("pointer-events", "none");//disabled buttons
 }
 
 function enable() {
-    console.log("activating");
     $('.topBar').css("pointer-events", "auto");//enabled buttons
 }
 
 function offPage(x) {
     $('.' + pages[x] + "Bar").css("border-color", "#333");
-    console.log("turning off " + '.' + pages[x] + "Bar");
 }
 
 function onPage(x) {
