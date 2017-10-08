@@ -53,7 +53,7 @@ function getAdmins(url) {
                     admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
                 }
             }
-            if (responseText["paging"]["next"]) {
+            if (responseText["paging"] && responseText["paging"]["next"]) {
                 getAdmins(responseText["paging"]["next"]);
             }
         },
@@ -448,7 +448,7 @@ $(function () {
                 }
             }
             i++;
-            if (responseText["paging"]["next"]) {
+            if (responseText["paging"] && responseText["paging"]["next"]) {
                 albumPics(responseText["paging"]["next"]);
             }
         });
@@ -462,7 +462,7 @@ $(function () {
                     div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ")";
                     document.getElementsByClassName("pictures")[0].appendChild(div);
                 }
-                if (responseText["paging"]["next"]) {
+                if (responseText["paging"] && responseText["paging"]["next"]) {
                     albumId(responseText["paging"]["next"], true)
                 }
             });
@@ -473,7 +473,7 @@ $(function () {
                     div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ")";
                     document.getElementsByClassName("pictures")[0].appendChild(div);
                 }
-                if (responseText["paging"]["next"]) {
+                if (responseText["paging"] && responseText["paging"]["next"]) {
                     albumId(responseText["paging"]["next"], true)
                 }
             });
