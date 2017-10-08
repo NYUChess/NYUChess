@@ -399,7 +399,7 @@ $(function () {
                             link.appendChild(title);
                             title.className = "formLink";
 
-                            let msg = element.createElement("div");
+                            let msg = document.createElement("div");
                             msg.className = "formMsg";
                             msg.innerText = responseText["data"][x]["message"];
 
