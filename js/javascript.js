@@ -465,6 +465,7 @@ $(function () {
 
     function buildPics() {
         for(let i = 0; i < Math.min(picID.length, 9); i++) {
+            console.log("buildilng");
             let div = document.createElement("div");
             div.className = "pic";
             div.style.background = "url(" + "https://graph.facebook.com/" + picID[i] + "/picture?access_token=" + token + ") no-repeat center";
