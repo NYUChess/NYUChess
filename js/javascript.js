@@ -372,7 +372,7 @@ $(function () {
     let i = 0;
     function forms(url) {
         $.get(url, function (responseText) {
-            if(i < 5 && responseText["paging"]["next"]) {
+            if(i < 5) {
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
                         if(responseText["data"][x]["message"].toLowerCase().indexOf("http") > -1 &&
@@ -425,8 +425,10 @@ $(function () {
                     }
                 }
                 console.log(responseText["paging"]["next"]);
-                i++
-                forms(responseText["paging"]["next"]);
+                i++;
+                if(responseText["paging"]["next"]) {
+                    forms(responseText["paging"]["next"]);
+                }
             }
         });
     }
@@ -434,6 +436,49 @@ $(function () {
     forms("https://graph.facebook.com/v2.10/194680683893776/feed?access_token=" + token);
 
     // https://graph.facebook.com/v2.10/194680683893776?access_token=" + token + "&fields=albums
+
+    i = 0;
+    function albumPics(url) {
+        $.get(url, function (responseText) {
+            if (i < 5) {
+                for(let x = 0; x < responseText["albums"]["data"].length; x++) {
+                    albumId(responseText["albums"]["data"]["id"], false);
+                }
+            }
+            i++;
+            if (responseText["paging"]["next"]) {
+                albumPics(responseText["paging"]["next"]);
+            }
+        });
+    }
+
+    function albumId(id, url) {
+        if(!url) {
+            $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
+                for (let j = 0; j < responseText["data"].length; j++) {
+                    let div = document.createElement("div");
+                    div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ")";
+                    document.getElementsByClassName("pictures")[0].appendChild(div);
+                }
+                if (responseText["paging"]["next"]) {
+                    albumId(responseText["paging"]["next"], true)
+                }
+            });
+        } else {
+            $.get(id, function (responseText) {
+                for (let j = 0; j < responseText["data"].length; j++) {
+                    let div = document.createElement("div");
+                    div.style.background = "url(" + "https://graph.facebook.com/" + responseText["data"][j]["id"] + "/picture?access_token=" + token + ")";
+                    document.getElementsByClassName("pictures")[0].appendChild(div);
+                }
+                if (responseText["paging"]["next"]) {
+                    albumId(responseText["paging"]["next"], true)
+                }
+            });
+        }
+    }
+
+    albumPics("https://graph.facebook.com/v2.10/194680683893776/?fields=albums&access_token=" + token);
 
 });
 
