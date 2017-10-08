@@ -371,6 +371,7 @@ $(function () {
     console.log("FORMS");
     let i = 0;
     function forms(url) {
+        console.log(url);
         $.get(url, function (responseText) {
             for (i; i < 5 && responseText["paging"]["next"]; i++) {
                 console.log(responseText["data"]);
