@@ -375,7 +375,7 @@ $(function () {
             if(i < 5 && responseText["paging"]["next"]) {
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
-                        if(responseText["data"][x]["message"].indexOf("docs.google.com") > -1) {
+                        if(responseText["data"][x]["message"].indexOf("http:") > -1) {
                             let div = document.createElement("div");
                             div.className = "fullForm";
                             let title = document.createElement("div");
@@ -385,9 +385,15 @@ $(function () {
                             let form = "";
 
                             for(let j = 0; j < words.length; j ++) {
-                                if(words[j].indexOf("docs.google.com") > -1) {
+                                if(words[j].indexOf("http:") > -1) {
                                     form = words[j];
                                 }
+                            }
+
+                            form = form.replace(/&lt;br&gt;/g," ");
+
+                            if(form.length > 20) {
+                                form = form.substr(0, 20);
                             }
 
                             let date = new Date(responseText["data"][x]["updated_time"]);
