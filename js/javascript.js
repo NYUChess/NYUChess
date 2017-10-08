@@ -380,6 +380,22 @@ $(function () {
                             div.className = "fullForm";
                             let title = document.createElement("div");
                             let link = document.createElement("a");
+
+                            let words = esponseText["data"][x]["message"].split[" "];
+                            let form = "";
+
+                            for(let j = 0; j < words.length; j ++) {
+                                if(words[j].indexOf("docs.google.com") > -1) {
+                                    form = words[j];
+                                }
+                            }
+
+                            let date = new Date(responseText["data"][x]["updated_time"]);
+
+                            title.innerText = form + " - " + date.getFullYear();
+
+                            link.href = form;
+
                             link.appendChild(title);
                             title.className = "formLink";
 
