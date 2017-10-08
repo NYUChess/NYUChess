@@ -40,7 +40,6 @@ let months = {
     "November": 10,
     "December": 11
 };
-let DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 var admins = {};
 
@@ -373,7 +372,8 @@ $(function () {
     let i = 0;
     function forms(url) {
         $.get(url, function (responseText) {
-            if(i < 5) {
+            console.log(responseText["data"][x]["message"].toLowerCase());
+            if(i < 10*(new Date().getFullYear() - 2015)) {
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
                         if(responseText["data"][x]["message"].toLowerCase().indexOf("http") > -1 &&
