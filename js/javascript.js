@@ -373,7 +373,7 @@ $(function () {
     function forms(url) {
         console.log(url);
         $.get(url, function (responseText) {
-            for (i; i < 5 && responseText["paging"]["next"]; i++) {
+            if(i < 5 && responseText["paging"]["next"]) {
                 console.log(responseText["data"]);
                 for(let x = 0; x < responseText["data"].length; x++) {
                     if(responseText["data"][x]["message"]) {
@@ -384,6 +384,7 @@ $(function () {
                     }
                 }
                 console.log(responseText["paging"]["next"]);
+                i++
                 forms(responseText["paging"]["next"]);
             }
         });
