@@ -426,7 +426,6 @@ $(function () {
             if (i < 5) {
                 for(let x = 0; x < responseText["albums"]["data"].length; x++) {
                     if(x === responseText["albums"]["data"].length - 1) {
-                        console.log("sending build");
                         albumId(responseText["albums"]["data"][x]["id"], false, true);
                     } else {
                         albumId(responseText["albums"]["data"][x]["id"], false, false);
@@ -450,7 +449,6 @@ $(function () {
                 if (responseText["paging"] && responseText["paging"]["next"]) {
                     albumId(responseText["paging"]["next"], true, build)
                 } else {
-                    console.log("checking to build");
                     if(build) {
                         buildPics();
                     }
