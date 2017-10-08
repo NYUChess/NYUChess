@@ -465,12 +465,12 @@ $(function () {
 
     function buildPics() {
         for(let i = 0; i < Math.min(picID.length, 9); i++) {
-            console.log("buildilng");
+            console.log("building");
             let div = document.createElement("div");
             div.className = "pic";
             div.style.background = "url(" + "https://graph.facebook.com/" + picID[i] + "/picture?access_token=" + token + ") no-repeat center";
             div.style.backgroundSize = "contain";
-            document.getElementsByClassName("pictures")[0].appendChild(div);
+            document.getElementsByClassName("picturesPage")[0].appendChild(div);
         }
         picID.splice(0, Math.min(picID.length, 9));
         let div = document.createElement("div");
