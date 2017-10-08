@@ -372,7 +372,14 @@ $(function () {
     function forms() {
         $.get("https://graph.facebook.com/v2.10/194680683893776/feed?access_token=" + token, function (responseText) {
             for (i; i < 5 && responseText["paging"]["next"]; i++) {
-                console.log(responseText);
+                console.log(responseText["data"]);
+                for(let x = 0; x < responseText["data"].length; x++) {
+                    if(responseText["data"][x]["message"]) {
+                        if(responseText["data"][x]["message"].indexOf("docs.google.com")) {
+                            console.log(responseText["data"][x]["message"]);
+                        }
+                    }
+                }
                 forms();
             }
         });
