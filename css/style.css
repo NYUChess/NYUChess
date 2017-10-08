@@ -64,7 +64,7 @@ body {
     max-height: 9vw;
 }
 
-.main, .about, .calendar, .contact, .events, .forms, .news, .pictures, .not {
+.main, .about, .calendar, .contact, .events, .forms, .pictures, .not {
     font-size: 1.5vw;
     padding: 3% 5vw;
     background-color: #333;
