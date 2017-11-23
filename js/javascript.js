@@ -522,7 +522,11 @@ window.addEventListener('load',
                     div.className = "pic";
                     div.style.background = "url(" + "https://graph.facebook.com/" + pictureIDs[i] + "/picture?access_token=" + token + ") no-repeat center";
                     div.style.backgroundSize = "contain";
-                    document.getElementsByClassName("picsPage")[0].appendChild(div);
+                    div.id = "fadeIn";
+                    document.getElementsByClassName("pictures")[0].appendChild(div);
+                    $("#fadeIn").fadeIn("slow", function () {
+                    });
+                    div.id = "";
                 }
                 pictureIDs.splice(0, Math.min(pictureIDs.length, 9));
                 let div = document.createElement("div");
@@ -532,11 +536,7 @@ window.addEventListener('load',
                     document.getElementsByClassName("pictures")[0].removeChild(document.getElementsByClassName("pictures")[0].lastChild);
                     buildPics();
                 });
-                div.id = "fadeIn";
-                document.getElementsByClassName("pictures")[0].appendChild(div);
-                $("#fadeIn").fadeIn("slow", function () {
-                });
-                div.id = "";
+                document.getElementsByClassName("picsPage")[0].appendChild(div);
             }
 
         });
