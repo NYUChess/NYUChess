@@ -75,7 +75,8 @@ body {
     margin-bottom: 1vw;
     /*height: 100vh;*/
     box-shadow: #222 -.05vw -.05vw 1vw, #222 .2vw .2vw 1vw;
-    color:white;
+    color:white
+    display: none;
     overflow: hidden;
 }
 
@@ -392,6 +393,7 @@ body {font-family: Verdana, sans-serif;}
     width: 100%;
     background-size: contain;
     cursor: pointer;
+    display: none;
     margin-top: -10vh;
     background-color: rgba(0, 0, 0, 0.6);
 }
