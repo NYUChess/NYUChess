@@ -454,9 +454,9 @@ window.addEventListener('load',
                     maxAlb = Math.max(maxAlb, responseText["albums"]["data"].length);
                     for(let x = 0; x < responseText["albums"]["data"].length; x++) {
                         if(x === responseText["albums"]["data"].length - 1) {
-                            setTimeout(function() { albumId(responseText["albums"]["data"][x]["id"], false, true, (x + (maxAlb * manyBefore))); }, 2000 * x);
+                            setTimeout(function() { albumId(responseText["albums"]["data"][x]["id"], false, true, (x + (maxAlb * manyBefore))); }, 200 * x);
                         } else {
-                            setTimeout(function() { albumId(responseText["albums"]["data"][x]["id"], false, false, (x + (maxAlb * manyBefore))); }, 2000 * x );
+                            setTimeout(function() { albumId(responseText["albums"]["data"][x]["id"], false, false, (x + (maxAlb * manyBefore))); }, 200 * x );
                         }
                     }
                     if (responseText["paging"] && responseText["paging"]["next"]) {
