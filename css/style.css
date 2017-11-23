@@ -374,6 +374,7 @@ body {font-family: Verdana, sans-serif;}
     border: white solid 0.5vw;
     margin-left: 3vw;
     margin-bottom: 3vw;
+    display: none;
     float: left;
 }
 
