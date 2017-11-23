@@ -1,5 +1,3 @@
-
-
 window.addEventListener('load',
     function () {
 
@@ -46,11 +44,14 @@ window.addEventListener('load',
             "December": 11
         };
 
+        console.log("hey");
         (function () {
+            console.log("HEY");
             let redirect = sessionStorage.redirect;
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
                 let check = redirect.replace("http://nyuchess.com/", "");
+                console.log(check);
                 if (pages.indexOf(check) < 0) {
                     check = "not";
                     redirect = "404"
