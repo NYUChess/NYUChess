@@ -568,6 +568,10 @@ window.addEventListener('load',
         document.getElementsByClassName("rightArrow")[0].addEventListener('click', function() {
             if(nextChild) {
                 showImage(nextChild);
+            } else {
+                document.getElementsByClassName("pictures")[0].removeChild(document.getElementsByClassName("pictures")[0].lastChild);
+                buildPics();
+                showImage(curChild);
             }
         });
 
