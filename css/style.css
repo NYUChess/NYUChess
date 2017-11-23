@@ -379,4 +379,5 @@ body {font-family: Verdana, sans-serif;}
 
 .pictures {
     padding-left: 4.4vw;
+    visibility: hidden;
 }

@@ -532,7 +532,6 @@ window.addEventListener('load',
                     document.getElementsByClassName("pictures")[0].removeChild(document.getElementsByClassName("pictures")[0].lastChild);
                     buildPics();
                 });
-                div.style.visibility = "none";
                 document.getElementsByClassName("pictures")[0].appendChild(div);
                 $(div).fadeIn("fast");
             }
