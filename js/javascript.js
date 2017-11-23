@@ -571,7 +571,7 @@ window.addEventListener('load',
             } else {
                 document.getElementsByClassName("pictures")[0].removeChild(document.getElementsByClassName("pictures")[0].lastChild);
                 buildPics();
-                showImage(curChild);
+                nextChild = curChild.nextSibling;
                 showImage(nextChild);
             }
         });
