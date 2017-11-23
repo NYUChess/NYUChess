@@ -572,6 +572,7 @@ window.addEventListener('load',
                 document.getElementsByClassName("pictures")[0].removeChild(document.getElementsByClassName("pictures")[0].lastChild);
                 buildPics();
                 showImage(curChild);
+                showImage(nextChild);
             }
         });
 
