@@ -376,8 +376,17 @@ body {font-family: Verdana, sans-serif;}
     margin-bottom: 3vw;
     display: none;
     float: left;
+    cursor: pointer;
 }
 
 .pictures {
     padding-left: 4.4vw;
+}
+
+.fullscreen {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
 }

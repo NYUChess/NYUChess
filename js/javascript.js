@@ -507,6 +507,11 @@ window.addEventListener('load',
 
             let pictureIDs = [];
 
+            function showImage(image) {
+                document.getElementsByClassName("fullscreen")[0].style.display = "block";
+                document.getElementsByClassName("fullscreen")[0].style.background = image; // Onclick of button the background image of body will be test here. Give the image path in url
+            }
+
             function generate() {
                 for(let i = 0; i < picID.length; i ++) {
                     for(let j = 0; j < picID[i].length; j++) {
@@ -526,6 +531,9 @@ window.addEventListener('load',
                     div.style.background = "url(" + "https://graph.facebook.com/" + pictureIDs[i] + "/picture?access_token=" + token + ") no-repeat center";
                     div.style.backgroundSize = "contain";
                     div.id = "fadeIn";
+                    div.addEventListener('click', function() {
+                       showImage(div.style.background);
+                    });
                     document.getElementsByClassName("picsPage")[0].appendChild(div);
                     $("#fadeIn").fadeIn("slow", function () {
                     });
@@ -542,6 +550,10 @@ window.addEventListener('load',
                 document.getElementsByClassName("pictures")[0].appendChild(div);
             }
 
+        });
+
+        document.getElementsByClassName("fullscreen")[0].addEventListener('click', function() {
+            document.getElementsByClassName("fullscreen")[0].style.display = "none";
         });
 
         document.getElementsByClassName("calPrev")[0].addEventListener("click", function () {
