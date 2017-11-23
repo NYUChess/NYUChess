@@ -469,6 +469,9 @@ window.addEventListener('load',
             let picID = [[], [], [], [], []];
 
             function albumId(id, url, build, index) {
+                if(!picID[index]) {
+                    picID[index] = [];
+                }
                 if(!url) {
                     $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
                         for (let j = 0; j < responseText["data"].length; j++) {
@@ -523,7 +526,7 @@ window.addEventListener('load',
                     div.style.background = "url(" + "https://graph.facebook.com/" + pictureIDs[i] + "/picture?access_token=" + token + ") no-repeat center";
                     div.style.backgroundSize = "contain";
                     div.id = "fadeIn";
-                    document.getElementsByClassName("pictures")[0].appendChild(div);
+                    document.getElementsByClassName("picsPage")[0].appendChild(div);
                     $("#fadeIn").fadeIn("slow", function () {
                     });
                     div.id = "";
@@ -536,7 +539,7 @@ window.addEventListener('load',
                     document.getElementsByClassName("pictures")[0].removeChild(document.getElementsByClassName("pictures")[0].lastChild);
                     buildPics();
                 });
-                document.getElementsByClassName("picsPage")[0].appendChild(div);
+                document.getElementsByClassName("pictures")[0].appendChild(div);
             }
 
         });
