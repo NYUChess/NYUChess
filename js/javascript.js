@@ -44,15 +44,15 @@ window.addEventListener('load',
             "December": 11
         };
 
-        console.log("hey");
         (function () {
-            console.log("HEY");
             let redirect = sessionStorage.redirect;
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
+                if(redirect.substring(redirect.length - 1) === "/") {
+                    redirect = redirect.substring(0, redirect.length);
+                }
+
                 let check = redirect.replace("http://nyuchess.com/", "");
-                check = check.replace("/", "");
-                console.log(check);
                 if (pages.indexOf(check) < 0) {
                     check = "not";
                     redirect = "404"
