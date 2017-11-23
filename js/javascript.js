@@ -51,6 +51,7 @@ window.addEventListener('load',
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
                 let check = redirect.replace("http://nyuchess.com/", "");
+                check = check.replace("/", "");
                 console.log(check);
                 if (pages.indexOf(check) < 0) {
                     check = "not";
