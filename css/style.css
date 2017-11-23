@@ -179,7 +179,6 @@ li{
     cursor: pointer;
     background-color: #303030;
     width: 100%;
-    visibility: hidden;
 }
 
 .loadMore:hover, .loadMorePics:hover {
@@ -375,6 +374,7 @@ body {font-family: Verdana, sans-serif;}
     border: white solid 0.5vw;
     margin-left: 3vw;
     margin-bottom: 3vw;
+    visibility: hidden;
     float: left;
 }
 
