@@ -71,7 +71,7 @@ body {
     border: 1vw solid #444;
     width: 80vw;
     margin-top: 10vh;
-    margin-left: 8vw;
+    margin-left: 9vw;
     margin-bottom: 1vw;
     /*height: 100vh;*/
     box-shadow: #222 -.05vw -.05vw 1vw, #222 .2vw .2vw 1vw;
@@ -381,6 +381,10 @@ body {font-family: Verdana, sans-serif;}
 
 .pictures {
     padding-left: 4.4vw;
+}
+
+.picsPage {
+    overflow: hidden;
 }
 
 .fullscreen {
