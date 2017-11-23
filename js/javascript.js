@@ -3,14 +3,14 @@
 window.addEventListener('load',
     function () {
 
-        var pages = ["main", "about", "calendar", "contact", "events", "forms", "pictures", "not"];
-        var curPage = 0;
+        let pages = ["main", "about", "calendar", "contact", "events", "forms", "pictures", "not"];
+        let curPage = 0;
 
-        var fonts = ["Comic Sans MS", "Courier New", "Times New Roman", "Verdana", "Georgia", "Lucida Handwriting", "Trebuchet MS", "Bookman", "Garamond", "Impact"];
+        let fonts = ["Comic Sans MS", "Courier New", "Times New Roman", "Verdana", "Georgia", "Lucida Handwriting", "Trebuchet MS", "Bookman", "Garamond", "Impact"];
 
-        var id = 61738;
-        var key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
-        var token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
+        let id = 61738;
+        let key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
+        let token = "EAACBHKPzZBGMBABJoOcpDl0QnT0LhzGbC6gm6WGZB9n8uGS0aIB1ZAtwGfHuU1b18pzqsg9NLTytgVBS34RHjtyniwAXY6ZAcwi1ZBa5doLyRdX02wG8VeqroNPcPTYm80ZCeDg6Jf1yzHdr8Rw2b6dIfwDMRYhBQZD";
 
         let leap = 0;
         if ((new Date().getFullYear() - 2000) % 4 === 0) {
@@ -47,10 +47,10 @@ window.addEventListener('load',
         };
 
         (function () {
-            var redirect = sessionStorage.redirect;
+            let redirect = sessionStorage.redirect;
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
-                var check = redirect.replace("http://nyuchess.com/", "");
+                let check = redirect.replace("http://nyuchess.com/", "");
                 if (pages.indexOf(check) < 0) {
                     check = "not";
                     redirect = "404"
@@ -70,13 +70,13 @@ window.addEventListener('load',
             }
         })();
 
-        var admins = {};
+        let admins = {};
 
         function getAdmins(url) {
             jQuery.ajax({
                 url: url,
                 success: function (responseText) {
-                    for (var i = 0; i < responseText["data"].length; i++) {
+                    for (let i = 0; i < responseText["data"].length; i++) {
                         if (responseText["data"][i]["administrator"]) {
                             admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
                         }
@@ -86,7 +86,7 @@ window.addEventListener('load',
                     } else {
                         $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
                             //Add people to contact us
-                            var contacts = [];
+                            let contacts = [];
 
                             getData(contacts, "President", responseText);
                             getData(contacts, "Vice President", responseText);
@@ -94,10 +94,10 @@ window.addEventListener('load',
                             getData(contacts, "Secretary", responseText);
                             getData(contacts, "Webmaster", responseText);
 
-                            var cons = {};
+                            let cons = {};
 
-                            for (var i = 0; i < contacts.length; i++) {
-                                var pos = "";
+                            for (let i = 0; i < contacts.length; i++) {
+                                let pos = "";
                                 if ((contacts[i]["FN"] + " " + contacts[i]["LN"]) in cons && "Pos" in cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]) {
                                     pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
                                 } else {
@@ -106,10 +106,10 @@ window.addEventListener('load',
                                 cons[contacts[i]["FN"] + " " + contacts[i]["LN"]] = {"Pos": pos, id: contacts[i]["ID"]};
                             }
 
-                            var type = 0;
-                            for (var key in cons) {
+                            let type = 0;
+                            for (let key in cons) {
                                 if (cons.hasOwnProperty(key)) {
-                                    var div = document.createElement("div");
+                                    let div = document.createElement("div");
                                     div.className = "contactBorder" + ((type % 2) + 1);
                                     if (Object.keys(cons).length % 2 !== 0) {
                                         if (type === 0) {
@@ -125,16 +125,16 @@ window.addEventListener('load',
                                     }
 
                                     type++;
-                                    var conPic = document.createElement("div");
+                                    let conPic = document.createElement("div");
                                     conPic.className = "contactPic";
-                                    var pic = document.createElement("img");
+                                    let pic = document.createElement("img");
                                     pic.src = "https://graph.facebook.com/v2.10/" + admins[key] + "/picture?access_token=" + token + "&type=large";
                                     conPic.appendChild(pic);
 
-                                    var conDet = document.createElement("div");
+                                    let conDet = document.createElement("div");
                                     conDet.className = "contactDetails";
 
-                                    var conName = document.createElement("div");
+                                    let conName = document.createElement("div");
                                     conName.className = "contactName text-center";
                                     conName.innerText = key;
                                     if (conName.innerText.length > 15) {
@@ -143,11 +143,11 @@ window.addEventListener('load',
                                     }
                                     conName.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
 
-                                    var conSpec = document.createElement("div");
+                                    let conSpec = document.createElement("div");
                                     conSpec.className = "contactSpec";
                                     conSpec.innerText = cons[key]["Pos"];
 
-                                    var conCon = document.createElement("div");
+                                    let conCon = document.createElement("div");
                                     conCon.className = "contactContact";
                                     conCon.innerText = cons[key]["id"] + "@nyu.edu";
 
@@ -241,7 +241,7 @@ window.addEventListener('load',
                         document.getElementsByClassName("days")[0].appendChild(li);
                     }
 
-                    for (var i = 1; i <= months[mo]["Days"]; i++) {
+                    for (let i = 1; i <= months[mo]["Days"]; i++) {
                         let li = document.createElement("li");
                         if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
                             let span = document.createElement("span");
@@ -272,15 +272,15 @@ window.addEventListener('load',
         }
 
         function getData(arr, position, responseText) {
-            var obj = {};
+            let obj = {};
 
-            var dontAsk = [];
+            let dontAsk = [];
             dontAsk.push(obj);
 
-            for (var i = 0; i < responseText["profile_responses"].length; i++) {
+            for (let i = 0; i < responseText["profile_responses"].length; i++) {
                 if (responseText["profile_responses"][i]["element"]["name"] === (position + " First Name")) {
-                    var multiple = responseText["profile_responses"][i]["data"].split(" ");
-                    for (var j = 0; j < multiple.length; j++) {
+                    let multiple = responseText["profile_responses"][i]["data"].split(" ");
+                    for (let j = 0; j < multiple.length; j++) {
                         if (multiple[j] === "") {
                             multiple.splice(j, 1);
                             j--;
@@ -289,13 +289,13 @@ window.addEventListener('load',
                     while (multiple.length > dontAsk.length) {
                         dontAsk.push({});
                     }
-                    for (var j = 0; j < multiple.length; j++) {
+                    for (let j = 0; j < multiple.length; j++) {
                         dontAsk[j]["FN"] = multiple[j];
                     }
                 }
                 if (responseText["profile_responses"][i]["element"]["name"] === (position + " Last Name")) {
-                    var multiple = responseText["profile_responses"][i]["data"].split(" ");
-                    for (var j = 0; j < multiple.length; j++) {
+                    let multiple = responseText["profile_responses"][i]["data"].split(" ");
+                    for (let j = 0; j < multiple.length; j++) {
                         if (multiple[j] === "") {
                             multiple.splice(j, 1);
                             j--;
@@ -304,13 +304,13 @@ window.addEventListener('load',
                     while (multiple.length > dontAsk.length) {
                         dontAsk.push({});
                     }
-                    for (var j = 0; j < multiple.length; j++) {
+                    for (let j = 0; j < multiple.length; j++) {
                         dontAsk[j]["LN"] = multiple[j];
                     }
                 }
                 if (responseText["profile_responses"][i]["element"]["name"] === (position + " Net ID")) {
-                    var multiple = responseText["profile_responses"][i]["data"].split(" ");
-                    for (var j = 0; j < multiple.length; j++) {
+                    let multiple = responseText["profile_responses"][i]["data"].split(" ");
+                    for (let j = 0; j < multiple.length; j++) {
                         if (multiple[j] === "") {
                             multiple.splice(j, 1);
                             j--;
@@ -319,20 +319,19 @@ window.addEventListener('load',
                     while (multiple.length > dontAsk.length) {
                         dontAsk.push({});
                     }
-                    for (var j = 0; j < multiple.length; j++) {
+                    for (let j = 0; j < multiple.length; j++) {
                         dontAsk[j]["ID"] = multiple[j];
                         dontAsk[j]["Pos"] = position;
                     }
                 }
             }
 
-            for (var i = 0; i < dontAsk.length; i++) {
+            for (let i = 0; i < dontAsk.length; i++) {
                 arr.push(dontAsk[i]);
             }
 
         }
 
-        $(function () {
             $.get("https://api.engage.nyu.edu/api/v01/orgs/61738/events?key=" + key, function (responseText) {
                 let when = [];
                 for (let x = 0; x < responseText.length; x++) {
@@ -364,7 +363,7 @@ window.addEventListener('load',
                     document.getElementsByClassName("days")[0].appendChild(li);
                 }
 
-                for (var i = 1; i <= months[date.getMonth()]["Days"]; i++) {
+                for (let i = 1; i <= months[date.getMonth()]["Days"]; i++) {
                     let li = document.createElement("li");
                     if (i === date.getDay() + 1) {
                         let span = document.createElement("span");
@@ -467,6 +466,9 @@ window.addEventListener('load',
             }
 
             let picID = [];
+            let nextChild = null;
+            let prevChild = null;
+            let curChild = null;
 
             function albumId(id, url, build, index) {
                 if(!picID[index]) {
@@ -507,9 +509,12 @@ window.addEventListener('load',
 
             let pictureIDs = [];
 
-            function showImage(image) {
+            function showImage(div) {
+                prevChild = div.previousSibling;
+                nextChild = div.nextSibling;
+                curChild = div;
                 document.getElementsByClassName("fullscreen")[0].style.display = "block";
-                document.getElementsByClassName("fullscreen")[0].style.background = image; // Onclick of button the background image of body will be test here. Give the image path in url
+                document.getElementsByClassName("focusPic")[0].style.background = div.style.background; // Onclick of button the background image of body will be test here. Give the image path in url
             }
 
             function generate() {
@@ -532,7 +537,8 @@ window.addEventListener('load',
                     div.style.backgroundSize = "contain";
                     div.id = "fadeIn";
                     div.addEventListener('click', function() {
-                       showImage(div.style.background);
+                        console.log("showing");
+                       showImage(div);
                     });
                     document.getElementsByClassName("picsPage")[0].appendChild(div);
                     $("#fadeIn").fadeIn("slow", function () {
@@ -550,9 +556,21 @@ window.addEventListener('load',
                 document.getElementsByClassName("pictures")[0].appendChild(div);
             }
 
+
+        document.getElementsByClassName("leftArrow")[0].addEventListener('click', function() {
+            if(prevChild) {
+                showImage(prevChild);
+            }
         });
 
-        document.getElementsByClassName("fullscreen")[0].addEventListener('click', function() {
+        document.getElementsByClassName("rightArrow")[0].addEventListener('click', function() {
+            if(nextChild) {
+                document.getElementsByClassName("focusPic")[0].style.background = prevChild.style.background;
+                showImage(nextChild);
+            }
+        });
+
+        document.getElementsByClassName("focusPic")[0].addEventListener('click', function() {
             document.getElementsByClassName("fullscreen")[0].style.display = "none";
         });
 
@@ -598,7 +616,7 @@ window.addEventListener('load',
             }
         });
 
-        for (var i = 0; i < document.getElementsByClassName("mainBar").length; i++) {
+        for (let i = 0; i < document.getElementsByClassName("mainBar").length; i++) {
             document.getElementsByClassName("mainBar")[i].addEventListener('click', function () {
                 if (location.href !== "http://nyuchess.com/") {
                     history.pushState(null, '', '/');
@@ -615,8 +633,8 @@ window.addEventListener('load',
         });
 
         window.onpopstate = function () {
-            var toPage = location.href;
-            var ext = toPage.replace("http://nyuchess.com/", "");
+            let toPage = location.href;
+            let ext = toPage.replace("http://nyuchess.com/", "");
             if (ext === "") {
                 ext = "main";
             }
@@ -628,7 +646,7 @@ window.addEventListener('load',
 
 
         $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function (responseText) {
-            var max = 5;
+            let max = 5;
             if (responseText["data"].length < 5) {
                 max = responseText["data"].length;
             }
@@ -642,27 +660,27 @@ window.addEventListener('load',
         function createEvent(responseText, i, max) {
             document.getElementsByClassName("events")[0].removeChild(document.getElementsByClassName("events")[0].lastChild);
             for (i; i < max; i++) {
-                var event = document.createElement('div');
+                let event = document.createElement('div');
                 event.className = "event";
 
-                var pic = document.createElement('div');
+                let pic = document.createElement('div');
                 pic.className = "eventPic";
                 pic.style.background = "url(../pictures/eventImages/" + roll() + ".jpg) no-repeat";
 
-                var info = document.createElement('div');
+                let info = document.createElement('div');
                 info.className = "eventInfo";
 
-                var title = document.createElement('div');
+                let title = document.createElement('div');
                 title.className = "eventTitle text-center";
                 title.textContent = responseText["data"][i]["name"];
                 title.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
 
-                var link = document.createElement('a');
+                let link = document.createElement('a');
                 link.href = "https://www.facebook.com/events/" + responseText["data"][i]["id"];
                 link.target = "_blank";
                 link.appendChild(title);
 
-                var desc = document.createElement('div');
+                let desc = document.createElement('div');
                 desc.className = "eventDesc";
                 if (desc.textContent = responseText["data"][i]["place"]) {
                     desc.textContent = responseText["data"][i]["place"]["name"];
@@ -697,14 +715,14 @@ window.addEventListener('load',
             }
 
             if (document.getElementsByClassName("events")[0].childNodes.length < responseText["data"].length - 1) {
-                var div = document.createElement("div");
+                let div = document.createElement("div");
                 document.getElementsByClassName("events")[0].lastChild.style.marginBottom = "4vw";
                 div.className = "loadMore text-center";
                 div.innerText = "Load Older Posts";
                 div.addEventListener('click', function () {
                     $.get('https://graph.facebook.com/v2.10/194680683893776/events?access_token=' + token, function (responseText) {
-                        var start = document.getElementsByClassName("events")[0].childNodes.length - 1;
-                        var max = Math.min(start + 2, responseText["data"].length - 1);
+                        let start = document.getElementsByClassName("events")[0].childNodes.length - 1;
+                        let max = Math.min(start + 2, responseText["data"].length - 1);
                         createEvent(responseText, start, max);
                     });
                 });
@@ -716,7 +734,7 @@ window.addEventListener('load',
             $("." + pages[curPage]).fadeOut("slow", function () {
                 offPage(curPage);
                 onPage(x);
-                var $win = $(window);
+                let $win = $(window);
                 document.body.scrollTop = 0; // For Chrome, Safari and Opera
                 document.documentElement.scrollTop = 0; // For IE and Firefox
                 $("." + pages[x]).fadeIn("slow", function () {
