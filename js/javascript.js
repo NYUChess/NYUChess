@@ -532,8 +532,8 @@ window.addEventListener('load',
                     document.getElementsByClassName("pictures")[0].removeChild(document.getElementsByClassName("pictures")[0].lastChild);
                     buildPics();
                 });
-                document.getElementsByClassName("pictures")[0].appendChild(div);
                 div.id = "fadeIn";
+                document.getElementsByClassName("pictures")[0].appendChild(div);
                 $("#fadeIn").fadeIn("fast", function () {
                 });
                 div.id = "";
