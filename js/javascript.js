@@ -534,7 +534,7 @@ window.addEventListener('load',
                 });
                 div.id = "fadeIn";
                 document.getElementsByClassName("pictures")[0].appendChild(div);
-                $("#fadeIn").fadeIn("fast", function () {
+                $("#fadeIn").fadeIn("slow", function () {
                 });
                 div.id = "";
             }
@@ -676,7 +676,7 @@ window.addEventListener('load',
                 }
                 event.id = "fadeIn";
                 document.getElementsByClassName("events")[0].appendChild(event);
-                $("#fadeIn").fadeIn("fast", function () {
+                $("#fadeIn").fadeIn("slow", function () {
                 });
                 event.id = "";
             }
