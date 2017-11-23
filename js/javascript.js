@@ -466,7 +466,7 @@ window.addEventListener('load',
                 });
             }
 
-            let picID = [[], [], [], [], []];
+            let picID = [];
 
             function albumId(id, url, build, index) {
                 if(!picID[index]) {
