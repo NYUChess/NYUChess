@@ -49,7 +49,7 @@ window.addEventListener('load',
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
                 if(redirect.substring(redirect.length - 1) === "/") {
-                    redirect = redirect.substring(0, redirect.length);
+                    redirect = redirect.substring(0, redirect.length - 1);
                 }
 
                 let check = redirect.replace("http://nyuchess.com/", "");
