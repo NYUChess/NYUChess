@@ -179,6 +179,7 @@ li{
     cursor: pointer;
     background-color: #303030;
     width: 100%;
+    visibility: hidden;
 }
 
 .loadMore:hover, .loadMorePics:hover {
@@ -379,5 +380,4 @@ body {font-family: Verdana, sans-serif;}
 
 .pictures {
     padding-left: 4.4vw;
-    visibility: hidden;
 }
