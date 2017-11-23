@@ -567,7 +567,6 @@ window.addEventListener('load',
 
         document.getElementsByClassName("rightArrow")[0].addEventListener('click', function() {
             if(nextChild) {
-                document.getElementsByClassName("focusPic")[0].style.background = prevChild.style.background;
                 showImage(nextChild);
             }
         });
