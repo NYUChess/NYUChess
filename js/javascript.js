@@ -691,6 +691,7 @@ window.addEventListener('load',
                     });
                 });
                 document.getElementsByClassName("events")[0].appendChild(div);
+                $(div).fadeIn("fast");
             }
         }
         function loadPage(x) {
