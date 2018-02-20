@@ -318,7 +318,7 @@ window.addEventListener('load',
                         dontAsk[j]["LN"] = multiple[j];
                     }
                 }
-                if (responseText["profile_responses"][i]["element"]["name"] === (position + " Net ID")) {
+                if (responseText["profile_responses"][i]["element"]["name"].includes(position + " Net ID")) {
                     let multiple = responseText["profile_responses"][i]["data"].split(" ");
                     for (let j = 0; j < multiple.length; j++) {
                         if (multiple[j] === "") {
