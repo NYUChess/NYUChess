@@ -91,6 +91,7 @@ window.addEventListener('load',
                             let contacts = [];
 
                             getData(contacts, "President", responseText);
+                            getData(contacts, "Co-President", responseText);
                             getData(contacts, "Vice President", responseText);
                             getData(contacts, "Treasurer", responseText);
                             getData(contacts, "Secretary", responseText);
@@ -287,7 +288,7 @@ window.addEventListener('load',
             console.log(responseText);
 
             for (let i = 0; i < responseText["profile_responses"].length; i++) {
-                if (responseText["profile_responses"][i]["element"]["name"] === (position + " First Name")) {
+                if (responseText["profile_responses"][i]["element"]["name"].includes(position + " First Name")) {
                     let multiple = responseText["profile_responses"][i]["data"].split(" ");
                     for (let j = 0; j < multiple.length; j++) {
                         if (multiple[j] === "") {
@@ -302,7 +303,7 @@ window.addEventListener('load',
                         dontAsk[j]["FN"] = multiple[j];
                     }
                 }
-                if (responseText["profile_responses"][i]["element"]["name"] === (position + " Last Name")) {
+                if (responseText["profile_responses"][i]["element"]["name"].includes(position + " Last Name")) {
                     let multiple = responseText["profile_responses"][i]["data"].split(" ");
                     for (let j = 0; j < multiple.length; j++) {
                         if (multiple[j] === "") {
