@@ -110,6 +110,7 @@ window.addEventListener('load',
                             
                             console.log("CONTACT");
                             console.log(cons);
+                            console.log(contacts);
 
                             let type = 0;
                             for (let key in cons) {
@@ -281,6 +282,9 @@ window.addEventListener('load',
 
             let dontAsk = [];
             dontAsk.push(obj);
+            
+            console.log("GETDATA");
+            console.log(responseText);
 
             for (let i = 0; i < responseText["profile_responses"].length; i++) {
                 if (responseText["profile_responses"][i]["element"]["name"] === (position + " First Name")) {
