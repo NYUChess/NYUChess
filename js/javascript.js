@@ -107,6 +107,9 @@ window.addEventListener('load',
                                 }
                                 cons[contacts[i]["FN"] + " " + contacts[i]["LN"]] = {"Pos": pos, id: contacts[i]["ID"]};
                             }
+                            
+                            console.log("CONTACT");
+                            console.log(cons);
 
                             let type = 0;
                             for (let key in cons) {
