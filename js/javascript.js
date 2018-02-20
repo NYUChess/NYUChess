@@ -437,7 +437,7 @@ window.addEventListener('load',
                             }
                         }
                         i++;
-                        if(responseText["paging"]["next"]) {
+                        if(responseText["paging"] != null && responseText["paging"]["next"]) {
                             forms(responseText["paging"]["next"]);
                         }
                     }
