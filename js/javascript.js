@@ -478,7 +478,8 @@ window.addEventListener('load',
                 }
                 if(!url) {
                     $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
-                        console.log(responseText)
+                        console.log("not URL");
+                        console.log(responseText);
                         for (let j = 0; j < responseText["data"].length; j++) {
                             picID[index].push(responseText["data"][j]["id"]);
                         }
@@ -493,6 +494,8 @@ window.addEventListener('load',
                     });
                 } else {
                     $.get(id, function (responseText) {
+                        console.log("Line 496 URL");
+                        console.log(responseText)
                         for (let j = 0; j < responseText["data"].length; j++) {
                             picID[index].push(responseText["data"][j]["id"]);
                         }
