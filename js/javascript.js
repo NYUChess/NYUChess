@@ -102,16 +102,14 @@ window.addEventListener('load',
                             for (let i = 0; i < contacts.length; i++) {
                                 let pos = "";
                                 if ((contacts[i]["FN"] + " " + contacts[i]["LN"]) in cons && "Pos" in cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]) {
-                                    pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
+                                    if(pos != "President" && contacts[i]["Pos"] === "Co-President") {
+                                        pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
+                                       }
                                 } else {
                                     pos = contacts[i]["Pos"];
                                 }
                                 cons[contacts[i]["FN"] + " " + contacts[i]["LN"]] = {"Pos": pos, id: contacts[i]["ID"]};
                             }
-                            
-                            console.log("CONTACT");
-                            console.log(cons);
-                            console.log(contacts);
 
                             let type = 0;
                             for (let key in cons) {
@@ -283,9 +281,6 @@ window.addEventListener('load',
 
             let dontAsk = [];
             dontAsk.push(obj);
-            
-            console.log("GETDATA");
-            console.log(responseText);
 
             for (let i = 0; i < responseText["profile_responses"].length; i++) {
                 if (responseText["profile_responses"][i]["element"]["name"].includes(position + " First Name")) {
@@ -486,8 +481,6 @@ window.addEventListener('load',
                 }
                 if(!url) {
                     $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
-                        console.log("not URL");
-                        console.log(responseText);
                         for (let j = 0; j < responseText["data"].length; j++) {
                             picID[index].push(responseText["data"][j]["id"]);
                         }
@@ -502,8 +495,6 @@ window.addEventListener('load',
                     });
                 } else {
                     $.get(id, function (responseText) {
-                        console.log("Line 496 URL");
-                        console.log(responseText)
                         for (let j = 0; j < responseText["data"].length; j++) {
                             picID[index].push(responseText["data"][j]["id"]);
                         }
