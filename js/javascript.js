@@ -102,7 +102,7 @@ window.addEventListener('load',
                             for (let i = 0; i < contacts.length; i++) {
                                 let pos = "";
                                 if ((contacts[i]["FN"] + " " + contacts[i]["LN"]) in cons && "Pos" in cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]) {
-                                    console.log(contacts[i]["LN"]]["Pos"] + " " + contacts[i]["Pos"]);  
+                                    console.log(cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + " " + contacts[i]["Pos"]);  
                                     pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
                                 } else {
                                     pos = contacts[i]["Pos"];
