@@ -106,7 +106,6 @@ window.addEventListener('load',
                                 } else {
                                     pos = contacts[i]["Pos"];
                                 }
-                                console.log(pos);
                                 cons[contacts[i]["FN"] + " " + contacts[i]["LN"]] = {"Pos": pos, id: contacts[i]["ID"]};
                             }
 
