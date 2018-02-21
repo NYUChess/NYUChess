@@ -102,8 +102,9 @@ window.addEventListener('load',
                             for (let i = 0; i < contacts.length; i++) {
                                 let pos = "";
                                 if ((contacts[i]["FN"] + " " + contacts[i]["LN"]) in cons && "Pos" in cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]) {
-                                    console.log(cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + " " + contacts[i]["Pos"]);  
-                                    pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
+                                    if(cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] != "President" || contacts[i]["Pos"] != "Co-President") {
+                                        pos = cons[contacts[i]["FN"] + " " + contacts[i]["LN"]]["Pos"] + ", " + contacts[i]["Pos"];
+                                    }
                                 } else {
                                     pos = contacts[i]["Pos"];
                                 }
