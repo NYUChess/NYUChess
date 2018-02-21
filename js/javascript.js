@@ -481,29 +481,33 @@ window.addEventListener('load',
                 }
                 if(!url) {
                     $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
-                        for (let j = 0; j < responseText["data"].length; j++) {
-                            picID[index].push(responseText["data"][j]["id"]);
-                        }
-                        if (responseText["paging"] && responseText["paging"]["next"]) {
-                            albumId(responseText["paging"]["next"], true, build, index);
-                        } else {
-                            if(build) {
-                                generate();
-                                console.log("building");
+                        if(responseText && responseText[data]) {
+                            for (let j = 0; j < responseText["data"].length; j++) {
+                                picID[index].push(responseText["data"][j]["id"]);
                             }
-                        }
+                            if (responseText["paging"] && responseText["paging"]["next"]) {
+                                albumId(responseText["paging"]["next"], true, build, index);
+                            } else {
+                                if(build) {
+                                    generate();
+                                    console.log("building");
+                                }
+                            }
+                         }
                     });
                 } else {
                     $.get(id, function (responseText) {
-                        for (let j = 0; j < responseText["data"].length; j++) {
-                            picID[index].push(responseText["data"][j]["id"]);
-                        }
-                        if (responseText["paging"] && responseText["paging"]["next"]) {
-                            albumId(responseText["paging"]["next"], true, build, index);
-                        } else {
-                            if(build) {
-                                generate();
-                                console.log("building");
+                        if(responseText && responseText[data]) {
+                            for (let j = 0; j < responseText["data"].length; j++) {
+                                picID[index].push(responseText["data"][j]["id"]);
+                            }
+                            if (responseText["paging"] && responseText["paging"]["next"]) {
+                                albumId(responseText["paging"]["next"], true, build, index);
+                            } else {
+                                if(build) {
+                                    generate();
+                                    console.log("building");
+                                }
                             }
                         }
                     });
