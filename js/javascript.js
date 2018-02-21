@@ -481,7 +481,7 @@ window.addEventListener('load',
                 }
                 if(!url) {
                     $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
-                        if(responseText && responseText["data]) {
+                        if(responseText && responseText["data"]) {
                             for (let j = 0; j < responseText["data"].length; j++) {
                                 picID[index].push(responseText["data"][j]["id"]);
                             }
