@@ -91,6 +91,7 @@ window.addEventListener('load',
                             let contacts = [];
 
                             getData(contacts, "President", responseText);
+                            getData(contacts, "Co-President", responseText);
                             getData(contacts, "Vice President", responseText);
                             getData(contacts, "Treasurer", responseText);
                             getData(contacts, "Secretary", responseText);
@@ -280,7 +281,7 @@ window.addEventListener('load',
             dontAsk.push(obj);
 
             for (let i = 0; i < responseText["profile_responses"].length; i++) {
-                if (responseText["profile_responses"][i]["element"]["name"] === (position + " First Name")) {
+                if (responseText["profile_responses"][i]["element"]["name"].includes(position + " First Name")) {
                     let multiple = responseText["profile_responses"][i]["data"].split(" ");
                     for (let j = 0; j < multiple.length; j++) {
                         if (multiple[j] === "") {
@@ -295,7 +296,7 @@ window.addEventListener('load',
                         dontAsk[j]["FN"] = multiple[j];
                     }
                 }
-                if (responseText["profile_responses"][i]["element"]["name"] === (position + " Last Name")) {
+                if (responseText["profile_responses"][i]["element"]["name"].includes(position + " Last Name")) {
                     let multiple = responseText["profile_responses"][i]["data"].split(" ");
                     for (let j = 0; j < multiple.length; j++) {
                         if (multiple[j] === "") {
@@ -310,7 +311,7 @@ window.addEventListener('load',
                         dontAsk[j]["LN"] = multiple[j];
                     }
                 }
-                if (responseText["profile_responses"][i]["element"]["name"] === (position + " Net ID")) {
+                if (responseText["profile_responses"][i]["element"]["name"].includes(position + " Net ID")) {
                     let multiple = responseText["profile_responses"][i]["data"].split(" ");
                     for (let j = 0; j < multiple.length; j++) {
                         if (multiple[j] === "") {
@@ -437,7 +438,7 @@ window.addEventListener('load',
                             }
                         }
                         i++;
-                        if(responseText["paging"]["next"]) {
+                        if(responseText["paging"] != null && responseText["paging"]["next"]) {
                             forms(responseText["paging"]["next"]);
                         }
                     }
@@ -478,29 +479,33 @@ window.addEventListener('load',
                 }
                 if(!url) {
                     $.get("https://graph.facebook.com/v2.10/" + id + "/photos?access_token=" + token + "&fields=albums", function (responseText) {
-                        for (let j = 0; j < responseText["data"].length; j++) {
-                            picID[index].push(responseText["data"][j]["id"]);
-                        }
-                        if (responseText["paging"] && responseText["paging"]["next"]) {
-                            albumId(responseText["paging"]["next"], true, build, index);
-                        } else {
-                            if(build) {
-                                generate();
-                                console.log("building");
+                        if(responseText && responseText["data"]) {
+                            for (let j = 0; j < responseText["data"].length; j++) {
+                                picID[index].push(responseText["data"][j]["id"]);
                             }
-                        }
+                            if (responseText["paging"] && responseText["paging"]["next"]) {
+                                albumId(responseText["paging"]["next"], true, build, index);
+                            } else {
+                                if(build) {
+                                    generate();
+                                    console.log("building");
+                                }
+                            }
+                         }
                     });
                 } else {
                     $.get(id, function (responseText) {
-                        for (let j = 0; j < responseText["data"].length; j++) {
-                            picID[index].push(responseText["data"][j]["id"]);
-                        }
-                        if (responseText["paging"] && responseText["paging"]["next"]) {
-                            albumId(responseText["paging"]["next"], true, build, index);
-                        } else {
-                            if(build) {
-                                generate();
-                                console.log("building");
+                        if(responseText && responseText["data"]) {
+                            for (let j = 0; j < responseText["data"].length; j++) {
+                                picID[index].push(responseText["data"][j]["id"]);
+                            }
+                            if (responseText["paging"] && responseText["paging"]["next"]) {
+                                albumId(responseText["paging"]["next"], true, build, index);
+                            } else {
+                                if(build) {
+                                    generate();
+                                    console.log("building");
+                                }
                             }
                         }
                     });
