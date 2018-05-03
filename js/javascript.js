@@ -512,7 +512,7 @@ window.addEventListener('load',
                 }
             }
 
-            //albumPics("https://graph.facebook.com/v2.10/194680683893776/?fields=albums&access_token=" + token);
+            albumPics("https://graph.facebook.com/v2.10/194680683893776/?fields=albums&access_token=" + token);
 
             let pictureIDs = [];
 
