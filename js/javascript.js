@@ -173,7 +173,7 @@ window.addEventListener('load',
             });
         }
 
-        getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
+        // getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
 
         $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
             //Add mission statement to homepage
