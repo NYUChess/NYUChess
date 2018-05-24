@@ -76,17 +76,6 @@ window.addEventListener('load',
         let admins = {};
 
         function getAdmins(url) {
-            jQuery.ajax({
-                url: url,
-                success: function (responseText) {
-                    for (let i = 0; i < responseText["data"].length; i++) {
-                        if (responseText["data"][i]["administrator"]) {
-                            admins[responseText["data"][i]["name"]] = responseText["data"][i]["id"];
-                        }
-                    }
-                    if (responseText["paging"] && responseText["paging"]["next"]) {
-                        getAdmins(responseText["paging"]["next"]);
-                    } else {
                         $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
                             //Add people to contact us
                             let contacts = [];
@@ -167,13 +156,9 @@ window.addEventListener('load',
                                 }
                             }
                         });
-                    }
-                },
-                async: true
-            });
         }
 
-        // getAdmins('https://graph.facebook.com/v2.10/194680683893776/members?access_token=' + token);
+        getAdmins();
 
         $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
             //Add mission statement to homepage

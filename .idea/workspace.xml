@@ -37,8 +37,8 @@
       <file leaf-file-name="javascript.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/javascript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="468" column="19" lean-forward="true" selection-start-line="468" selection-start-column="19" selection-end-line="468" selection-end-column="19" />
+            <state relative-caret-position="187">
+              <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
             </state>
           </provider>
         </entry>
@@ -64,8 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>images</find>
-      <find>large</find>
       <find>url</find>
       <find>async</find>
       <find>http</find>
@@ -92,8 +90,10 @@
       <find>facebook</find>
       <find>albumPics</find>
       <find>contact</find>
-      <find>//</find>
       <find>getadmins</find>
+      <find>getData</find>
+      <find>//</find>
+      <find>/member</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -220,12 +220,12 @@
       <workItem from="1524515767557" duration="221000" />
       <workItem from="1525373974190" duration="1719000" />
       <workItem from="1525385524860" duration="22000" />
-      <workItem from="1527193566419" duration="2857000" />
+      <workItem from="1527193566419" duration="3216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213122000" />
+    <option name="totallyTimeSpent" value="213481000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -581,8 +581,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/javascript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="468" column="19" lean-forward="true" selection-start-line="468" selection-start-column="19" selection-end-line="468" selection-end-column="19" />
+        <state relative-caret-position="187">
+          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
         </state>
       </provider>
     </entry>
