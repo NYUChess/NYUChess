@@ -80,6 +80,8 @@ window.addEventListener('load',
                             //Add people to contact us
                             let contacts = [];
 
+                            console.log(responseText);
+
                             getData(contacts, "President", responseText);
                             getData(contacts, "Co-President", responseText);
                             getData(contacts, "Vice President", responseText);
