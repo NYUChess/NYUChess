@@ -1,8 +1,6 @@
 window.addEventListener('load',
     function () {
 
-        alert("Due to changes in the FB API, the whole site is under maintenance");
-
         let pages = ["main", "about", "calendar", "contact", "events", "forms", "pictures", "not"];
         let curPage = 0;
 
