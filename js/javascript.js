@@ -8,7 +8,7 @@ window.addEventListener('load',
 
         let id = 61738;
         let key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
-        let token = "EAACBHKPzZBGMBABD4wTinXhebgHbNNBavRyZAfgxaKKca5oxwLZBDp2mwlAEWbfZBVPLZC964Q43lQJhAj2s5AjXbzJcaJ7GyYyiztpAVXhmLdBmZAEDYQmKcSEylwwYiZChiOctViFFZA5ckpGPNAabWlV5agZCO9d5vZCZAfE7kGgaOpZB5ZAJKTh2D3LBrYKFniivPZBA530CzXWQZDZD";
+        let token = "EAACEdEose0cBAPPTn56DNqMUqwfwzeZB5wMb5BiT3ExpYXdctwsWr2Trm3mCRcxr3GK7qwJ5UPoG7MBZBZC27N4nxSGf48z1kNOuyWJWWCGobTABzA6qpBmUqHawbe172RJDabgIpZAdpv96idle820oEy9zZB8GPffPqZABaq35tI01i8LAUjmaKqyzx7ra7qPmlKfhiJBwZDZD";
         let group = 194680683893776;
 
         let leap = 0;
@@ -75,7 +75,7 @@ window.addEventListener('load',
 
         let admins = {};
 
-        function getAdmins(url) {
+        function getAdmins() {
                         $.get('https://api.engage.nyu.edu/api/v01/orgs/' + id + '?key=' + key, function (responseText) {
                             //Add people to contact us
                             let contacts = [];
