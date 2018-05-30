@@ -8,7 +8,7 @@ window.addEventListener('load',
 
         let id = 61738;
         let key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
-        let token = "EAACBHKPzZBGMBADCnz3sTQsCaFd5d4mURyG4kqsBPL8rV9NzRQsoFn7xwGPJZAQZAYXPL17aBK338dZCfI5AuRJTaxQr9ZAIoITIrlIcy7sPaOrFjAU2zadcbrnS28O1ZCLOFcQWAtRmnSbR4iB9b6E19hWwReDWBcwrrIzZCSe9ZCtrR5NGDsGHmdzTtCv2fgm4UEYlqBPo5LGpeAlc9iwsbCKNhTytbfFODdo1nhNLFQZDZD";
+        let token = "141960009742435|-maLnFTRW1ghpWRu2CNuyNskRk8";
         let group = 194680683893776;
 
         let leap = 0;
