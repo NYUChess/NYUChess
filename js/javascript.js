@@ -222,7 +222,7 @@ window.addEventListener('load',
 
                     let buffer = new Date("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
 
-                    let buff = buffer.getDate() - 1;
+                    let buff = buffer.getDay() - 1;
                     if (buff === -1) {
                         buff = 6;
                     }
@@ -346,7 +346,7 @@ window.addEventListener('load',
 
                 let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
 
-                let buff = buffer.getDate() - 1;
+                let buff = buffer.getDay() - 1;
                 if (buff === -1) {
                     buff = 6;
                 }
