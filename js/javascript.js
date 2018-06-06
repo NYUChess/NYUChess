@@ -235,7 +235,7 @@ window.addEventListener('load',
                     for (let i = 1; i <= months[mo]["Days"]; i++) {
                         let li = document.createElement("li");
                         console.log(date.getDay());
-                        if (i === date.getDay() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
+                        if (i === date.getDate() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
                             let span = document.createElement("span");
                             span.className = "active";
                             span.innerText = i;
