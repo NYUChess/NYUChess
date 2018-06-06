@@ -235,7 +235,7 @@ window.addEventListener('load',
                     for (let i = 1; i <= months[mo]["Days"]; i++) {
                         let li = document.createElement("li");
                         console.log(date.getDate());
-                        if (i === date.getDate() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
+                        if (i === date.getDate() && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
                             let span = document.createElement("span");
                             span.className = "active";
                             span.innerText = i;
@@ -357,13 +357,13 @@ window.addEventListener('load',
 
                 for (let i = 1; i <= months[date.getMonth()]["Days"]; i++) {
                     let li = document.createElement("li");
-                    if (i === date.getDate() + 1) {
+                    if (i === date.getDate()) {
                         let span = document.createElement("span");
                         span.className = "active";
                         span.innerText = i;
                         li.appendChild(span);
                     } else {
-                        li.innerText = i;
+                        li.innerText = i.toString();
                     }
                     if (when.indexOf(i) > -1) {
                         li.className = "marked";
