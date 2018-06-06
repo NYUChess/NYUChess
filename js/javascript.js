@@ -222,7 +222,7 @@ window.addEventListener('load',
 
                     let buffer = new Date("" + (mo + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
 
-                    let buff = buffer.getDay() - 1;
+                    let buff = buffer.getDate() - 1;
                     if (buff === -1) {
                         buff = 6;
                     }
@@ -234,7 +234,7 @@ window.addEventListener('load',
 
                     for (let i = 1; i <= months[mo]["Days"]; i++) {
                         let li = document.createElement("li");
-                        console.log(date.getDay());
+                        console.log(date.getDate());
                         if (i === date.getDate() + 1 && months[document.getElementsByClassName("curMonth")[0].innerText] === date.getMonth()) {
                             let span = document.createElement("span");
                             span.className = "active";
@@ -346,7 +346,7 @@ window.addEventListener('load',
 
                 let buffer = new Date("" + (date.getMonth() + 1) + " 01 " + document.getElementsByClassName("curYear")[0].innerText);
 
-                let buff = buffer.getDay() - 1;
+                let buff = buffer.getDate() - 1;
                 if (buff === -1) {
                     buff = 6;
                 }
@@ -357,7 +357,7 @@ window.addEventListener('load',
 
                 for (let i = 1; i <= months[date.getMonth()]["Days"]; i++) {
                     let li = document.createElement("li");
-                    if (i === date.getDay() + 1) {
+                    if (i === date.getDate() + 1) {
                         let span = document.createElement("span");
                         span.className = "active";
                         span.innerText = i;
