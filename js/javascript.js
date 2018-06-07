@@ -8,7 +8,7 @@ window.addEventListener('load',
 
         let id = 61738;
         let key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
-        let token = "EAACBHKPzZBGMBAJRlpXw3VzR3dJZA9JBEmBZBORqS8x0JgdWVkCbvB7PZAd3PsAa7FvyaiEYgsP6k8DtyOCJ8xlK2coAZAZBYHMqVh4EEfRqRadllq9zdyMNBjIzMLvxM8K6nzgkLBVgQJfQMT1lJA8K1ZCaD2DCZAoiAcPCro4Tz6FlfTeQKG0p8J2CtqVysInZC6Kt21HQ03QZDZD";
+        let token = "EAACBHKPzZBGMBAIHZAYb0zwu1zhD5I7xyMPWX4d2n8NU7ZAskWf3PZCWnUzjFDJdgZChFAn9D1nP2aGRSoLNvy4g2IbjNk51ZAlGGpb8Lr99e6C6BQwIARA9bdSm2EezTga8IdSWs61LPhhdAYjlOSZBUHiaiE1H37OlaCJNXZCyewZDZD\n";
         let group = 194680683893776;
 
         let leap = 0;
@@ -501,7 +501,7 @@ window.addEventListener('load',
                 }
             }
 
-            albumPics("https://graph.facebook.com/v2.10/194680683893776/?fields=albums&access_token=" + token);
+            albumPics("https://graph.facebook.com/v2.10/194680683893776?fields=albums&access_token=" + token);
 
             let pictureIDs = [];
 
