@@ -38,8 +38,8 @@
       <file leaf-file-name="javascript.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/javascript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="202" selection-start-line="10" selection-start-column="202" selection-end-line="10" selection-end-column="202" />
+            <state relative-caret-position="352">
+              <caret line="489" column="45" selection-start-line="489" selection-start-column="45" selection-end-line="489" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -139,6 +139,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,7 +161,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -238,12 +238,14 @@
       <workItem from="1528296140710" duration="3558000" />
       <workItem from="1528311867804" duration="96000" />
       <workItem from="1528314143003" duration="3843000" />
-      <workItem from="1528409839078" duration="7000" />
+      <workItem from="1528409839078" duration="27000" />
+      <workItem from="1528682396974" duration="2162000" />
+      <workItem from="1528759155842" duration="705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223462000" />
+    <option name="totallyTimeSpent" value="226349000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -593,8 +595,8 @@
     <entry file="file://$PROJECT_DIR$/js/Test.js" />
     <entry file="file://$PROJECT_DIR$/js/javascript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="202" selection-start-line="10" selection-start-column="202" selection-end-line="10" selection-end-column="202" />
+        <state relative-caret-position="352">
+          <caret line="489" column="45" selection-start-line="489" selection-start-column="45" selection-end-line="489" selection-end-column="45" />
         </state>
       </provider>
     </entry>
