@@ -9,7 +9,6 @@ window.addEventListener('load',
         let id = 61738;
         let key = 'u9G1Rt2PsBxbSDyO8i61w-gPXXaEQetClGfeq7v4mkM';
         let token = "EAACBHKPzZBGMBAIHZAYb0zwu1zhD5I7xyMPWX4d2n8NU7ZAskWf3PZCWnUzjFDJdgZChFAn9D1nP2aGRSoLNvy4g2IbjNk51ZAlGGpb8Lr99e6C6BQwIARA9bdSm2EezTga8IdSWs61LPhhdAYjlOSZBUHiaiE1H37OlaCJNXZCyewZDZD";
-        let group = 194680683893776;
 
         let leap = 0;
         if ((new Date().getFullYear() - 2000) % 4 === 0) {
