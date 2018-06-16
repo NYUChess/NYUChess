@@ -27,6 +27,21 @@ function getAdmins() {
             let conPic = document.createElement("div");
             conPic.className = "contactPic";
             let pic = document.createElement("img");
+            if(contacts[i]["Pos"].includes("President")) {
+                pic.src = "url(../pictures/contactImages/king.jpg) no-repeat";
+            } else if(contacts[i]["Pos"].includes("Webmaster")) {
+                pic.src = "url(../pictures/contactImages/knight.jpg) no-repeat";
+            } else if(contacts[i]["Pos"].includes("Treasurer")) {
+                pic.src = "url(../pictures/contactImages/rook.jpg) no-repeat";
+            } else if(contacts[i]["Pos"].includes("Secretary")) {
+                pic.src = "url(../pictures/contactImages/bishop.jpg) no-repeat";
+            }
+            if(contacts[i]["Pos"].includes("Co-President")) {
+                pic.src = "url(../pictures/contactImages/pawn.jpg) no-repeat";
+            }
+            if(contacts[i]["Pos"].includes("Vice President")) {
+                pic.src = "url(../pictures/contactImages/queen.jpg) no-repeat";
+            }
             conPic.appendChild(pic);
 
             let conDet = document.createElement("div");
