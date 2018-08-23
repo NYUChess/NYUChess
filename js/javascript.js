@@ -2,7 +2,7 @@ var fonts = ["Comic Sans MS", "Courier New", "Times New Roman", "Verdana", "Geor
 var pages = ["main", "about", "calendar", "contact", "events", "forms", "pictures", "not"];
 var curPage = 0;
 
-alert("Due to API rate limiting, some pages may be blank until we can secure a higher rate limit.");
+//alert("Due to API rate limiting, some pages may be blank until we can secure a higher rate limit.");
 
 window.addEventListener("load", function() {
     /*
