@@ -2,11 +2,22 @@ function makeContact() {
     getAdmins();
 }
 
+const backup = [{"Name": "Danny Wu", "ID": "dw1821", "Pos": "President"},
+    {"Name": "Joe Martinez", "ID": "jm7365", "Pos": "Vice-President"},
+    {"Name": "Avedis Baghdasarian", "ID": "ab6951", "Pos": "Treasurer"},
+    {"Name": "Chris Colon", "ID": "cc5327", "Pos": "Secretary"},
+    {"Name": "Victor Treaba", "ID": "vgt219", "Pos": "Webmaster"}];
+const replace = false;
+
 function getAdmins() {
     $.get("http://nyuchess-api.herokuapp.com/?type=ORGSYNCPAGE", function (data) {
         //Add people to contact us
         var responseText = myJSON(data);
         var contacts = getData(responseText);
+
+        if(replace || contacts.length < 3) {
+            contacts = backup;
+        }
 
         for (var i = 0; i < contacts.length; i ++) {
             let div = document.createElement("div");
