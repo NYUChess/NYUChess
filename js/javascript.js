@@ -37,14 +37,14 @@ window.addEventListener("load", function () {
         }
     })();
 
-    const alerts = "Due to API rate limiting, some objects may not load.\r\n Because of Orgsync changes, Contact Us page might not load properly; this issue is being currently looked into.";
+    const alerts = "Please be patient while the pages load!\r\nDue to API rate limiting, some objects may not load.\r\n Because of Orgsync changes, Contact Us page might not load properly; this issue is being currently looked into.";
 
     if (alerts !== "") {
         let div = document.createElement("div");
         div.className = "alerts";
         document.getElementsByClassName("main")[0].appendChild(div);
         div.innerText = "ALERTS:\r\n" + alerts;
-        setTimeout(function() { $(div).fadeOut("slow"); }, 3000)
+        setTimeout(function() { $(div).fadeOut("slow"); }, 5000)
     }
 
     // Setting back and forward button behaviors
