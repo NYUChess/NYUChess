@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f047bcd9-0b70-41e4-af9f-2d884ccb087c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/contactUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/contactUs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/javascript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/javascript.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,48 +16,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contactUs.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/contactUs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="events.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/events.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="javascript.js" pinned="false" current-in-tab="false">
+    <leaf>
+      <file leaf-file-name="javascript.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/javascript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pictures.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pictures.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -121,13 +83,13 @@
         <option value="$PROJECT_DIR$/js/calendar.js" />
         <option value="$PROJECT_DIR$/js/about.js" />
         <option value="$PROJECT_DIR$/js/home.js" />
-        <option value="$PROJECT_DIR$/js/javascript.js" />
         <option value="$PROJECT_DIR$/js/events.js" />
         <option value="$PROJECT_DIR$/js/forms.js" />
         <option value="$PROJECT_DIR$/js/pictures.js" />
         <option value="$PROJECT_DIR$/js/js.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/contactUs.js" />
+        <option value="$PROJECT_DIR$/js/javascript.js" />
       </list>
     </option>
   </component>
@@ -158,6 +120,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,7 +142,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -260,12 +222,14 @@
       <workItem from="1528409839078" duration="27000" />
       <workItem from="1528682396974" duration="2162000" />
       <workItem from="1528759155842" duration="1975000" />
-      <workItem from="1529084850461" duration="17432000" />
+      <workItem from="1529084850461" duration="18609000" />
+      <workItem from="1529253594602" duration="54000" />
+      <workItem from="1536610043742" duration="26000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245051000" />
+    <option name="totallyTimeSpent" value="246308000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -548,9 +512,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Test.js" />
-    <entry file="file://$PROJECT_DIR$/js/about.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/about.js" />
     <entry file="file://$PROJECT_DIR$/js/homeAbout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -586,13 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/pictures.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -607,17 +562,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/javascript.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        <state relative-caret-position="102">
+          <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/contactUs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
+        <state relative-caret-position="459">
+          <caret line="41" column="63" lean-forward="true" selection-start-line="41" selection-start-column="63" selection-end-line="41" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/javascript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
