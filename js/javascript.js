@@ -4,7 +4,7 @@ var curPage = 0;
 
 //alert("Due to API rate limiting, some pages may be blank until we can secure a higher rate limit.");
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     /*
         Makeshift router using meta tags in the 404 page.
         Whole website is technically one page, use this to determine which page to load from the above array
@@ -13,7 +13,7 @@ window.addEventListener("load", function() {
         let redirect = sessionStorage.redirect;
         delete sessionStorage.redirect;
         if (redirect && redirect !== location.href) {
-            if(redirect.substring(redirect.length - 1) === "/") {
+            if (redirect.substring(redirect.length - 1) === "/") {
                 redirect = redirect.substring(0, redirect.length - 1);
             }
 
@@ -36,6 +36,16 @@ window.addEventListener("load", function() {
             onPage(pages.indexOf("main"));
         }
     })();
+
+    const alerts = "Due to API rate limiting, some objects may not load.\r\n Because of Orgsync changes, Contact Us page might not load properly; this issue is being currently looked into.";
+
+    if (alerts !== "") {
+        let div = document.createElement("div");
+        div.className = "alerts";
+        document.getElementsByClassName("main")[0].appendChild(div);
+        div.innerText = "ALERTS:\r\n" + alerts;
+        setTimeout(function() { $(div).fadeOut("slow"); }, 3000)
+    }
 
     // Setting back and forward button behaviors
     window.onpopstate = function () {
@@ -155,7 +165,7 @@ function onPage(x) {
 }
 
 function myJSON(obj) {
-    if(typeof(obj) === "string") {
+    if (typeof(obj) === "string") {
         return JSON.parse(obj);
     } else {
         return obj;

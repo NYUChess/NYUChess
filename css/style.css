@@ -13,6 +13,18 @@ body {
     margin: 0;
 }
 
+.alerts {
+    display: block;
+    width: 20vw;
+    border: solid white 0.2vw;
+    position: absolute;
+    background: black;
+    top: 10vw;
+    left: 38vw;
+    text-align: center;
+    padding: 10px;
+}
+
 .name {
     color: white;
     font-weight: bold;
