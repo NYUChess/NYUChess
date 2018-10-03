@@ -37,7 +37,7 @@ window.addEventListener("load", function () {
         }
     })();
 
-    const alerts = "Please be patient while the pages load!\r\nDue to API rate limiting, some objects may not load.\r\n Because of Orgsync changes, Contact Us page might not load properly; this issue is being currently looked into.";
+    const alerts = "As of 10/3, this site is under heavy maintenance on both ends. Thank you.";
 
     if (alerts !== "") {
         let div = document.createElement("div");
