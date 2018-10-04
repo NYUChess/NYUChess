@@ -10,7 +10,7 @@ const backup = [{"Name": "Danny Wu", "ID": "dw1821", "Pos": "President"},
 const replace = false;
 
 function getAdmins() {
-    $.get("http://nyuchess-api.herokuapp.com/?type=ORGSYNCPAGE", function (data) {
+        $.get("http://nyuchess-api.herokuapp.com/?type=ORGSYNCPAGE", function (data) {
         //Add people to contact us
         var responseText = myJSON(data);
         var contacts = getData(responseText);
