@@ -14,6 +14,7 @@ function buildPics() {
 
     for(let i = 0; i < Math.min(picIDs.length, 9); i++) {
         let div = document.createElement("div");
+        console.log("hey");
         $.get("http://nyuchess-api.herokuapp.com/?type=PICURL&id=" + picIDs[i], function(data) {
             let JSON = myJSON(data);
             console.log(data);
