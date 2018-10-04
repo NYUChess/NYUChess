@@ -15,11 +15,11 @@ function buildPics() {
     for(let i = 0; i < Math.min(picIDs.length, 9); i++) {
         let div = document.createElement("div");
         console.log("hey");
-        $.get("http://nyuchess-api.herokuapp.com/?type=PICURL&id=" + picIDs[i], function(data) {
-            let JSON = myJSON(data);
-            console.log(data);
-            div.style.background = "url(" + JSON["url"] + ") no-repeat center";
-        });
+        // $.get("http://nyuchess-api.herokuapp.com/?type=PICURL&id=" + picIDs[i], function(data) {
+        //     let JSON = myJSON(data);
+        //     console.log(data);
+        //     div.style.background = "url(" + JSON["url"] + ") no-repeat center";
+        // });
         div.className = "pic";
         //div.style.background = "url(" + "https://graph.facebook.com/" + picIDs[i] + "/picture) no-repeat center";
         div.style.backgroundSize = "contain";
