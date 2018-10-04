@@ -15,7 +15,9 @@ function buildPics() {
     for(let i = 0; i < Math.min(picIDs.length, 9); i++) {
         let div = document.createElement("div");
         $.get("http://nyuchess-api.herokuapp.com/?type=PICURL&id=" + picIDs[i], function(data) {
-            div.style.background = "url(" + data["url"] + ") no-repeat center";
+            let JSON = myJSON(data);
+            console.log(data);
+            div.style.background = "url(" + JSON["url"] + ") no-repeat center";
         });
         div.className = "pic";
         //div.style.background = "url(" + "https://graph.facebook.com/" + picIDs[i] + "/picture) no-repeat center";
