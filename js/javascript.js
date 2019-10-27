@@ -37,8 +37,8 @@ window.addEventListener("load", function () {
         }
     })();
 
-    const alerts = "As of 10/3, this site is under heavy maintenance on both ends. Thank you.";
-
+    // const alerts = "As of 10/3, this site is under heavy maintenance on both ends. Thank you.";
+        const alerts = "";
     if (alerts !== "") {
         let div = document.createElement("div");
         div.className = "alerts";
